@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Story | Still Kind</title>
+
+<meta name="description" content="Still Kind was built behind a bar. The story behind the brand, the framework, and why kindness is the whole point.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+
+
+  :root {
+
+    --ink:      #17140F;
+
+    --paper:    #F6F1E7;
+
+    --paper2:   #EFE7D6;
+
+    --copper:   #B5502E;
+
+    --copper2:  #8F3D22;
+
+    --clay:     #D8C9AA;
+
+    --grey:     #55504A;
+
+    --lgrey:    #8A8378;
+
+    --white:    #FFFFFF;
+
+  }
+
+
+
+  html { scroll-behavior:smooth; }
+
+
+
+  body {
+
+    background:var(--paper);
+
+    color:var(--ink);
+
+    font-family:'Inter',sans-serif;
+
+    font-size:17px;
+
+    line-height:1.6;
+
+    overflow-x:hidden;
+
+  }
+
+
+
+  h1,h2,h3,h4 { font-family:'Fraunces',serif; font-weight:500; }
+
+
+
+  a { color:inherit; text-decoration:none; }
+
+
+
+  img { display:block; max-width:100%; }
+
+
+
+  ::selection { background:var(--copper); color:var(--paper); }
+
+
+
+  /* ============ NAV ============ */
+
+  nav {
+
+    position:fixed; top:0; left:0; right:0; z-index:250;
+
+    display:flex; align-items:center; justify-content:space-between;
+
+    padding:22px 56px;
+
+    background:rgba(246,241,231,0.88);
+
+    backdrop-filter:blur(10px);
+
+    border-bottom:1px solid rgba(23,20,15,0.08);
+
+    transition:padding 0.3s ease;
+
+  }
+
+  .nav-logo img { height:26px; width:auto; }
+
+  .nav-links { display:flex; align-items:center; gap:40px; list-style:none; }
+
+  .nav-links a {
+
+    font-size:13px; letter-spacing:0.08em; text-transform:uppercase;
+
+    color:var(--grey); font-weight:600;
+
+    position:relative; padding-bottom:4px;
+
+    transition:color 0.2s;
+
+  }
+
+  .nav-links a::after {
+
+    content:''; position:absolute; bottom:0; left:0; right:100%; height:1.5px;
+
+    background:var(--copper); transition:right 0.25s ease;
+
+  }
+
+  .nav-links a:hover { color:var(--ink); }
+
+  .nav-links a:hover::after { right:0; }
+
+  .nav-cta {
+
+    background:var(--ink); color:var(--paper) !important;
+
+    padding:11px 22px; border-radius:2px;
+
+    font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
+
+  }
+
+  .nav-cta::after { display:none; }
+
+  .nav-cta:hover { background:var(--copper); }
+
+
+
+  /* ============ HAMBURGER MENU ============ */
+
+  .nav-burger {
+
+    display:none;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    gap:5px;
+
+    width:32px; height:32px;
+
+    background:none; border:none; cursor:pointer;
+
+    padding:0; z-index:220;
+
+    position:relative;
+
+  }
+
+  .nav-burger span {
+
+    display:block; width:100%; height:2px;
+
+    background:var(--ink); border-radius:2px;
+
+    transition:transform 0.25s ease, opacity 0.2s ease;
+
+  }
+
+  .nav-burger.is-open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+
+  .nav-burger.is-open span:nth-child(2) { opacity:0; }
+
+  .nav-burger.is-open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+
+
+
+  .mobile-menu {
+
+    position:fixed; top:0; right:0; bottom:0;
+
+    width:min(78vw, 340px);
+
+    background:var(--paper);
+
+    border-left:1px solid rgba(23,20,15,0.12);
+
+    z-index:200;
+
+    padding:100px 36px 40px;
+
+    display:flex; flex-direction:column; gap:4px;
+
+    transform:translateX(100%);
+
+    transition:transform 0.32s cubic-bezier(.4,0,.2,1);
+
+    box-shadow:-8px 0 30px rgba(0,0,0,0.08);
+
+  }
+
+  .mobile-menu.is-open { transform:translateX(0); }
+
+  .mobile-menu a {
+
+    font-family:'Fraunces',serif; font-size:24px; font-weight:500;
+
+    color:var(--ink); padding:16px 0;
+
+    border-bottom:1px solid rgba(23,20,15,0.1);
+
+  }
+
+  .mobile-menu a.mobile-cta {
+
+    margin-top:20px; border-bottom:none;
+
+    background:var(--ink); color:var(--paper);
+
+    text-align:center; border-radius:2px;
+
+    font-family:'Inter',sans-serif; font-size:13px; font-weight:700;
+
+    letter-spacing:0.07em; text-transform:uppercase; padding:15px 0;
+
+  }
+
+  .mobile-menu-overlay {
+
+    position:fixed; inset:0; background:rgba(23,20,15,0.35);
+
+    z-index:190; opacity:0; pointer-events:none;
+
+    transition:opacity 0.28s ease;
+
+  }
+
+  .mobile-menu-overlay.is-open { opacity:1; pointer-events:auto; }
+
+
+
+  /* ============ HERO ============ */
+
+  #hero {
+
+    min-height:100vh;
+
+    display:flex; flex-direction:column; justify-content:center;
+
+    padding:160px 56px 100px;
+
+    position:relative;
+
+    background:
+
+      radial-gradient(ellipse 900px 500px at 85% 15%, rgba(181,80,46,0.10), transparent),
+
+      var(--paper);
+
+    border-bottom:1px solid rgba(23,20,15,0.08);
+
+  }
+
+  .hero-grid {
+
+    display:grid; grid-template-columns:1.4fr 1fr; gap:64px; align-items:end;
+
+    max-width:1320px; margin:0 auto; width:100%;
+
+  }
+
+  .hero-eyebrow {
+
+    display:flex; align-items:center; gap:12px;
+
+    font-size:13px; letter-spacing:0.18em; text-transform:uppercase;
+
+    color:var(--copper); font-weight:700; margin-bottom:28px;
+
+  }
+
+  .hero-eyebrow::before {
+
+    content:''; width:34px; height:1.5px; background:var(--copper);
+
+  }
+
+  .hero-headline {
+
+    font-size:clamp(48px, 6.4vw, 92px);
+
+    line-height:0.98; font-weight:500; letter-spacing:-0.01em;
+
+    color:var(--ink);
+
+  }
+
+  .hero-headline em {
+
+    font-style:italic; font-weight:400; color:var(--copper);
+
+  }
+
+  .hero-side {
+
+    padding-bottom:10px;
+
+  }
+
+  .hero-body {
+
+    font-size:18px; color:var(--grey); line-height:1.7; margin-bottom:32px;
+
+    max-width:420px;
+
+  }
+
+  .hero-buttons { display:flex; gap:14px; flex-wrap:wrap; }
+
+  .btn-primary {
+
+    background:var(--ink); color:var(--paper);
+
+    padding:15px 28px; border-radius:2px;
+
+    font-size:13px; font-weight:700; letter-spacing:0.07em; text-transform:uppercase;
+
+    display:inline-block; transition:background 0.2s;
+
+  }
+
+  .btn-primary:hover { background:var(--copper); }
+
+  .btn-outline {
+
+    border:1.5px solid var(--ink); color:var(--ink);
+
+    padding:14px 26px; border-radius:2px;
+
+    font-size:13px; font-weight:700; letter-spacing:0.07em; text-transform:uppercase;
+
+    display:inline-block; transition:all 0.2s;
+
+  }
+
+  .btn-outline:hover { background:var(--ink); color:var(--paper); }
+
+
+
+  .hero-strip {
+
+    max-width:1320px; margin:80px auto 0; width:100%;
+
+    display:flex; justify-content:space-between; align-items:center;
+
+    padding-top:36px; border-top:1px solid rgba(23,20,15,0.1);
+
+    flex-wrap:wrap; gap:20px;
+
+  }
+
+  .hero-strip-item {
+
+    font-size:13px; letter-spacing:0.04em; color:var(--lgrey);
+
+  }
+
+  .hero-strip-item b { color:var(--ink); font-weight:600; }
+
+
+
+  /* ============ SECTION BASE ============ */
+
+  section { padding:130px 56px; position:relative; }
+
+  .section-inner { max-width:1320px; margin:0 auto; }
+
+  .kicker {
+
+    display:flex; align-items:center; gap:12px;
+
+    font-size:13px; letter-spacing:0.18em; text-transform:uppercase;
+
+    color:var(--copper); font-weight:700; margin-bottom:22px;
+
+  }
+
+  .kicker::before { content:''; width:34px; height:1.5px; background:var(--copper); }
+
+  .section-title {
+
+    font-size:clamp(34px, 4.2vw, 56px); font-weight:500; line-height:1.08;
+
+    color:var(--ink); letter-spacing:-0.01em;
+
+    max-width:780px;
+
+  }
+
+  .section-title em { font-style:italic; font-weight:400; color:var(--copper); }
+
+  .section-lede {
+
+    font-size:19px; color:var(--grey); line-height:1.7; max-width:620px; margin-top:24px;
+
+  }
+
+
+
+  /* ============ THESIS (window you control) ============ */
+
+  #thesis { background:var(--ink); color:var(--paper); }
+
+  #thesis .kicker { color:var(--clay); }
+
+  #thesis .kicker::before { background:var(--clay); }
+
+  #thesis .section-title { color:var(--paper); }
+
+  #thesis .section-title em { color:#E8955F; }
+
+  .thesis-grid {
+
+    display:grid; grid-template-columns:1fr 1fr; gap:70px; margin-top:56px; align-items:start;
+
+  }
+
+  .thesis-quote {
+
+    font-family:'Fraunces',serif; font-style:italic; font-weight:300;
+
+    font-size:clamp(24px, 2.4vw, 32px); line-height:1.4;
+
+    color:var(--paper); border-left:2px solid var(--copper); padding-left:32px;
+
+  }
+
+  .thesis-body { color:rgba(246,241,231,0.7); font-size:17px; line-height:1.8; }
+
+  .thesis-body p { margin-bottom:20px; }
+
+  .thesis-body strong { color:var(--paper); font-weight:600; }
+
+
+
+  /* ============ PILLARS ============ */
+
+  #pillars { background:var(--paper); }
+
+  .pillars-list { margin-top:60px; }
+
+  .pillar-row {
+
+    display:grid; grid-template-columns:80px 1fr 1.3fr; gap:40px;
+
+    padding:38px 0; border-top:1px solid rgba(23,20,15,0.12);
+
+    align-items:start;
+
+  }
+
+  .pillar-row:last-child { border-bottom:1px solid rgba(23,20,15,0.12); }
+
+  .pillar-num {
+
+    font-family:'Fraunces',serif; font-size:16px; color:var(--clay); font-weight:500;
+
+    padding-top:4px;
+
+  }
+
+  .pillar-name {
+
+    font-family:'Fraunces',serif; font-size:28px; font-weight:500; color:var(--ink);
+
+  }
+
+  .pillar-desc { color:var(--grey); font-size:16.5px; line-height:1.7; padding-top:4px; }
+
+
+
+  /* ============ CONSULTING (flagship) ============ */
+
+  #consulting {
+
+    background:var(--paper2);
+
+    border-top:1px solid rgba(23,20,15,0.08);
+
+    border-bottom:1px solid rgba(23,20,15,0.08);
+
+  }
+
+  .service-grid {
+
+    display:grid; grid-template-columns:1fr 1fr; gap:70px; margin-top:56px; align-items:start;
+
+  }
+
+  .service-list { display:flex; flex-direction:column; gap:0; }
+
+  .service-item {
+
+    padding:26px 0; border-top:1px solid rgba(23,20,15,0.12);
+
+    display:grid; grid-template-columns:1fr auto; gap:20px; align-items:baseline;
+
+  }
+
+  .service-item:last-child { border-bottom:1px solid rgba(23,20,15,0.12); }
+
+  .service-item-name { font-family:'Fraunces',serif; font-size:21px; color:var(--ink); font-weight:500; }
+
+  .service-item-desc { font-size:15px; color:var(--lgrey); margin-top:4px; }
+
+  .service-item-price { font-size:14px; color:var(--copper); font-weight:700; white-space:nowrap; }
+
+  .pricing-statement {
+
+    margin-top:56px; padding:36px 40px; text-align:center;
+
+    background:var(--paper2); border:1px solid rgba(181,80,46,0.25); border-radius:4px;
+
+  }
+
+  .pricing-statement p {
+
+    font-family:'Fraunces',serif; font-size:22px; font-style:italic; font-weight:400;
+
+    color:var(--grey); line-height:1.5;
+
+  }
+
+  .pricing-statement strong { color:var(--copper); font-weight:600; font-style:normal; }
+
+
+
+  .consulting-visual {
+
+    background:var(--ink); border-radius:4px; padding:48px 40px;
+
+    color:var(--paper); position:sticky; top:110px;
+
+  }
+
+  .cv-label {
+
+    font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:var(--clay);
+
+    margin-bottom:18px; font-weight:700;
+
+  }
+
+  .cv-quote {
+
+    font-family:'Fraunces',serif; font-style:italic; font-weight:300;
+
+    font-size:26px; line-height:1.35; color:var(--paper); margin-bottom:24px;
+
+  }
+
+  .cv-attribution { font-size:13px; color:rgba(246,241,231,0.55); }
+
+  .cv-divider { height:1px; background:rgba(246,241,231,0.15); margin:28px 0; }
+
+  .cv-list { display:flex; flex-direction:column; gap:14px; }
+
+  .cv-list-item { display:flex; gap:12px; align-items:flex-start; font-size:14.5px; color:rgba(246,241,231,0.75); }
+
+  .cv-list-item::before { content:'—'; color:var(--copper); flex-shrink:0; }
+
+
+
+  /* ============ BAR SERVICES ============ */
+
+  #bar-services { background:var(--paper); }
+
+  .bar-grid { display:grid; grid-template-columns:1fr 1fr; gap:70px; margin-top:56px; align-items:start; }
+
+
+
+  /* Bar Services — starting price, lighter intro treatment */
+
+  .bar-price-banner {
+
+    margin-top:40px;
+
+    padding-bottom:28px;
+
+    border-bottom:1px solid rgba(23,20,15,0.12);
+
+    display:flex; align-items:baseline; flex-wrap:wrap; gap:10px 14px;
+
+  }
+
+  .bar-price-banner-label {
+
+    font-family:'Inter',sans-serif;
+
+    font-size:15px; color:var(--grey); font-weight:500;
+
+  }
+
+  .bar-price-banner-amount {
+
+    font-family:'Fraunces',serif; font-size:26px; font-weight:600; color:var(--copper);
+
+    line-height:1;
+
+  }
+
+  .bar-price-banner-note {
+
+    font-size:14.5px; color:var(--lgrey); flex-basis:100%; font-style:italic;
+
+  }
+
+  @media (min-width:640px) {
+
+    .bar-price-banner-note { flex-basis:auto; margin-left:auto; }
+
+  }
+
+
+
+  /* Bar Services — feature grid */
+
+  .feature-grid {
+
+...
