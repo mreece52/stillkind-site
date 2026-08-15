@@ -1,0 +1,79 @@
+backend:
+  name: github
+  repo: Mreece52/stillkind-site
+  branch: main
+
+# Where uploaded images (if any) get stored
+media_folder: "content/uploads"
+public_folder: "/content/uploads"
+
+collections:
+  - name: "events"
+    label: "Events"
+    label_singular: "Event"
+    description: "Charity nights, sponsored events, and everything Still Kind hosts."
+    files:
+      - name: "events"
+        label: "Events List"
+        file: "content/events/events.json"
+        format: "json"
+        fields:
+          - label: "Events"
+            name: "events"
+            widget: "list"
+            summary: "{{fields.title}} — {{fields.date}}"
+            fields:
+              - label: "Event Name"
+                name: "title"
+                widget: "string"
+                hint: "e.g. Pour It Forward"
+              - label: "Date"
+                name: "date"
+                widget: "datetime"
+                date_format: "YYYY-MM-DD"
+                time_format: false
+                hint: "The day the event happens"
+              - label: "Location"
+                name: "location"
+                widget: "string"
+                hint: "e.g. Primetime Bar & Grill"
+              - label: "Cause / Description"
+                name: "cause"
+                widget: "string"
+                required: false
+                hint: "e.g. Benefiting The Friendship Center"
+
+  - name: "merch"
+    label: "Merch"
+    label_singular: "Merch Item"
+    description: "Items featured in the Events & Merch section."
+    files:
+      - name: "merch"
+        label: "Merch Items"
+        file: "content/merch/merch.json"
+        format: "json"
+        fields:
+          - label: "Items"
+            name: "merch"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - label: "Label"
+                name: "title"
+                widget: "string"
+                hint: "Small label above the headline, e.g. Still Kind Merch"
+              - label: "Headline"
+                name: "headline"
+                widget: "string"
+                hint: "e.g. Wear the movement."
+              - label: "Description"
+                name: "description"
+                widget: "text"
+              - label: "Link"
+                name: "link"
+                widget: "string"
+                hint: "Where the button goes — a URL, or #contact to link to the contact form"
+              - label: "Button Text"
+                name: "link_text"
+                widget: "string"
+                hint: "e.g. Shop Merch"
