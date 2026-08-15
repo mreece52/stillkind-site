@@ -543,6 +543,8 @@
   .contact-path-desc { font-size:15.5px; color:var(--grey); line-height:1.7; margin-bottom:28px; flex-grow:1; }
 
   .form-field { margin-bottom:16px; }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .form-row .form-field { margin-bottom:16px; }
   .form-label {
     font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--lgrey);
     font-weight:600; display:block; margin-bottom:7px;
@@ -876,8 +878,8 @@
 
       <div class="contact-path">
         <div class="contact-path-label">Bar Services</div>
-        <div class="contact-path-title">Check Your Date</div>
-        <div class="contact-path-desc">Booking a private party, wedding, or corporate event in Chicago or the suburbs? Let's talk about your date.</div>
+        <div class="contact-path-title">Let's Talk Details</div>
+        <div class="contact-path-desc">Booking a private party, wedding, or corporate event in Chicago or the suburbs? Tell us a little about it.</div>
         <form name="bar-services-inquiry" method="POST" data-netlify="true" onsubmit="handleSubmit(event, this)">
           <input type="hidden" name="form-name" value="bar-services-inquiry" />
           <div class="form-field">
@@ -888,11 +890,21 @@
             <label class="form-label">Email</label>
             <input class="form-input" type="email" name="email" required />
           </div>
-          <div class="form-field">
-            <label class="form-label">Event Date &amp; Guest Count</label>
-            <input class="form-input" type="text" name="event_details" placeholder="e.g. Oct 4, ~60 guests" />
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label">Event Date</label>
+              <input class="form-input" type="text" name="event_date" placeholder="e.g. Oct 4" />
+            </div>
+            <div class="form-field">
+              <label class="form-label">Guest Count</label>
+              <input class="form-input" type="text" name="guest_count" placeholder="e.g. ~60 guests" />
+            </div>
           </div>
-          <button type="submit" class="form-submit">Check My Date</button>
+          <div class="form-field">
+            <label class="form-label">Tell Us About the Event</label>
+            <textarea class="form-textarea form-input" name="event_description" placeholder="What are you planning? Any details that'll help us prep."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send the Details</button>
         </form>
       </div>
     </div>
@@ -1075,7 +1087,9 @@
 <form name="bar-services-inquiry" data-netlify="true" hidden>
   <input type="text" name="name" />
   <input type="email" name="email" />
-  <input type="text" name="event_details" />
+  <input type="text" name="event_date" />
+  <input type="text" name="guest_count" />
+  <textarea name="event_description"></textarea>
 </form>
 
 <script>
