@@ -83,6 +83,12 @@
   }
   .nav-cta::after { display:none; }
   .nav-cta:hover { background:var(--copper); }
+  .nav-ig {
+    display:flex; align-items:center; color:var(--grey);
+    transition:color 0.2s; padding-bottom:0 !important;
+  }
+  .nav-ig::after { display:none; }
+  .nav-ig:hover { color:var(--copper); }
 
   /* ============ HAMBURGER MENU ============ */
   .nav-burger {
@@ -140,13 +146,24 @@
   #hero {
     min-height:100vh;
     display:flex; flex-direction:column; justify-content:center;
-    padding:160px 56px 100px;
+    padding:120px 56px 100px;
     position:relative;
     background:
       radial-gradient(ellipse 900px 500px at 85% 15%, rgba(181,80,46,0.10), transparent),
       var(--paper);
     border-bottom:1px solid rgba(23,20,15,0.08);
   }
+  .identity-strip {
+    max-width:1320px; margin:0 auto 40px; width:100%;
+    display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+    font-size:12.5px; letter-spacing:0.05em; color:var(--grey);
+    padding-bottom:20px; border-bottom:1px solid rgba(23,20,15,0.1);
+  }
+  .identity-strip-brand {
+    font-family:'Fraunces',serif; font-weight:600; letter-spacing:0.1em; color:var(--ink);
+    font-size:13px;
+  }
+  .identity-strip-dot { color:var(--copper); opacity:0.6; }
   .hero-grid {
     display:grid; grid-template-columns:1.4fr 1fr; gap:64px; align-items:end;
     max-width:1320px; margin:0 auto; width:100%;
@@ -239,6 +256,11 @@
     font-size:13px; letter-spacing:0.04em; color:var(--lgrey);
   }
   .hero-strip-item b { color:var(--ink); font-weight:600; }
+  .hero-strip-ig {
+    display:flex; align-items:center; gap:8px; color:var(--grey);
+    font-weight:600; transition:color 0.2s;
+  }
+  .hero-strip-ig:hover { color:var(--copper); }
 
   /* ============ SECTION BASE ============ */
   section { padding:130px 56px; position:relative; }
@@ -444,6 +466,58 @@
   .about-visual img { width:56%; position:relative; z-index:2; }
 
   /* ============ CONTACT ============ */
+  /* ============ COMMUNITY / EVENTS / MERCH ============ */
+  #community { background:var(--paper); padding-top:80px; padding-bottom:80px; }
+  .community-header {
+    display:flex; justify-content:space-between; align-items:flex-end; gap:40px;
+    flex-wrap:wrap; margin-bottom:44px;
+  }
+  .community-ig-callout {
+    display:flex; align-items:center; gap:12px; flex-shrink:0;
+    padding:12px 18px; border:1px solid rgba(23,20,15,0.15); border-radius:4px;
+    color:var(--ink); transition:border-color 0.2s, background 0.2s;
+  }
+  .community-ig-callout:hover { border-color:var(--copper); background:var(--paper2); }
+  .community-ig-label {
+    font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--lgrey);
+  }
+  .community-ig-handle { font-size:14px; font-weight:600; color:var(--ink); }
+
+  .community-grid {
+    display:grid; grid-template-columns:1.3fr 1fr; gap:24px;
+  }
+  .event-card {
+    display:flex; gap:22px; align-items:center;
+    padding:26px 28px; background:var(--paper2); border-radius:4px;
+    border-left:3px solid var(--copper);
+  }
+  .event-card-date {
+    flex-shrink:0; text-align:center; width:64px;
+  }
+  .event-card-month {
+    font-size:11px; letter-spacing:0.12em; color:var(--copper); font-weight:700;
+  }
+  .event-card-day {
+    font-family:'Fraunces',serif; font-size:34px; font-weight:600; color:var(--ink); line-height:1;
+  }
+  .event-card-title {
+    font-family:'Fraunces',serif; font-size:19px; color:var(--ink); margin-bottom:4px;
+  }
+  .event-card-loc { font-size:13.5px; color:var(--grey); }
+
+  .merch-card {
+    padding:26px 28px; background:var(--ink); border-radius:4px; color:var(--paper);
+  }
+  .merch-card-label {
+    font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--clay);
+    font-weight:700; margin-bottom:8px;
+  }
+  .merch-card-title { font-family:'Fraunces',serif; font-size:19px; margin-bottom:6px; }
+  .merch-card-desc { font-size:13.5px; color:rgba(246,241,231,0.65); margin-bottom:14px; }
+  .merch-card-link { font-size:13px; font-weight:700; color:var(--copper); }
+  .community-loading { font-size:14px; color:var(--lgrey); font-style:italic; grid-column:1/-1; }
+  .community-empty { font-size:14px; color:var(--lgrey); font-style:italic; grid-column:1/-1; }
+
   #contact { background:var(--paper2); }
   .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:70px; margin-top:56px; }
   .contact-path {
@@ -504,7 +578,7 @@
     .nav-burger { display:flex; }
     section { padding:90px 24px; }
     #hero { padding:130px 24px 70px; }
-    .hero-grid, .thesis-grid, .service-grid, .bar-grid, .about-grid, .contact-grid, .choice-grid {
+    .hero-grid, .thesis-grid, .service-grid, .bar-grid, .about-grid, .contact-grid, .choice-grid, .community-grid {
       grid-template-columns:1fr; gap:40px;
     }
     .pillar-row { grid-template-columns:50px 1fr; }
@@ -513,6 +587,9 @@
     .feature-grid { grid-template-columns:repeat(2, 1fr); }
     .bar-price-banner { padding:26px 24px; }
     .bar-cred-solo { grid-template-columns:1fr; }
+    #community { padding-top:60px; padding-bottom:60px; }
+    .community-header { align-items:flex-start; }
+    .identity-strip { font-size:11px; gap:8px; }
     footer { padding:40px 24px; }
   }
 </style>
@@ -527,6 +604,9 @@
   <ul class="nav-links">
     <li><a href="#consulting">Consulting</a></li>
     <li><a href="#bar-services">Bar Services</a></li>
+    <li><a href="https://instagram.com/stillkindchi" target="_blank" class="nav-ig" aria-label="Instagram">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+    </a></li>
     <li><a href="#contact" class="nav-cta">Get In Touch</a></li>
   </ul>
   <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
@@ -538,6 +618,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="#consulting">Consulting</a>
   <a href="#bar-services">Bar Services</a>
+  <a href="#community">Events &amp; Merch</a>
   <a href="framework.html">The Framework</a>
   <a href="https://instagram.com/stillkindchi" target="_blank">Instagram</a>
   <a href="#contact" class="mobile-cta">Get In Touch</a>
@@ -545,6 +626,16 @@
 
 <!-- HERO -->
 <section id="hero">
+  <div class="identity-strip">
+    <span class="identity-strip-brand">STILL KIND</span>
+    <span class="identity-strip-dot">—</span>
+    <span>Bar Services</span>
+    <span class="identity-strip-dot">·</span>
+    <span>Leadership Consulting</span>
+    <span class="identity-strip-dot">·</span>
+    <span>Community Events</span>
+  </div>
+
   <div class="hero-grid">
     <div>
       <div class="hero-eyebrow">Chicago, Illinois</div>
@@ -571,26 +662,10 @@
   </div>
 
   <div class="hero-strip">
-    <div class="hero-strip-item">@stillkindchi</div>
-  </div>
-</section>
-
-<!-- THESIS -->
-<section id="thesis">
-  <div class="section-inner">
-    <div class="kicker">What This Actually Does</div>
-    <h2 class="section-title">People who feel heard<br>treat everyone <em>better.</em></h2>
-
-    <div class="thesis-grid">
-      <div class="thesis-quote">
-        "Teams that feel heard stay longer, work harder, and pass that same respect on to every guest they meet. Lower turnover. Real culture. A room people actually want to be in."
-      </div>
-      <div class="thesis-body">
-        <p>This industry has gotten very good at measuring one thing: money moved in a shift. It's gotten a lot worse at the thing that actually drives that number — whether the person behind the bar feels like part of something, or just a labor cost being scheduled.</p>
-        <p>Most leadership programs teach systems, scheduling, and org charts. Those things matter, but they're not why people quit, and they're not why guests come back.</p>
-        <p><strong>Still Kind teaches the part almost every program skips</strong> — how to make the people you lead feel genuinely heard. Not managed. Heard. That's the whole mechanism. A staff that feels heard treats the next guest the way they were treated an hour before their shift. It compounds from there.</p>
-      </div>
-    </div>
+    <a href="https://instagram.com/stillkindchi" target="_blank" class="hero-strip-item hero-strip-ig">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+      @stillkindchi
+    </a>
   </div>
 </section>
 
@@ -726,6 +801,31 @@
   </div>
 </section>
 
+<!-- COMMUNITY / EVENTS / MERCH -->
+<section id="community">
+  <div class="section-inner">
+    <div class="community-header">
+      <div>
+        <div class="kicker">Show Up Kind</div>
+        <h2 class="section-title" style="font-size:clamp(28px,3.2vw,42px);">Where the community <em>gathers.</em></h2>
+        <p class="section-lede" style="font-size:16px; margin-top:14px;">Charity nights, sponsored events, and everything Still Kind hosts to bring people together — because kindness grows in a room, not a slogan.</p>
+      </div>
+      <a href="https://instagram.com/stillkindchi" target="_blank" class="community-ig-callout">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        <div>
+          <div class="community-ig-label">Follow Along</div>
+          <div class="community-ig-handle">@stillkindchi</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="community-grid" id="communityGrid">
+      <!-- Events and merch load here automatically from content/events/events.json and content/merch/merch.json -->
+      <div class="community-loading">Loading events…</div>
+    </div>
+  </div>
+</section>
+
 <!-- ABOUT -->
 <!-- CONTACT -->
 <section id="contact">
@@ -829,6 +929,82 @@
   mobileMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => toggleMobileMenu(false));
   });
+
+  // ===== EVENTS & MERCH — loaded dynamically from content/events/events.json and content/merch/merch.json =====
+  // To add or edit events/merch, use the admin panel at /admin — no code changes needed.
+  const MONTH_NAMES = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+
+  function renderEventCard(event) {
+    const d = new Date(event.date + 'T00:00:00');
+    const month = MONTH_NAMES[d.getMonth()] || '';
+    const day = d.getDate() || '';
+    const locationLine = [event.location, event.cause].filter(Boolean).join(' — ');
+    return `
+      <div class="event-card">
+        <div class="event-card-date">
+          <div class="event-card-month">${month}</div>
+          <div class="event-card-day">${day}</div>
+        </div>
+        <div class="event-card-body">
+          <div class="event-card-title">${event.title || ''}</div>
+          <div class="event-card-loc">${locationLine}</div>
+        </div>
+      </div>`;
+  }
+
+  function renderMerchCard(item) {
+    return `
+      <div class="merch-card">
+        <div class="merch-card-label">${item.title || ''}</div>
+        <div class="merch-card-title">${item.headline || ''}</div>
+        <div class="merch-card-desc">${item.description || ''}</div>
+        <a href="${item.link || '#contact'}" class="merch-card-link">${item.link_text || 'Learn More'} →</a>
+      </div>`;
+  }
+
+  async function loadCommunitySection() {
+    const grid = document.getElementById('communityGrid');
+    if (!grid) return;
+
+    try {
+      const [eventsRes, merchRes] = await Promise.all([
+        fetch('content/events/events.json').catch(() => null),
+        fetch('content/merch/merch.json').catch(() => null),
+      ]);
+
+      let events = [];
+      let merch = [];
+
+      if (eventsRes && eventsRes.ok) {
+        events = await eventsRes.json();
+      }
+      if (merchRes && merchRes.ok) {
+        merch = await merchRes.json();
+      }
+
+      // Only show upcoming events (today or later), soonest first
+      const today = new Date(); today.setHours(0,0,0,0);
+      events = (events || [])
+        .filter(e => e.date && new Date(e.date + 'T00:00:00') >= today)
+        .sort((a, b) => new Date(a.date) - new Date(b.date));
+
+      let html = '';
+      if (events.length) {
+        html += events.map(renderEventCard).join('');
+      } else {
+        html += '<div class="community-empty">No upcoming events right now — check back soon.</div>';
+      }
+      if (merch && merch.length) {
+        html += merch.map(renderMerchCard).join('');
+      }
+
+      grid.innerHTML = html;
+    } catch (err) {
+      grid.innerHTML = '<div class="community-empty">Check @stillkindchi for the latest events.</div>';
+    }
+  }
+
+  loadCommunitySection();
 
   function handleSubmit(e, form) {
     e.preventDefault();
