@@ -164,6 +164,13 @@
     font-size:13px;
   }
   .identity-strip-dot { color:var(--copper); opacity:0.6; }
+  .identity-strip-link {
+    color:var(--grey); transition:color 0.2s;
+    border-bottom:1px solid transparent;
+  }
+  .identity-strip-link:hover {
+    color:var(--copper); border-bottom-color:var(--copper);
+  }
   .hero-grid {
     display:grid; grid-template-columns:1.4fr 1fr; gap:64px; align-items:end;
     max-width:1320px; margin:0 auto; width:100%;
@@ -634,11 +641,11 @@
   <div class="identity-strip">
     <span class="identity-strip-brand">STILL KIND</span>
     <span class="identity-strip-dot">—</span>
-    <span>Bar Services</span>
+    <a href="#bar-services" class="identity-strip-link">Bar Services</a>
     <span class="identity-strip-dot">·</span>
-    <span>Leadership Consulting</span>
+    <a href="#consulting" class="identity-strip-link">Leadership Consulting</a>
     <span class="identity-strip-dot">·</span>
-    <span>Community Events</span>
+    <a href="#community" class="identity-strip-link">Community Events</a>
   </div>
 
   <div class="hero-grid">
