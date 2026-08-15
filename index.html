@@ -530,17 +530,24 @@
   .community-empty { font-size:14px; color:var(--lgrey); font-style:italic; grid-column:1/-1; }
 
   #contact { background:var(--paper2); }
-  .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:70px; margin-top:56px; }
+  .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:70px; margin-top:56px; align-items:start; }
+  .contact-col { display:flex; flex-direction:column; gap:24px; }
   .contact-path {
     background:var(--paper); border:1px solid rgba(23,20,15,0.12); border-radius:4px;
     padding:38px 34px; display:flex; flex-direction:column; height:100%;
   }
+  .contact-path-compact { padding:28px 30px; }
+  .contact-path-compact .contact-path-title { font-size:22px; margin-bottom:10px; }
+  .contact-path-compact .contact-path-desc { font-size:14.5px; margin-bottom:20px; }
+  .contact-path-compact .form-field { margin-bottom:12px; }
   .contact-path-label {
     font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:var(--copper);
     font-weight:700; margin-bottom:14px;
   }
   .contact-path-title { font-family:'Fraunces',serif; font-size:28px; color:var(--ink); margin-bottom:14px; }
   .contact-path-desc { font-size:15.5px; color:var(--grey); line-height:1.7; margin-bottom:28px; flex-grow:1; }
+  .contact-path-standalone { height:auto; }
+  .contact-path-standalone .contact-path-desc { flex-grow:0; }
 
   .form-field { margin-bottom:16px; }
   .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
@@ -846,37 +853,61 @@
 <section id="contact">
   <div class="section-inner">
     <div class="kicker">Get In Touch</div>
-    <h2 class="section-title">Two ways to work with <em>Still Kind.</em></h2>
+    <h2 class="section-title">All the ways to work with <em>Still Kind.</em></h2>
 
     <div class="contact-grid">
-      <div class="contact-path">
-        <div class="contact-path-label">Consulting</div>
-        <div class="contact-path-title">Book a Leadership Session</div>
-        <div class="contact-path-desc">For hospitality leaders, managers, and teams ready to build real people skills. Individual coaching, workshops, or full corporate engagements.</div>
-        <form name="consulting-inquiry" method="POST" data-netlify="true" onsubmit="handleSubmit(event, this)">
-          <input type="hidden" name="form-name" value="consulting-inquiry" />
-          <div class="form-field">
-            <label class="form-label">Name</label>
-            <input class="form-input" type="text" name="name" required />
-          </div>
-          <div class="form-field">
-            <label class="form-label">Email</label>
-            <input class="form-input" type="email" name="email" required />
-          </div>
-          <div class="form-field">
-            <label class="form-label">What are you looking for?</label>
-            <select class="form-select" name="interest">
-              <option>1:1 Coaching</option>
-              <option>Team Workshop</option>
-              <option>Corporate Engagement</option>
-              <option>Not sure yet</option>
-            </select>
-          </div>
-          <button type="submit" class="form-submit">Send Inquiry</button>
-        </form>
+      <div class="contact-col">
+        <div class="contact-path contact-path-compact">
+          <div class="contact-path-label">Consulting</div>
+          <div class="contact-path-title">Book a Leadership Session</div>
+          <div class="contact-path-desc">For hospitality leaders, managers, and teams ready to build real people skills. Individual coaching, workshops, or full corporate engagements.</div>
+          <form name="consulting-inquiry" method="POST" data-netlify="true" onsubmit="handleSubmit(event, this)">
+            <input type="hidden" name="form-name" value="consulting-inquiry" />
+            <div class="form-field">
+              <label class="form-label">Name</label>
+              <input class="form-input" type="text" name="name" required />
+            </div>
+            <div class="form-field">
+              <label class="form-label">Email</label>
+              <input class="form-input" type="email" name="email" required />
+            </div>
+            <div class="form-field">
+              <label class="form-label">What are you looking for?</label>
+              <select class="form-select" name="interest">
+                <option>1:1 Coaching</option>
+                <option>Team Workshop</option>
+                <option>Corporate Engagement</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+            <button type="submit" class="form-submit">Send Inquiry</button>
+          </form>
+        </div>
+
+        <div class="contact-path contact-path-compact">
+          <div class="contact-path-label">Still Kind Presents</div>
+          <div class="contact-path-title">Community &amp; Events</div>
+          <div class="contact-path-desc">Charity nights, sponsored events, partnerships — if it's about the community side of Still Kind, start here.</div>
+          <form name="community-inquiry" method="POST" data-netlify="true" onsubmit="handleSubmit(event, this)">
+            <input type="hidden" name="form-name" value="community-inquiry" />
+            <div class="form-field">
+              <label class="form-label">Name</label>
+              <input class="form-input" type="text" name="name" required />
+            </div>
+            <div class="form-field">
+              <label class="form-label">Email</label>
+              <input class="form-input" type="email" name="email" required />
+            </div>
+            <div class="form-field">
+              <label class="form-label">What are you looking to do?</label>
+              <input class="form-input" type="text" name="looking_to_do" placeholder="e.g. host a charity night, partner with Still Kind, ask about merch" />
+            </div>
+            <button type="submit" class="form-submit">Send Inquiry</button>
+          </form>
+        </div>
       </div>
 
-      <div class="contact-path">
+      <div class="contact-path contact-path-standalone">
         <div class="contact-path-label">Bar Services</div>
         <div class="contact-path-title">Let's Talk Details</div>
         <div class="contact-path-desc">Booking a private party, wedding, or corporate event in Chicago or the suburbs? Tell us a little about it.</div>
@@ -1090,6 +1121,11 @@
   <input type="text" name="event_date" />
   <input type="text" name="guest_count" />
   <textarea name="event_description"></textarea>
+</form>
+<form name="community-inquiry" data-netlify="true" hidden>
+  <input type="text" name="name" />
+  <input type="email" name="email" />
+  <input type="text" name="looking_to_do" />
 </form>
 
 <script>
