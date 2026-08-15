@@ -72,6 +72,12 @@
   }
   .nav-cta::after { display:none; }
   .nav-cta:hover { background:var(--copper); }
+  .nav-ig {
+    display:flex; align-items:center; color:var(--grey);
+    transition:color 0.2s; padding-bottom:0 !important;
+  }
+  .nav-ig::after { display:none; }
+  .nav-ig:hover { color:var(--copper); }
 
   /* ============ HAMBURGER MENU ============ */
   .nav-burger {
@@ -460,6 +466,9 @@
   <ul class="nav-links">
     <li><a href="index.html#consulting">Consulting</a></li>
     <li><a href="index.html#bar-services">Bar Services</a></li>
+    <li><a href="https://instagram.com/stillkindchi" target="_blank" class="nav-ig" aria-label="Instagram">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+    </a></li>
     <li><a href="index.html#contact" class="nav-cta">Get In Touch</a></li>
   </ul>
   <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
@@ -522,7 +531,7 @@
 <!-- CTA BACK TO SITE -->
 <section id="framework-cta" style="background:var(--ink); padding-top:90px; padding-bottom:90px;">
   <div class="section-inner" style="text-align:center;">
-    <h2 class="section-title" style="color:var(--paper); font-size:clamp(28px,3.6vw,42px);">Want to learn to lead this way?</h2>
+    <h2 class="section-title" style="color:var(--paper); font-size:clamp(28px,3.6vw,42px);">Want to build this into your team?</h2>
     <p class="section-lede" style="color:rgba(246,241,231,0.65); margin-left:auto; margin-right:auto;">This framework is the foundation of every Still Kind consulting engagement — for hospitality leaders, corporate teams, and anyone ready to lead the more human way.</p>
     <div style="margin-top:32px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
       <a href="index.html#consulting" class="btn-primary">Explore Consulting</a>
