@@ -10,17 +10,17 @@ public_folder: "/content/uploads"
 collections:
   - name: "events"
     label: "Events"
-    label_singular: "Event"
-    description: "Charity nights, sponsored events, and everything Still Kind hosts."
     files:
       - name: "events"
         label: "Events List"
         file: "content/events/events.json"
-        format: "json"
+        icon: "event"
         fields:
-          - label: "Events"
-            name: "events"
+          - name: "events"
+            label: "Events"
+            label_singular: "Event"
             widget: "list"
+            root: true
             summary: "{{fields.title}} — {{fields.date}}"
             fields:
               - label: "Event Name"
@@ -45,17 +45,17 @@ collections:
 
   - name: "merch"
     label: "Merch"
-    label_singular: "Merch Item"
-    description: "Items featured in the Events & Merch section."
     files:
       - name: "merch"
         label: "Merch Items"
         file: "content/merch/merch.json"
-        format: "json"
+        icon: "shopping_bag"
         fields:
-          - label: "Items"
-            name: "merch"
+          - name: "merch"
+            label: "Items"
+            label_singular: "Item"
             widget: "list"
+            root: true
             summary: "{{fields.title}}"
             fields:
               - label: "Label"
