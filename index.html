@@ -1121,7 +1121,7 @@
   }
 
   function renderMerchCard(item) {
-    const img = item.image || 'content/uploads/merch-still-kind-tee.jpg';
+    const img = item.image || '/content/uploads/merch-still-kind-tee.jpg';
     return `
       <a href="${item.link || 'presents.html#presents-shop'}" class="merch-card">
         <img class="merch-card-img" src="${img}" alt="${item.headline || 'Still Kind Merch'}" loading="lazy" />
@@ -1156,8 +1156,8 @@
 
     try {
       const [eventsRes, merchRes] = await Promise.all([
-        fetch('content/events/events.json').catch(() => null),
-        fetch('content/merch/merch.json').catch(() => null),
+        fetch('/content/events/events.json').catch(() => null),
+        fetch('/content/merch/merch.json').catch(() => null),
       ]);
 
       let events = [];
