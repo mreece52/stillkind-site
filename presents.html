@@ -1110,7 +1110,7 @@
     const grid = document.getElementById('communityGrid');
     if (!grid) return;
     try {
-      const eventsRes = await fetch('content/events/events.json').catch(() => null);
+      const eventsRes = await fetch('/content/events/events.json').catch(() => null);
       let events = [];
       if (eventsRes && eventsRes.ok) events = await eventsRes.json();
 
