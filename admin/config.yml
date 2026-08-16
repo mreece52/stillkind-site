@@ -71,6 +71,11 @@ collections:
                 name: "title"
                 widget: "string"
                 hint: "Small label above the headline, e.g. Still Kind Merch"
+              - label: "Photo"
+                name: "image"
+                widget: "image"
+                required: false
+                hint: "This becomes the card's visual. If left blank, a default photo is used."
               - label: "Headline"
                 name: "headline"
                 widget: "string"
