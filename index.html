@@ -619,6 +619,16 @@
 
   #contact { background:var(--paper2); }
   .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:70px; margin-top:56px; align-items:start; }
+
+  .unified-contact {
+    max-width:600px; margin-top:48px; background:var(--paper); border:1px solid rgba(23,20,15,0.12);
+    border-radius:4px; padding:40px 38px;
+  }
+  .unified-contact-desc {
+    font-size:15px; color:var(--grey); line-height:1.65;
+    margin:-6px 0 26px; padding-bottom:22px; border-bottom:1px solid rgba(23,20,15,0.1);
+  }
+  #contactReason { margin-bottom:6px; }
   .contact-col { display:flex; flex-direction:column; gap:24px; }
   .contact-path {
     background:var(--paper); border:1px solid rgba(23,20,15,0.12); border-radius:4px;
@@ -948,74 +958,45 @@
 <section id="contact">
   <div class="section-inner">
     <div class="kicker">Get In Touch</div>
-    <h2 class="section-title">All the ways to work with <em>Still Kind.</em></h2>
+    <h2 class="section-title">Let's talk. <em>Pick your reason.</em></h2>
+    <p class="section-lede">One form, whatever you need — the right questions show up once you tell us why you're here.</p>
 
-    <div class="contact-grid">
-      <div class="contact-col">
-        <div class="contact-path contact-path-compact">
-          <div class="contact-path-label">Consulting</div>
-          <div class="contact-path-title">Book a Leadership Session</div>
-          <div class="contact-path-desc">For hospitality leaders, managers, and teams ready to build real people skills. Individual coaching, workshops, or full corporate engagements.</div>
-          <form name="consulting-inquiry" method="POST" data-netlify="true" onsubmit="handleSubmit(event, this)">
-            <input type="hidden" name="form-name" value="consulting-inquiry" />
-            <div class="form-field">
-              <label class="form-label">Name</label>
-              <input class="form-input" type="text" name="name" required />
-            </div>
-            <div class="form-field">
-              <label class="form-label">Email</label>
-              <input class="form-input" type="email" name="email" required />
-            </div>
-            <div class="form-field">
-              <label class="form-label">What are you looking for?</label>
-              <select class="form-select" name="interest">
-                <option>1:1 Coaching</option>
-                <option>Team Workshop</option>
-                <option>Corporate Engagement</option>
-                <option>Not sure yet</option>
-              </select>
-            </div>
-            <button type="submit" class="form-submit">Send Inquiry</button>
-          </form>
-        </div>
-
-        <div class="contact-path contact-path-compact">
-          <div class="contact-path-label">Still Kind Presents</div>
-          <div class="contact-path-title">Community &amp; Events</div>
-          <div class="contact-path-desc">Charity nights, sponsored events, partnerships — if it's about the community side of Still Kind, start here.</div>
-          <form name="community-inquiry" method="POST" data-netlify="true" onsubmit="handleSubmit(event, this)">
-            <input type="hidden" name="form-name" value="community-inquiry" />
-            <div class="form-field">
-              <label class="form-label">Name</label>
-              <input class="form-input" type="text" name="name" required />
-            </div>
-            <div class="form-field">
-              <label class="form-label">Email</label>
-              <input class="form-input" type="email" name="email" required />
-            </div>
-            <div class="form-field">
-              <label class="form-label">What are you looking to do?</label>
-              <input class="form-input" type="text" name="looking_to_do" placeholder="e.g. host a charity night, partner with Still Kind, ask about merch" />
-            </div>
-            <button type="submit" class="form-submit">Send Inquiry</button>
-          </form>
-        </div>
+    <div class="unified-contact">
+      <div class="form-field">
+        <label class="form-label">What are you looking for?</label>
+        <select class="form-select" id="contactReason" onchange="updateContactForm()">
+          <option value="consulting">Consulting — Leadership &amp; People Development</option>
+          <option value="bar-services">Bar Services — Book an Event</option>
+          <option value="presents">Still Kind Presents — Community &amp; Events</option>
+        </select>
       </div>
 
-      <div class="contact-path contact-path-standalone">
-        <div class="contact-path-label">Bar Services</div>
-        <div class="contact-path-title">Let's Talk Details</div>
-        <div class="contact-path-desc">Booking a private party, wedding, or corporate event in Chicago or the suburbs? Tell us a little about it.</div>
-        <form name="bar-services-inquiry" method="POST" data-netlify="true" onsubmit="handleSubmit(event, this)">
-          <input type="hidden" name="form-name" value="bar-services-inquiry" />
+      <p class="unified-contact-desc" id="contactDesc">For hospitality leaders, managers, and teams ready to build real people skills. Individual coaching, workshops, or full corporate engagements.</p>
+
+      <form name="consulting-inquiry" method="POST" data-netlify="true" onsubmit="handleSubmit(event, this)" id="unifiedForm">
+        <input type="hidden" name="form-name" value="consulting-inquiry" id="formNameField" />
+        <div class="form-field">
+          <label class="form-label">Name</label>
+          <input class="form-input" type="text" name="name" required />
+        </div>
+        <div class="form-field">
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" name="email" required />
+        </div>
+
+        <div id="fields-consulting">
           <div class="form-field">
-            <label class="form-label">Name</label>
-            <input class="form-input" type="text" name="name" required />
+            <label class="form-label">What are you looking for?</label>
+            <select class="form-select" name="interest">
+              <option>1:1 Coaching</option>
+              <option>Team Workshop</option>
+              <option>Corporate Engagement</option>
+              <option>Not sure yet</option>
+            </select>
           </div>
-          <div class="form-field">
-            <label class="form-label">Email</label>
-            <input class="form-input" type="email" name="email" required />
-          </div>
+        </div>
+
+        <div id="fields-bar-services" style="display:none;">
           <div class="form-row">
             <div class="form-field">
               <label class="form-label">Event Date</label>
@@ -1030,9 +1011,17 @@
             <label class="form-label">Tell Us About the Event</label>
             <textarea class="form-textarea form-input" name="event_description" placeholder="What are you planning? Any details that'll help us prep."></textarea>
           </div>
-          <button type="submit" class="form-submit">Send the Details</button>
-        </form>
-      </div>
+        </div>
+
+        <div id="fields-presents" style="display:none;">
+          <div class="form-field">
+            <label class="form-label">What are you looking to do?</label>
+            <input class="form-input" type="text" name="looking_to_do" placeholder="e.g. host a charity night, partner with Still Kind, ask about merch" />
+          </div>
+        </div>
+
+        <button type="submit" class="form-submit" id="formSubmitBtn">Send Inquiry</button>
+      </form>
     </div>
   </div>
 </section>
@@ -1207,6 +1196,40 @@
   }
 
   loadCommunitySection();
+
+  const CONTACT_CONFIG = {
+    'consulting': {
+      formName: 'consulting-inquiry',
+      desc: 'For hospitality leaders, managers, and teams ready to build real people skills. Individual coaching, workshops, or full corporate engagements.',
+      submitText: 'Send Inquiry',
+    },
+    'bar-services': {
+      formName: 'bar-services-inquiry',
+      desc: "Booking a private party, wedding, or corporate event in Chicago or the suburbs? Tell us a little about it.",
+      submitText: 'Send the Details',
+    },
+    'presents': {
+      formName: 'community-inquiry',
+      desc: "Charity nights, sponsored events, partnerships — if it's about the community side of Still Kind, start here.",
+      submitText: 'Send Inquiry',
+    },
+  };
+
+  function updateContactForm() {
+    const reason = document.getElementById('contactReason').value;
+    const config = CONTACT_CONFIG[reason];
+    if (!config) return;
+
+    document.getElementById('contactDesc').textContent = config.desc;
+    document.getElementById('formSubmitBtn').textContent = config.submitText;
+    document.getElementById('unifiedForm').setAttribute('name', config.formName);
+    document.getElementById('formNameField').setAttribute('value', config.formName);
+
+    ['consulting', 'bar-services', 'presents'].forEach(key => {
+      const el = document.getElementById('fields-' + key);
+      if (el) el.style.display = (key === reason) ? 'block' : 'none';
+    });
+  }
 
   function handleSubmit(e, form) {
     e.preventDefault();
