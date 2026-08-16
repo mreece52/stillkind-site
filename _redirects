@@ -1,0 +1,4 @@
+# Still Kind Presents domain redirects to the Events & Merch section
+# on the main site, until the standalone Still Kind Presents site is ready.
+https://stillkindpresents.co/*  https://stillkind.co/#community  301!
+https://www.stillkindpresents.co/*  https://stillkind.co/#community  301!
