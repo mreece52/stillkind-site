@@ -699,7 +699,7 @@
   <ul class="nav-links">
     <li><a href="#consulting">Consulting</a></li>
     <li><a href="#bar-services">Bar Services</a></li>
-    <li><a href="framework.html" class="nav-framework-link">The Framework</a></li>
+    <li><a href="/framework.html" class="nav-framework-link">The Framework</a></li>
     <li><a href="https://instagram.com/stillkindchi" target="_blank" class="nav-ig" aria-label="Instagram">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
     </a></li>
@@ -715,7 +715,7 @@
   <a href="#consulting">Consulting</a>
   <a href="#bar-services">Bar Services</a>
   <a href="#community">Events &amp; Merch</a>
-  <a href="framework.html">The Framework</a>
+  <a href="/framework.html">The Framework</a>
   <a href="https://instagram.com/stillkindchi" target="_blank">Instagram</a>
   <a href="#contact" class="mobile-cta">Get In Touch</a>
 </div>
@@ -1123,7 +1123,7 @@
   function renderMerchCard(item) {
     const img = item.image || '/content/uploads/merch-still-kind-tee.jpg';
     return `
-      <a href="${item.link || 'presents.html#presents-shop'}" class="merch-card">
+      <a href="${item.link || '/presents.html#presents-shop'}" class="merch-card">
         <img class="merch-card-img" src="${img}" alt="${item.headline || 'Still Kind Merch'}" loading="lazy" />
         <div class="merch-card-scrim"></div>
         <div class="merch-card-content">
