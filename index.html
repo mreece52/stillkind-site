@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Still Kind</title>
-<meta name="description" content="Still Kind — leadership consulting and bar services out of Chicago. We teach people skills. Not the org chart. The person in front of you.">
+<meta name="description" content="Still Kind: leadership consulting and bar services out of Chicago. We teach people skills, not the org chart. The person in front of you.">
 
 <!-- Open Graph / link preview tags -->
 <meta property="og:title" content="Still Kind">
@@ -17,7 +17,7 @@
 <meta name="twitter:title" content="Still Kind">
 <meta name="twitter:description" content="The most human way to lead. Leadership consulting and bar services out of Chicago.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
@@ -44,7 +44,7 @@
     overflow-x:hidden;
   }
 
-  h1,h2,h3,h4 { font-family:'Fraunces',serif; font-weight:500; }
+  h1,h2,h3,h4 { font-family:'Lora',serif; font-weight:500; }
 
   a { color:inherit; text-decoration:none; }
 
@@ -124,7 +124,7 @@
   }
   .mobile-menu.is-open { transform:translateX(0); }
   .mobile-menu a {
-    font-family:'Fraunces',serif; font-size:24px; font-weight:500;
+    font-family:'Lora',serif; font-size:24px; font-weight:500;
     color:var(--ink); padding:16px 0;
     border-bottom:1px solid rgba(23,20,15,0.1);
   }
@@ -173,7 +173,7 @@
     padding-bottom:20px; border-bottom:1px solid rgba(23,20,15,0.1);
   }
   .identity-strip-brand {
-    font-family:'Fraunces',serif; font-weight:600; letter-spacing:0.1em; color:var(--ink);
+    font-family:'Lora',serif; font-weight:600; letter-spacing:0.1em; color:var(--ink);
     font-size:13px;
   }
   .identity-strip-dot { color:var(--copper); opacity:0.6; }
@@ -230,7 +230,7 @@
   /* ============ CHOICE CARDS ============ */
   .choice-grid {
     max-width:1320px; margin:64px auto 0; width:100%;
-    display:grid; grid-template-columns:1fr 1fr; gap:24px;
+    display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px;
   }
   .choice-card {
     display:block; padding:40px 38px; border-radius:4px;
@@ -245,6 +245,7 @@
   }
   .choice-card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(23,20,15,0.18); }
   .choice-card-alt { background:var(--copper); }
+  .choice-card-tap-hint { display:none; }
   .choice-card-alt::after { background:radial-gradient(circle at 85% 15%, rgba(23,20,15,0.16), transparent 60%); }
   .choice-card-label {
     font-size:12px; letter-spacing:0.16em; text-transform:uppercase; font-weight:700;
@@ -252,7 +253,7 @@
   }
   .choice-card-alt .choice-card-label { color:rgba(23,20,15,0.65); }
   .choice-card-title {
-    font-family:'Fraunces',serif; font-size:26px; font-weight:500; line-height:1.2;
+    font-family:'Lora',serif; font-size:26px; font-weight:500; line-height:1.2;
     margin-bottom:14px; position:relative;
   }
   .choice-card-desc {
@@ -298,7 +299,7 @@
   }
   .section-title em { font-style:italic; font-weight:400; color:var(--copper); }
   .consulting-tagline {
-    font-family:'Fraunces',serif; font-style:italic; font-weight:400;
+    font-family:'Lora',serif; font-style:italic; font-weight:400;
     font-size:22px; color:var(--copper); margin-top:14px;
   }
   .section-lede {
@@ -315,7 +316,7 @@
     display:grid; grid-template-columns:1fr 1fr; gap:70px; margin-top:56px; align-items:start;
   }
   .thesis-quote {
-    font-family:'Fraunces',serif; font-style:italic; font-weight:300;
+    font-family:'Lora',serif; font-style:italic; font-weight:300;
     font-size:clamp(24px, 2.4vw, 32px); line-height:1.4;
     color:var(--paper); border-left:2px solid var(--copper); padding-left:32px;
   }
@@ -333,11 +334,11 @@
   }
   .pillar-row:last-child { border-bottom:1px solid rgba(23,20,15,0.12); }
   .pillar-num {
-    font-family:'Fraunces',serif; font-size:16px; color:var(--clay); font-weight:500;
+    font-family:'Lora',serif; font-size:16px; color:var(--clay); font-weight:500;
     padding-top:4px;
   }
   .pillar-name {
-    font-family:'Fraunces',serif; font-size:28px; font-weight:500; color:var(--ink);
+    font-family:'Lora',serif; font-size:28px; font-weight:500; color:var(--ink);
   }
   .pillar-desc { color:var(--grey); font-size:16.5px; line-height:1.7; padding-top:4px; }
 
@@ -356,7 +357,7 @@
     display:grid; grid-template-columns:1fr auto; gap:20px; align-items:baseline;
   }
   .service-item:last-child { border-bottom:1px solid rgba(23,20,15,0.12); }
-  .service-item-name { font-family:'Fraunces',serif; font-size:21px; color:var(--ink); font-weight:500; }
+  .service-item-name { font-family:'Lora',serif; font-size:21px; color:var(--ink); font-weight:500; }
   .service-item-desc { font-size:15px; color:var(--lgrey); margin-top:4px; }
   .service-item-price { font-size:14px; color:var(--copper); font-weight:700; white-space:nowrap; }
   .pricing-statement {
@@ -364,7 +365,7 @@
     background:var(--paper2); border:1px solid rgba(181,80,46,0.25); border-radius:4px;
   }
   .pricing-statement p {
-    font-family:'Fraunces',serif; font-size:22px; font-style:italic; font-weight:400;
+    font-family:'Lora',serif; font-size:22px; font-style:italic; font-weight:400;
     color:var(--grey); line-height:1.5;
   }
   .pricing-statement strong { color:var(--copper); font-weight:600; font-style:normal; }
@@ -378,7 +379,7 @@
     margin-bottom:18px; font-weight:700;
   }
   .cv-quote {
-    font-family:'Fraunces',serif; font-style:italic; font-weight:300;
+    font-family:'Lora',serif; font-style:italic; font-weight:300;
     font-size:26px; line-height:1.35; color:var(--paper); margin-bottom:24px;
   }
   .cv-attribution { font-size:13px; color:rgba(246,241,231,0.55); }
@@ -403,7 +404,7 @@
     font-size:15px; color:var(--grey); font-weight:500;
   }
   .bar-price-banner-amount {
-    font-family:'Fraunces',serif; font-size:26px; font-weight:600; color:var(--copper);
+    font-family:'Lora',serif; font-size:26px; font-weight:600; color:var(--copper);
     line-height:1;
   }
   .bar-price-banner-note {
@@ -427,7 +428,7 @@
   .feature-tile-highlight:hover { background:#E7DBC2; }
   .feature-tile-icon { font-size:22px; margin-bottom:12px; }
   .feature-tile-name {
-    font-family:'Fraunces',serif; font-size:17px; font-weight:500; color:var(--ink);
+    font-family:'Lora',serif; font-size:17px; font-weight:500; color:var(--ink);
     margin-bottom:6px;
   }
   .feature-tile-desc { font-size:13.5px; color:var(--lgrey); line-height:1.5; }
@@ -448,8 +449,8 @@
   }
   .package-card:hover { border-color:var(--copper); transform:translateY(-2px); }
   .package-top { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px; }
-  .package-name { font-family:'Fraunces',serif; font-size:22px; color:var(--ink); font-weight:500; }
-  .package-price { font-family:'Fraunces',serif; font-size:24px; color:var(--copper); font-weight:600; }
+  .package-name { font-family:'Lora',serif; font-size:22px; color:var(--ink); font-weight:500; }
+  .package-price { font-family:'Lora',serif; font-size:24px; color:var(--copper); font-weight:600; }
   .package-desc { font-size:15px; color:var(--grey); line-height:1.6; }
 
   .bar-side-copy { font-size:17px; color:var(--grey); line-height:1.8; }
@@ -541,12 +542,12 @@
     min-width:52px;
   }
   .event-card-date-badge .month { font-size:10px; letter-spacing:0.1em; color:var(--copper); font-weight:800; text-transform:uppercase; }
-  .event-card-date-badge .day { font-family:'Fraunces',serif; font-size:22px; font-weight:600; color:var(--ink); line-height:1.1; }
+  .event-card-date-badge .day { font-family:'Lora',serif; font-size:22px; font-weight:600; color:var(--ink); line-height:1.1; }
   .event-card-content {
     position:absolute; left:0; right:0; bottom:0; z-index:2; padding:22px 22px 20px;
   }
   .event-card-title {
-    font-family:'Fraunces',serif; font-size:22px; color:#FFFFFF; margin-bottom:6px; line-height:1.15;
+    font-family:'Lora',serif; font-size:22px; color:#FFFFFF; margin-bottom:6px; line-height:1.15;
   }
   .event-card-cause {
     font-size:12.5px; color:rgba(246,241,231,0.75); margin-bottom:10px; font-style:italic;
@@ -587,7 +588,7 @@
     font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--clay);
     font-weight:700; margin-bottom:8px;
   }
-  .merch-card-title { font-family:'Fraunces',serif; font-size:19px; margin-bottom:6px; color:#fff; }
+  .merch-card-title { font-family:'Lora',serif; font-size:19px; margin-bottom:6px; color:#fff; }
   .merch-card-desc { font-size:13.5px; color:rgba(246,241,231,0.75); margin-bottom:14px; }
   .merch-card-link { font-size:13px; font-weight:700; color:var(--copper); }
   .community-loading { font-size:14px; color:var(--lgrey); font-style:italic; grid-column:1/-1; }
@@ -600,7 +601,7 @@
     font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--copper); font-weight:700;
     margin-bottom:8px;
   }
-  .community-next-title { font-family:'Fraunces',serif; font-size:19px; color:var(--ink); margin-bottom:4px; }
+  .community-next-title { font-family:'Lora',serif; font-size:19px; color:var(--ink); margin-bottom:4px; }
   .community-next-desc { font-size:13.5px; color:var(--lgrey); }
 
   /* Event image lightbox */
@@ -642,7 +643,7 @@
     font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:var(--copper);
     font-weight:700; margin-bottom:14px;
   }
-  .contact-path-title { font-family:'Fraunces',serif; font-size:28px; color:var(--ink); margin-bottom:14px; }
+  .contact-path-title { font-family:'Lora',serif; font-size:28px; color:var(--ink); margin-bottom:14px; }
   .contact-path-desc { font-size:15.5px; color:var(--grey); line-height:1.7; margin-bottom:28px; flex-grow:1; }
   .contact-path-standalone { height:auto; }
   .contact-path-standalone .contact-path-desc { flex-grow:0; }
@@ -687,7 +688,7 @@
     display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
   }
   .footer-copy { font-size:13px; color:rgba(246,241,231,0.4); }
-  .footer-tagline { font-family:'Fraunces',serif; font-style:italic; font-size:14px; color:rgba(232,149,95,0.7); }
+  .footer-tagline { font-family:'Lora',serif; font-style:italic; font-size:14px; color:rgba(232,149,95,0.7); }
 
   /* ============ RESPONSIVE ============ */
   @media (max-width: 900px) {
@@ -697,9 +698,22 @@
     .mobile-fab { display:flex; }
     section { padding:90px 24px; }
     #hero { padding:130px 24px 70px; }
-    .hero-grid, .thesis-grid, .service-grid, .bar-grid, .about-grid, .contact-grid, .choice-grid, .community-grid {
+    .hero-grid, .thesis-grid, .service-grid, .bar-grid, .about-grid, .contact-grid, .community-grid {
       grid-template-columns:1fr; gap:40px;
     }
+    .choice-grid {
+      grid-template-columns:1fr; gap:12px; margin-top:32px;
+    }
+    .choice-card {
+      padding:20px 22px; display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .choice-card-label { font-size:10px; margin-bottom:4px; }
+    .choice-card-title { font-size:18px; margin-bottom:0; }
+    .choice-card-desc, .choice-card-cta { display:none; }
+    .choice-card-tap-hint {
+      display:inline-flex; flex-shrink:0; font-size:20px; color:var(--copper);
+    }
+    .choice-card-alt .choice-card-tap-hint { color:var(--ink); }
     .pillar-row { grid-template-columns:50px 1fr; }
     .pillar-row > .pillar-desc { grid-column:1 / -1; }
     .consulting-visual { position:static; }
@@ -765,16 +779,31 @@
 
   <div class="choice-grid">
     <a href="#consulting" class="choice-card">
-      <div class="choice-card-label">Still Kind Consulting</div>
-      <div class="choice-card-title">Leadership &amp; People Development</div>
-      <div class="choice-card-desc">For owners and managers ready to build a team that stays, cares, and treats guests the way they're treated.</div>
-      <div class="choice-card-cta">Explore Consulting →</div>
+      <div>
+        <div class="choice-card-label">Still Kind Consulting</div>
+        <div class="choice-card-title">Leadership &amp; People Development</div>
+        <div class="choice-card-desc">For owners and managers ready to build a team that stays, cares, and treats guests the way they're treated.</div>
+        <div class="choice-card-cta">Explore Consulting →</div>
+      </div>
+      <span class="choice-card-tap-hint">→</span>
     </a>
     <a href="#bar-services" class="choice-card choice-card-alt">
-      <div class="choice-card-label">Still Kind Bar Services</div>
-      <div class="choice-card-title">Curated Bar Experiences</div>
-      <div class="choice-card-desc">Premium mobile bartending for private parties, corporate events, and weddings across Chicago &amp; the suburbs.</div>
-      <div class="choice-card-cta">Explore Bar Services →</div>
+      <div>
+        <div class="choice-card-label">Still Kind Bar Services</div>
+        <div class="choice-card-title">Curated Bar Experiences</div>
+        <div class="choice-card-desc">Premium mobile bartending for private parties, corporate events, and weddings across Chicago &amp; the suburbs.</div>
+        <div class="choice-card-cta">Explore Bar Services →</div>
+      </div>
+      <span class="choice-card-tap-hint">→</span>
+    </a>
+    <a href="/presents.html" class="choice-card">
+      <div>
+        <div class="choice-card-label">Still Kind Presents</div>
+        <div class="choice-card-title">Events, Merch &amp; Community</div>
+        <div class="choice-card-desc">The fun side. Events, causes we back, and merch that puts the movement on your back.</div>
+        <div class="choice-card-cta">Explore Presents →</div>
+      </div>
+      <span class="choice-card-tap-hint">→</span>
     </a>
   </div>
 
@@ -793,7 +822,7 @@
     <div class="kicker">Still Kind Consulting</div>
     <h2 class="section-title">Leadership development built around <em>people, not process.</em></h2>
     <p class="consulting-tagline">The most human way to lead.</p>
-    <p class="section-lede">For hospitality leaders, corporate teams, and anyone ready to lead the more human way. One-on-one coaching, group workshops, and full corporate engagements — delivered however your team learns best.</p>
+    <p class="section-lede">For hospitality leaders, corporate teams, and anyone ready to lead the more human way. One-on-one coaching, group workshops, and full corporate engagements, delivered however your team learns best.</p>
 
     <div class="service-grid">
       <div class="service-list">
@@ -806,7 +835,7 @@
         <div class="service-item">
           <div>
             <div class="service-item-name">Team Workshops</div>
-            <div class="service-item-desc">Half or full-day sessions — culture, conflict, guest experience, career growth.</div>
+            <div class="service-item-desc">Half or full-day sessions: culture, conflict, guest experience, career growth.</div>
           </div>
         </div>
         <div class="service-item">
@@ -824,13 +853,13 @@
         <div class="service-item">
           <div>
             <div class="service-item-name">Ongoing Retainer</div>
-            <div class="service-item-desc">Monthly consulting — strategy, questions, and support as they come up.</div>
+            <div class="service-item-desc">Monthly consulting. Strategy, questions, and support as they come up.</div>
           </div>
         </div>
         <div class="service-item">
           <div>
             <div class="service-item-name">The Full Methodology</div>
-            <div class="service-item-desc">A complete, research-backed overview of the Still Kind framework — available upon request for serious inquiries.</div>
+            <div class="service-item-desc">A complete, research-backed overview of the Still Kind framework. Available upon request for serious inquiries.</div>
           </div>
         </div>
       </div>
@@ -845,13 +874,13 @@
           <div class="cv-list-item">People skills as a teachable, repeatable practice</div>
           <div class="cv-list-item">Built for high-pressure, real-time environments</div>
           <div class="cv-list-item">Delivered 1:1, in workshops, on-site, or ongoing</div>
-          <div class="cv-list-item">Backed by cited research — not just philosophy</div>
+          <div class="cv-list-item">Backed by cited research, not just philosophy</div>
         </div>
       </div>
     </div>
 
     <div class="pricing-statement">
-      <p>Every situation is different — <strong>reach out for personalized pricing options.</strong></p>
+      <p>Every situation is different. <strong>Reach out for personalized pricing options.</strong></p>
     </div>
   </div>
 </section>
@@ -861,12 +890,12 @@
   <div class="section-inner">
     <div class="kicker">Still Kind Bar Services</div>
     <h2 class="section-title">Curated bar experiences for <em>Chicago &amp; the suburbs.</em></h2>
-    <p class="section-lede">Every event is built around you — your guest count, your hours, your vibe. No fixed packages. Just a fully customizable experience, priced around what you actually need.</p>
+    <p class="section-lede">Every event is built around you: your guest count, your hours, your vibe. No fixed packages. Just a fully customizable experience, priced around what you actually need.</p>
 
     <div class="bar-price-banner">
       <div class="bar-price-banner-label">Experiences start at</div>
       <div class="bar-price-banner-amount">$350</div>
-      <div class="bar-price-banner-note">— fully custom from there, built around your hours and what you choose below.</div>
+      <div class="bar-price-banner-note">Fully custom from there, built around your hours and what you choose below.</div>
     </div>
 
     <div class="feature-grid">
@@ -876,7 +905,7 @@
       </div>
       <div class="feature-tile">
         <div class="feature-tile-name">Mobile Bar Setup</div>
-        <div class="feature-tile-desc">A full bar, brought to you — wherever the event is happening.</div>
+        <div class="feature-tile-desc">A full bar, brought to you, wherever the event is happening.</div>
       </div>
       <div class="feature-tile">
         <div class="feature-tile-name">Setup &amp; Breakdown</div>
@@ -892,15 +921,15 @@
       </div>
       <div class="feature-tile">
         <div class="feature-tile-name">Photography Add-On</div>
-        <div class="feature-tile-desc">Capture the night — bar shots, candids, the whole event.</div>
+        <div class="feature-tile-desc">Capture the night: bar shots, candids, the whole event.</div>
       </div>
       <div class="feature-tile">
         <div class="feature-tile-name">Menu Creation</div>
-        <div class="feature-tile-desc">From classic to adventurous — a drink menu designed just for your event.</div>
+        <div class="feature-tile-desc">From classic to adventurous, a drink menu designed just for your event.</div>
       </div>
       <div class="feature-tile">
         <div class="feature-tile-name">Flexible Scheduling</div>
-        <div class="feature-tile-desc">Daytime, late night, weekday, weekend — we build around your timeline.</div>
+        <div class="feature-tile-desc">Daytime, late night, weekday, weekend. We build around your timeline.</div>
       </div>
       <div class="feature-tile">
         <div class="feature-tile-name">Fresh Ingredients</div>
@@ -908,17 +937,17 @@
       </div>
       <div class="feature-tile feature-tile-highlight">
         <div class="feature-tile-name">Kindness Included</div>
-        <div class="feature-tile-desc">Always. It's not an add-on — it's the whole point.</div>
+        <div class="feature-tile-desc">Always. It's not an add-on. It's the whole point.</div>
       </div>
       <div class="feature-tile feature-tile-cta">
         <div class="feature-tile-name">Build Your Event</div>
-        <div class="feature-tile-desc">Mix and match — tell us what you need and we'll build the quote around it.</div>
+        <div class="feature-tile-desc">Mix and match. Tell us what you need and we'll build the quote around it.</div>
         <a href="#contact" class="feature-tile-link">Get In Touch →</a>
       </div>
     </div>
 
     <div class="bar-cred bar-cred-solo">
-      <div class="bar-cred-item"><b>✓</b> Fully insured — liquor liability &amp; product liability</div>
+      <div class="bar-cred-item"><b>✓</b> Fully insured: liquor liability &amp; product liability</div>
       <div class="bar-cred-item"><b>✓</b> ANAB-CFP Certified Food Protection Manager</div>
       <div class="bar-cred-item"><b>✓</b> Custom cocktail menus for every event</div>
       <div class="bar-cred-item"><b>✓</b> Chicago &amp; suburbs service area</div>
@@ -933,7 +962,7 @@
       <div>
         <div class="kicker">Show Up Kind</div>
         <h2 class="section-title" style="font-size:clamp(28px,3.2vw,42px);">Where the community <em>gathers.</em></h2>
-        <p class="section-lede" style="font-size:16px; margin-top:14px;">This is where you'll find us outside the bar and outside the boardroom — showing up, pouring for a cause, and building the kind of nights people remember for the right reasons. Always growing — check back as we add more.</p>
+        <p class="section-lede" style="font-size:16px; margin-top:14px;">This is where you'll find us outside the bar and outside the boardroom, showing up, pouring for a cause, and building the kind of nights people remember for the right reasons. Always growing. Check back as we add more.</p>
       </div>
       <a href="https://instagram.com/stillkindchi" target="_blank" class="community-ig-callout">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
@@ -952,7 +981,7 @@
     <div class="community-next-card">
       <div class="community-next-label">Coming This Winter</div>
       <div class="community-next-title">Toy Drive &amp; Food Drive</div>
-      <div class="community-next-desc">Location and date to be determined — details coming soon.</div>
+      <div class="community-next-desc">Location and date to be determined. Details coming soon.</div>
     </div>
   </div>
 </section>
@@ -963,7 +992,7 @@
   <div class="section-inner">
     <div class="kicker">Get In Touch</div>
     <h2 class="section-title">Let's <em>talk.</em></h2>
-    <p class="section-lede">You're not filling out a form. You're starting a conversation — and we'll answer quickly and kindly.</p>
+    <p class="section-lede">You're not filling out a form. You're starting a conversation, and we'll answer quickly and kindly.</p>
 
     <div class="unified-contact">
       <div class="form-field">
@@ -1187,7 +1216,7 @@
       if (events.length) {
         html += events.map(renderEventCard).join('');
       } else {
-        html += '<div class="community-empty">No upcoming events right now — check back soon.</div>';
+        html += '<div class="community-empty">No upcoming events right now. Check back soon.</div>';
       }
       if (merch && merch.length) {
         html += merch.map(renderMerchCard).join('');
@@ -1214,7 +1243,7 @@
     },
     'presents': {
       formName: 'community-inquiry',
-      desc: "Charity nights, sponsored events, partnerships — if it's about the community side of Still Kind, start here.",
+      desc: "Charity nights, sponsored events, partnerships. If it's about the community side of Still Kind, start here.",
       submitText: 'Send Inquiry',
     },
   };
