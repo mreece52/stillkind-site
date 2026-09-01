@@ -775,12 +775,21 @@
     display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:16px; margin-top:44px;
   }
   .partner-item {
-    background:var(--paper2); border-radius:4px; padding:20px 22px;
-    display:block; transition:transform 0.2s, box-shadow 0.2s;
+    background:var(--paper2); border-radius:4px; overflow:hidden;
+    display:block; transition:transform 0.2s, box-shadow 0.2s; cursor:pointer;
   }
-  .partner-item-link:hover { transform:translateY(-2px); box-shadow:0 10px 24px rgba(23,20,15,0.1); }
-  .partner-item-name { font-family:'Lora',serif; font-size:17px; color:var(--ink); margin-bottom:4px; }
-  .partner-item-role { font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--copper); font-weight:700; }
+  .partner-item:hover { transform:translateY(-3px); box-shadow:0 12px 28px rgba(23,20,15,0.12); }
+  .partner-item-logo {
+    aspect-ratio:16/9; background:var(--ink); position:relative;
+    display:flex; align-items:center; justify-content:center; overflow:hidden;
+  }
+  .partner-item-logo img { width:100%; height:100%; object-fit:cover; }
+  .partner-item-logo-fallback {
+    width:100%; height:100%; align-items:center; justify-content:center;
+    font-family:'Lora',serif; font-size:16px; color:var(--paper); text-align:center; padding:12px;
+  }
+  .partner-item-name { font-family:'Lora',serif; font-size:17px; color:var(--ink); margin:14px 22px 4px; }
+  .partner-item-role { font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--copper); font-weight:700; margin:0 22px 18px; }
   .partner-cta {
     display:flex; align-items:center; justify-content:space-between; gap:16px;
     margin-top:24px; padding:22px 26px;
@@ -985,19 +994,35 @@
     <p class="section-lede">The venues and local businesses that make Still Kind Presents possible.</p>
 
     <div class="partners-grid">
-      <div class="partner-item">
+      <a href="https://www.501local.com" target="_blank" class="partner-item">
+        <div class="partner-item-logo">
+          <img src="/content/uploads/partner-primetime.jpg" alt="Primetime Bar & Grill" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="partner-item-logo-fallback" style="display:none;">Primetime</div>
+        </div>
         <div class="partner-item-name">Primetime Bar &amp; Grill</div>
         <div class="partner-item-role">Venue Partner</div>
-      </div>
-      <div class="partner-item">
+      </a>
+      <a href="https://www.jimotowinnetka.com" target="_blank" class="partner-item">
+        <div class="partner-item-logo">
+          <img src="/content/uploads/partner-jimoto.jpg" alt="Jimoto" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="partner-item-logo-fallback" style="display:none;">Jimoto</div>
+        </div>
         <div class="partner-item-name">Jimoto</div>
         <div class="partner-item-role">Venue Partner</div>
-      </div>
-      <div class="partner-item">
+      </a>
+      <a href="https://www.501local.com" target="_blank" class="partner-item">
+        <div class="partner-item-logo">
+          <img src="/content/uploads/partner-501local.jpg" alt="501 Local" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="partner-item-logo-fallback" style="display:none;">501 Local</div>
+        </div>
         <div class="partner-item-name">501 Local</div>
         <div class="partner-item-role">Venue Partner</div>
-      </div>
-      <a href="https://www.callmiketherealtor.com" target="_blank" class="partner-item partner-item-link">
+      </a>
+      <a href="https://www.callmiketherealtor.com" target="_blank" class="partner-item">
+        <div class="partner-item-logo">
+          <img src="/content/uploads/partner-mike-realtor.jpg" alt="Mike The Realtor" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="partner-item-logo-fallback" style="display:none;">Mike The Realtor</div>
+        </div>
         <div class="partner-item-name">Mike The Realtor</div>
         <div class="partner-item-role">Community Partner</div>
       </a>
