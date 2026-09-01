@@ -721,6 +721,16 @@
   #presents-video .kicker::before { background:var(--clay); }
   #presents-video .section-title { color:var(--paper); }
   #presents-video .section-title em { color:#E8955F; }
+  .video-toggle {
+    width:100%; display:flex; align-items:center; justify-content:space-between;
+    background:none; border:1px solid rgba(246,241,231,0.2); border-radius:4px;
+    padding:18px 22px; cursor:pointer;
+    font-family:'Inter',sans-serif; font-size:14px; font-weight:600; letter-spacing:0.03em;
+    color:var(--paper); transition:border-color 0.2s, background 0.2s;
+  }
+  .video-toggle:hover { border-color:var(--copper); background:rgba(246,241,231,0.04); }
+  #videoToggleIcon { transition:transform 0.25s ease; flex-shrink:0; }
+  .video-collapsible { margin-top:24px; }
   .video-shell {
     margin-top:48px; aspect-ratio:16/9; max-width:900px;
     background:linear-gradient(155deg, #221D15, #17140F);
@@ -761,6 +771,25 @@
     padding:32px 30px; display:flex; align-items:center; justify-content:center;
     text-align:center; color:var(--lgrey); font-size:14px; font-style:italic;
   }
+  .partners-grid {
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:16px; margin-top:44px;
+  }
+  .partner-item {
+    background:var(--paper2); border-radius:4px; padding:20px 22px;
+    display:block; transition:transform 0.2s, box-shadow 0.2s;
+  }
+  .partner-item-link:hover { transform:translateY(-2px); box-shadow:0 10px 24px rgba(23,20,15,0.1); }
+  .partner-item-name { font-family:'Lora',serif; font-size:17px; color:var(--ink); margin-bottom:4px; }
+  .partner-item-role { font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--copper); font-weight:700; }
+  .partner-cta {
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    margin-top:24px; padding:22px 26px;
+    background:var(--ink); color:var(--paper); border-radius:4px;
+    transition:background 0.2s;
+  }
+  .partner-cta:hover { background:var(--copper); }
+  .partner-cta span:first-child { font-family:'Lora',serif; font-size:18px; }
+  .partner-cta-arrow { font-size:20px; flex-shrink:0; }
 
   /* SHOP */
   #presents-shop { background:var(--paper2); }
@@ -826,7 +855,6 @@
   <ul class="nav-links">
     <li><a href="#presents-events-list">Events</a></li>
     <li><a href="#presents-shop">Shop</a></li>
-    <li><a href="#presents-print-shop">Print Shop</a></li>
     <li><a href="#presents-donate">Give</a></li>
     <li><a href="https://instagram.com/stillkindchi" target="_blank" class="nav-ig" aria-label="Instagram">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
@@ -842,7 +870,6 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="#presents-events-list">Events</a>
   <a href="#presents-shop">Shop</a>
-  <a href="#presents-print-shop">Print Shop</a>
   <a href="#presents-donate">Give</a>
   <a href="https://instagram.com/stillkindchi" target="_blank">Instagram</a>
   <a href="/index.html" class="mobile-cta">Still Kind Home</a>
@@ -859,30 +886,41 @@
 </section>
 
 <!-- VIDEO -->
-<section id="presents-video">
+<section id="presents-video" style="padding-top:40px; padding-bottom:40px;">
   <div class="section-inner">
-    <div class="kicker">See It Live</div>
-    <h2 class="section-title">This is what <em>showing up</em> looks like.</h2>
-    <div class="video-shell">
-      <video
-        id="presentsVideo"
-        class="video-real"
-        controls
-        preload="metadata"
-        poster="/content/uploads/presents-video-poster.jpg"
-        style="display:none; width:100%; height:100%; object-fit:cover; border-radius:4px;"
-      >
-        <source src="/content/uploads/presents-recap.mp4" type="video/mp4">
-      </video>
-      <div class="video-play" id="videoPlayPlaceholder">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="#F6F1E7"><path d="M8 5v14l11-7z"/></svg>
+    <button class="video-toggle" id="videoToggle" onclick="toggleVideoSection()">
+      <span>See It Live — Event Recap Video</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" id="videoToggleIcon"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="video-collapsible" id="videoCollapsible" style="display:none;">
+      <div class="video-shell">
+        <video
+          id="presentsVideo"
+          class="video-real"
+          controls
+          preload="metadata"
+          poster="/content/uploads/presents-video-poster.jpg"
+          style="display:none; width:100%; height:100%; object-fit:cover; border-radius:4px;"
+        >
+          <source src="/content/uploads/presents-recap.mp4" type="video/mp4">
+        </video>
+        <div class="video-play" id="videoPlayPlaceholder">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="#F6F1E7"><path d="M8 5v14l11-7z"/></svg>
+        </div>
       </div>
+      <div class="video-caption" id="videoCaption">Event recap video coming soon. First up: Pour It Forward, Sept 17.</div>
     </div>
-    <div class="video-caption" id="videoCaption">Event recap video coming soon. First up: Pour It Forward, Sept 17.</div>
   </div>
 </section>
 
 <script>
+  function toggleVideoSection() {
+    const box = document.getElementById('videoCollapsible');
+    const icon = document.getElementById('videoToggleIcon');
+    const isOpen = box.style.display !== 'none';
+    box.style.display = isOpen ? 'none' : 'block';
+    icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+  }
   // Checks whether a real video file exists at the expected path.
   // If it does, show the real player. If not, keep the placeholder.
   (function checkForRealVideo() {
@@ -929,53 +967,59 @@
 
     <div class="donate-grid">
       <div class="cause-card">
-        <div class="cause-card-label">Current Partner</div>
+        <div class="cause-card-label">Charity Partner</div>
         <div class="cause-card-name">The Friendship Center</div>
         <div class="cause-card-desc">A Chicago food pantry and community resource center serving nearly 6,000 neighbors a month out of Albany Park. Part of the Greater Chicago Food Depository network.</div>
         <a href="https://friendshipcenterchicago.org" target="_blank" class="cause-card-link">Learn More & Donate →</a>
       </div>
-      <div class="cause-card-next">More partners coming as we build with them.</div>
+      <div class="cause-card">
+        <div class="cause-card-label">Charity Partner</div>
+        <div class="cause-card-name">Winnetka Public Schools Foundation</div>
+        <div class="cause-card-desc">A nonprofit that raises funds to let Winnetka's public schools go beyond what tax dollars alone can cover, teacher grants, artist residencies, and more.</div>
+        <a href="https://www.wpsf.org" target="_blank" class="cause-card-link">Learn More & Donate →</a>
+      </div>
     </div>
+
+    <div class="kicker" style="margin-top:64px;">Who We Show Up With</div>
+    <h2 class="section-title">Real places. Real <em>people.</em></h2>
+    <p class="section-lede">The venues and local businesses that make Still Kind Presents possible.</p>
+
+    <div class="partners-grid">
+      <div class="partner-item">
+        <div class="partner-item-name">Primetime Bar &amp; Grill</div>
+        <div class="partner-item-role">Venue Partner</div>
+      </div>
+      <div class="partner-item">
+        <div class="partner-item-name">Jimoto</div>
+        <div class="partner-item-role">Venue Partner</div>
+      </div>
+      <div class="partner-item">
+        <div class="partner-item-name">501 Local</div>
+        <div class="partner-item-role">Venue Partner</div>
+      </div>
+      <a href="https://www.callmiketherealtor.com" target="_blank" class="partner-item partner-item-link">
+        <div class="partner-item-name">Mike The Realtor</div>
+        <div class="partner-item-role">Community Partner</div>
+      </a>
+    </div>
+
+    <a href="#presents-contact" class="partner-cta">
+      <span>Own a business? Want to partner with us?</span>
+      <span class="partner-cta-arrow">→</span>
+    </a>
   </div>
 </section>
 
 <!-- SHOP -->
+<!-- SHOP (MERCH + PRINT, MERGED) -->
 <section id="presents-shop">
   <div class="section-inner">
-    <div class="kicker">Wear The Movement</div>
-    <h2 class="section-title">The <em>merch shop.</em></h2>
+    <div class="kicker">Wear It. Read It. Take It Home.</div>
+    <h2 class="section-title">The <em>shop.</em></h2>
     <p class="section-lede">Not corporate swag. This is how the message travels. Every piece funds the next event.</p>
     <p style="font-size:13px; color:var(--lgrey); font-style:italic; margin-top:10px;">Product images below are digital renderings, not final photos. Order now, and it ships once production's done.</p>
 
-    <div class="shop-grid">
-      <div class="shop-card">
-        <span class="preorder-badge">Pre-Order</span>
-        <img class="shop-card-visual" src="/content/uploads/merch-still-kind-tee.jpg" alt="Still Kind Tee" loading="lazy" onerror="this.outerHTML='&lt;div class=\'shop-card-visual shop-visual-1\'&gt;STILL KIND&lt;br&gt;TEE&lt;/div&gt;'" style="object-fit:cover; width:100%; height:100%;" />
-        <div class="shop-card-body">
-          <div class="shop-card-name">Still Kind Tee</div>
-          <div class="shop-card-desc">White, black lettering. The everyday one.</div>
-          <div class="shop-card-bottom">
-            <div class="shop-card-price">$20</div>
-            <a href="#presents-contact" class="shop-card-cta">Pre-Order</a>
-          </div>
-          <div class="preorder-note">Ships once production's complete.</div>
-        </div>
-      </div>
-
-      <div class="shop-card">
-        <span class="preorder-badge">Pre-Order</span>
-        <img class="shop-card-visual" src="/content/uploads/merch-bar-services-tee.jpg" alt="Bar Services Tee" loading="lazy" onerror="this.outerHTML='&lt;div class=\'shop-card-visual shop-visual-2\'&gt;BAR&lt;br&gt;SERVICES&lt;/div&gt;'" style="object-fit:cover; object-position:75% 60%; width:100%; height:100%;" />
-        <div class="shop-card-body">
-          <div class="shop-card-name">Bar Services Tee</div>
-          <div class="shop-card-desc">Logo on front, Still Kind on the back.</div>
-          <div class="shop-card-bottom">
-            <div class="shop-card-price">$20</div>
-            <a href="#presents-contact" class="shop-card-cta">Pre-Order</a>
-          </div>
-          <div class="preorder-note">Ships once production's complete.</div>
-        </div>
-      </div>
-
+    <div class="shop-grid" style="margin-top:36px;">
       <div class="shop-card">
         <span class="preorder-badge">Pre-Order</span>
         <img class="shop-card-visual" src="/content/uploads/merch-pour-it-forward-tee.jpg" alt="Pour It Forward Tee" loading="lazy" onerror="this.outerHTML='&lt;div class=\'shop-card-visual shop-visual-3\'&gt;POUR IT&lt;br&gt;FORWARD&lt;/div&gt;'" style="object-fit:cover; width:100%; height:100%;" />
@@ -992,26 +1036,12 @@
 
       <div class="shop-card">
         <span class="preorder-badge">Pre-Order</span>
-        <img class="shop-card-visual" src="/content/uploads/merch-hat.jpg" alt="Still Kind Hat" loading="lazy" onerror="this.outerHTML='&lt;div class=\'shop-card-visual shop-visual-4\'&gt;HAT&lt;/div&gt;'" style="object-fit:cover; width:100%; height:100%;" />
+        <img class="shop-card-visual" src="/content/uploads/merch-still-kind-tee.jpg" alt="Still Kind Tee" loading="lazy" onerror="this.outerHTML='&lt;div class=\'shop-card-visual shop-visual-1\'&gt;STILL KIND&lt;br&gt;TEE&lt;/div&gt;'" style="object-fit:cover; width:100%; height:100%;" />
         <div class="shop-card-body">
-          <div class="shop-card-name">Still Kind Hat</div>
-          <div class="shop-card-desc">The one you'll actually wear every day.</div>
+          <div class="shop-card-name">Still Kind Tee</div>
+          <div class="shop-card-desc">White, black lettering. The everyday one.</div>
           <div class="shop-card-bottom">
-            <div class="shop-card-price">$30</div>
-            <a href="#presents-contact" class="shop-card-cta">Pre-Order</a>
-          </div>
-          <div class="preorder-note">Ships once production's complete.</div>
-        </div>
-      </div>
-
-      <div class="shop-card">
-        <span class="preorder-badge">Pre-Order</span>
-        <img class="shop-card-visual" src="/content/uploads/merch-bar-key.jpg" alt="Bar Key" loading="lazy" onerror="this.outerHTML='&lt;div class=\'shop-card-visual shop-visual-5\'&gt;BAR&lt;br&gt;KEY&lt;/div&gt;'" style="object-fit:cover; width:100%; height:100%;" />
-        <div class="shop-card-body">
-          <div class="shop-card-name">Bar Key</div>
-          <div class="shop-card-desc">Small, useful, still kind.</div>
-          <div class="shop-card-bottom">
-            <div class="shop-card-price">$5</div>
+            <div class="shop-card-price">$20</div>
             <a href="#presents-contact" class="shop-card-cta">Pre-Order</a>
           </div>
           <div class="preorder-note">Ships once production's complete.</div>
@@ -1019,94 +1049,141 @@
       </div>
     </div>
 
-    <p class="shop-note">More on the way: mousepads, and whatever else the movement needs.</p>
-  </div>
-</section>
+    <button class="video-toggle" id="shopToggle" onclick="toggleShopSection()" style="margin-top:28px; border-color:rgba(23,20,15,0.2); color:var(--ink);">
+      <span>See everything else — merch &amp; print goods</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" id="shopToggleIcon"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
 
-<!-- PRINT SHOP -->
-<section id="presents-print-shop" style="background:var(--paper);">
-  <div class="section-inner">
-    <div class="kicker">Read It. Write In It. Pass It Around.</div>
-    <h2 class="section-title">The <em>print shop.</em></h2>
-    <p class="section-lede">Small, real, made-with-care print goods. Every one of these started as something we needed ourselves.</p>
+    <div class="video-collapsible" id="shopCollapsible" style="display:none;">
+      <div class="shop-grid" style="margin-top:28px;">
+        <div class="shop-card">
+          <span class="preorder-badge">Pre-Order</span>
+          <img class="shop-card-visual" src="/content/uploads/merch-bar-services-tee.jpg" alt="Bar Services Tee" loading="lazy" onerror="this.outerHTML='&lt;div class=\'shop-card-visual shop-visual-2\'&gt;BAR&lt;br&gt;SERVICES&lt;/div&gt;'" style="object-fit:cover; object-position:75% 60%; width:100%; height:100%;" />
+          <div class="shop-card-body">
+            <div class="shop-card-name">Bar Services Tee</div>
+            <div class="shop-card-desc">Logo on front, Still Kind on the back.</div>
+            <div class="shop-card-bottom">
+              <div class="shop-card-price">$20</div>
+              <a href="#presents-contact" class="shop-card-cta">Pre-Order</a>
+            </div>
+            <div class="preorder-note">Ships once production's complete.</div>
+          </div>
+        </div>
 
-    <div class="shop-grid">
-      <div class="shop-card">
-        <div class="shop-card-visual shop-visual-3">A LITTLE<br>MOCKTAIL BOOK</div>
-        <div class="shop-card-body">
-          <div class="shop-card-name">A Little Mocktail Book</div>
-          <div class="shop-card-desc">Ten drinks, ten stories. Recipes for respite. Pocket-sized.</div>
-          <div class="shop-card-bottom">
-            <div class="shop-card-price">$20</div>
-            <a href="#presents-contact" class="shop-card-cta">Get One</a>
+        <div class="shop-card">
+          <span class="preorder-badge">Pre-Order</span>
+          <img class="shop-card-visual" src="/content/uploads/merch-hat.jpg" alt="Still Kind Hat" loading="lazy" onerror="this.outerHTML='&lt;div class=\'shop-card-visual shop-visual-4\'&gt;HAT&lt;/div&gt;'" style="object-fit:cover; width:100%; height:100%;" />
+          <div class="shop-card-body">
+            <div class="shop-card-name">Still Kind Hat</div>
+            <div class="shop-card-desc">The one you'll actually wear every day.</div>
+            <div class="shop-card-bottom">
+              <div class="shop-card-price">$30</div>
+              <a href="#presents-contact" class="shop-card-cta">Pre-Order</a>
+            </div>
+            <div class="preorder-note">Ships once production's complete.</div>
+          </div>
+        </div>
+
+        <div class="shop-card">
+          <span class="preorder-badge">Pre-Order</span>
+          <img class="shop-card-visual" src="/content/uploads/merch-bar-key.jpg" alt="Bar Key" loading="lazy" onerror="this.outerHTML='&lt;div class=\'shop-card-visual shop-visual-5\'&gt;BAR&lt;br&gt;KEY&lt;/div&gt;'" style="object-fit:cover; width:100%; height:100%;" />
+          <div class="shop-card-body">
+            <div class="shop-card-name">Bar Key</div>
+            <div class="shop-card-desc">Small, useful, still kind.</div>
+            <div class="shop-card-bottom">
+              <div class="shop-card-price">$5</div>
+              <a href="#presents-contact" class="shop-card-cta">Pre-Order</a>
+            </div>
+            <div class="preorder-note">Ships once production's complete.</div>
+          </div>
+        </div>
+
+        <div class="shop-card">
+          <div class="shop-card-visual shop-visual-3">A LITTLE<br>MOCKTAIL BOOK</div>
+          <div class="shop-card-body">
+            <div class="shop-card-name">A Little Mocktail Book</div>
+            <div class="shop-card-desc">Ten drinks, ten stories. Recipes for respite. Pocket-sized.</div>
+            <div class="shop-card-bottom">
+              <div class="shop-card-price">$20</div>
+              <a href="#presents-contact" class="shop-card-cta">Get One</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="shop-card">
+          <div class="shop-card-visual shop-visual-2">THE BIG<br>MOCKTAIL BOOK</div>
+          <div class="shop-card-body">
+            <div class="shop-card-name">The (Big) Mocktail Book</div>
+            <div class="shop-card-desc">Same ten drinks, same ten stories. Full coffee-table size.</div>
+            <div class="shop-card-bottom">
+              <div class="shop-card-price">$40</div>
+              <a href="#presents-contact" class="shop-card-cta">Get One</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="shop-card">
+          <div class="shop-card-visual shop-visual-1">THE RIPPLE<br>JOURNAL</div>
+          <div class="shop-card-body">
+            <div class="shop-card-name">The Ripple Journal</div>
+            <div class="shop-card-desc">52 weeks. A prompt for every day. Real room to write.</div>
+            <div class="shop-card-bottom">
+              <div class="shop-card-price">$25</div>
+              <a href="#presents-contact" class="shop-card-cta">Get One</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="shop-card">
+          <div class="shop-card-visual shop-visual-5">CAUGHT<br>BEING KIND</div>
+          <div class="shop-card-body">
+            <div class="shop-card-name">Caught Being Kind: Card Deck</div>
+            <div class="shop-card-desc">20 cards. A kind moment, then a question that gets everyone talking.</div>
+            <div class="shop-card-bottom">
+              <div class="shop-card-price">$20</div>
+              <a href="#presents-contact" class="shop-card-cta">Get One</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="shop-card">
+          <div class="shop-card-visual shop-visual-2">BEHIND<br>THE BAR</div>
+          <div class="shop-card-body">
+            <div class="shop-card-name">Behind The Bar: Line Cards</div>
+            <div class="shop-card-desc">10 signs for staff. Tape one up, rotate weekly.</div>
+            <div class="shop-card-bottom">
+              <div class="shop-card-price">$20</div>
+              <a href="#presents-contact" class="shop-card-cta">Get One</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="shop-card">
+          <div class="shop-card-visual shop-visual-4">EVERYDAY<br>KINDNESS</div>
+          <div class="shop-card-body">
+            <div class="shop-card-name">A Small Guide to Everyday Kindness</div>
+            <div class="shop-card-desc">30 small, real, doable things. Not affirmations. Actions.</div>
+            <div class="shop-card-bottom">
+              <div class="shop-card-price">$15</div>
+              <a href="#presents-contact" class="shop-card-cta">Get One</a>
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="shop-card">
-        <div class="shop-card-visual shop-visual-2">THE BIG<br>MOCKTAIL BOOK</div>
-        <div class="shop-card-body">
-          <div class="shop-card-name">The (Big) Mocktail Book</div>
-          <div class="shop-card-desc">Same ten drinks, same ten stories. Full coffee-table size.</div>
-          <div class="shop-card-bottom">
-            <div class="shop-card-price">$40</div>
-            <a href="#presents-contact" class="shop-card-cta">Get One</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="shop-card">
-        <div class="shop-card-visual shop-visual-1">THE RIPPLE<br>JOURNAL</div>
-        <div class="shop-card-body">
-          <div class="shop-card-name">The Ripple Journal</div>
-          <div class="shop-card-desc">52 weeks. A prompt for every day. Real room to write.</div>
-          <div class="shop-card-bottom">
-            <div class="shop-card-price">$25</div>
-            <a href="#presents-contact" class="shop-card-cta">Get One</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="shop-card">
-        <div class="shop-card-visual shop-visual-5">CAUGHT<br>BEING KIND</div>
-        <div class="shop-card-body">
-          <div class="shop-card-name">Caught Being Kind: Card Deck</div>
-          <div class="shop-card-desc">20 cards. A kind moment, then a question that gets everyone talking.</div>
-          <div class="shop-card-bottom">
-            <div class="shop-card-price">$20</div>
-            <a href="#presents-contact" class="shop-card-cta">Get One</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="shop-card">
-        <div class="shop-card-visual shop-visual-2">BEHIND<br>THE BAR</div>
-        <div class="shop-card-body">
-          <div class="shop-card-name">Behind The Bar: Line Cards</div>
-          <div class="shop-card-desc">10 signs for staff. Tape one up, rotate weekly.</div>
-          <div class="shop-card-bottom">
-            <div class="shop-card-price">$20</div>
-            <a href="#presents-contact" class="shop-card-cta">Get One</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="shop-card">
-        <div class="shop-card-visual shop-visual-4">EVERYDAY<br>KINDNESS</div>
-        <div class="shop-card-body">
-          <div class="shop-card-name">A Small Guide to Everyday Kindness</div>
-          <div class="shop-card-desc">30 small, real, doable things. Not affirmations. Actions.</div>
-          <div class="shop-card-bottom">
-            <div class="shop-card-price">$15</div>
-            <a href="#presents-contact" class="shop-card-cta">Get One</a>
-          </div>
-        </div>
-      </div>
+      <p class="shop-note">Every print product is made in small batches. If something's out of stock, it means people liked it. We'll restock.</p>
     </div>
-
-    <p class="shop-note">Every print product is made in small batches. If something's out of stock, it means people liked it. We'll restock.</p>
   </div>
 </section>
+
+<script>
+  function toggleShopSection() {
+    const box = document.getElementById('shopCollapsible');
+    const icon = document.getElementById('shopToggleIcon');
+    const isOpen = box.style.display !== 'none';
+    box.style.display = isOpen ? 'none' : 'block';
+    icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+  }
+</script>
 
 <!-- CONTACT -->
 <section id="presents-contact" style="background:var(--ink);">
