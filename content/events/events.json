@@ -7,12 +7,14 @@
     "map_link": "",
     "cause": "Benefiting The Friendship Center"
   },
-{
-  "title": "Still Together — You, Your Person, Your Vibe",
-  "date": "2026-10-18",
-  "location": "Jimoto, Winnetka IL",
-  "cause": "Benefiting Winnetka Public Schools",
-  "ticket_link": "https://www.opentable.com/r/jimoto-winnetka",
-  "ticket_label": "Buy Tickets →"
-}
+  {
+    "title": "Still Together — You, Your Person, Your Vibe",
+    "image": "/content/uploads/Logo, Posters..png",
+    "date": "2026-10-18",
+    "location": "Jimoto, Winnetka IL",
+    "map_link": "",
+    "cause": "Benefiting Winnetka Public Schools",
+    "ticket_label": "Buy Tickets →",
+    "ticket_link": "https://www.opentable.com/r/jimoto-winnetka"
+  }
 ]
