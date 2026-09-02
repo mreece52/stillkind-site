@@ -752,7 +752,7 @@
     <li><a href="https://instagram.com/stillkindchi" target="_blank" class="nav-ig" aria-label="Instagram">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
     </a></li>
-    <li><a href="#contact" class="nav-cta">Get In Touch</a></li>
+    <li><a href="#" class="nav-cta" onclick="event.preventDefault(); openQuickContact();">Get In Touch</a></li>
   </ul>
   <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -766,7 +766,7 @@
   <a href="#community">Events &amp; Merch</a>
   <a href="/framework.html">The Framework</a>
   <a href="https://instagram.com/stillkindchi" target="_blank">Instagram</a>
-  <a href="#contact" class="mobile-cta">Get In Touch</a>
+  <a href="#" class="mobile-cta" onclick="event.preventDefault(); openQuickContact();">Get In Touch</a>
 </div>
 
 <!-- HERO -->
@@ -1094,6 +1094,115 @@
   </div>
 </footer>
 
+<!-- QUICK CONTACT POPUP -->
+<div class="quick-contact-overlay" id="quickContactOverlay" onclick="closeQuickContact(event)">
+  <div class="quick-contact-modal" onclick="event.stopPropagation()">
+    <button class="quick-contact-close" onclick="closeQuickContact()" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="quick-contact-kicker">Get In Touch</div>
+    <h3 class="quick-contact-title">Let's <em>talk.</em></h3>
+    <p class="quick-contact-sub">Quick note. We'll get back to you fast.</p>
+
+    <form name="quick-contact" method="POST" data-netlify="true" onsubmit="handleQuickContactSubmit(event, this)" id="quickContactForm">
+      <input type="hidden" name="form-name" value="quick-contact" />
+      <div class="form-field">
+        <label class="form-label">Name</label>
+        <input class="form-input" type="text" name="name" required />
+      </div>
+      <div class="form-field">
+        <label class="form-label">Best way to reach you</label>
+        <input class="form-input" type="text" name="contact_info" placeholder="Phone or email" required />
+      </div>
+      <div class="form-field">
+        <label class="form-label">How can we help? <span id="wordCountLabel" style="font-weight:400; color:var(--lgrey);">(50 words max)</span></label>
+        <textarea class="form-textarea form-input" name="reason" id="quickContactReason" maxlength="400" oninput="enforceWordLimit(this)" required></textarea>
+      </div>
+      <button type="submit" class="form-submit" id="quickContactSubmitBtn">Send</button>
+    </form>
+  </div>
+</div>
+
+<!-- Hidden form for Netlify build-time detection -->
+<form name="quick-contact" data-netlify="true" hidden>
+  <input type="text" name="name" />
+  <input type="text" name="contact_info" />
+  <textarea name="reason"></textarea>
+</form>
+
+<style>
+  .quick-contact-overlay {
+    display:none; position:fixed; inset:0; z-index:500;
+    background:rgba(23,20,15,0.55); backdrop-filter:blur(3px);
+    align-items:center; justify-content:center; padding:24px;
+  }
+  .quick-contact-overlay.is-open { display:flex; }
+  .quick-contact-modal {
+    background:var(--paper); border-radius:8px; padding:40px 36px 34px;
+    max-width:440px; width:100%; position:relative;
+    box-shadow:0 30px 70px rgba(0,0,0,0.3);
+    max-height:88vh; overflow-y:auto;
+  }
+  .quick-contact-close {
+    position:absolute; top:18px; right:18px; background:none; border:none;
+    color:var(--lgrey); cursor:pointer; padding:6px; transition:color 0.2s;
+  }
+  .quick-contact-close:hover { color:var(--ink); }
+  .quick-contact-kicker {
+    font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--copper);
+    font-weight:700; margin-bottom:8px;
+  }
+  .quick-contact-title { font-family:'Lora',serif; font-size:30px; color:var(--ink); margin-bottom:4px; }
+  .quick-contact-title em { color:var(--copper); font-style:italic; }
+  .quick-contact-sub { font-size:14px; color:var(--lgrey); margin-bottom:26px; }
+  #quickContactReason { min-height:90px; resize:vertical; }
+</style>
+
+<script>
+  function openQuickContact() {
+    document.getElementById('quickContactOverlay').classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeQuickContact(e) {
+    if (e && e.target !== e.currentTarget) return;
+    document.getElementById('quickContactOverlay').classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+  function enforceWordLimit(el) {
+    const words = el.value.trim().split(/\s+/).filter(Boolean);
+    if (words.length > 50) {
+      el.value = words.slice(0, 50).join(' ');
+    }
+  }
+  function handleQuickContactSubmit(e, form) {
+    e.preventDefault();
+    const btn = document.getElementById('quickContactSubmitBtn');
+    const originalText = btn.textContent;
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    const formData = new FormData(form);
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => {
+        btn.textContent = 'Sent. Thank You';
+        setTimeout(() => {
+          closeQuickContact();
+          form.reset();
+          btn.textContent = originalText;
+          btn.disabled = false;
+        }, 1600);
+      })
+      .catch(() => {
+        btn.textContent = 'Something went wrong, try again';
+        btn.disabled = false;
+      });
+  }
+</script>
+
 <script>
   window.addEventListener('scroll', () => {
     const nav = document.querySelector('nav');
@@ -1348,7 +1457,7 @@
 </form>
 
 <!-- Event image lightbox -->
-<a href="/index.html#contact" class="mobile-fab">
+<a href="#" class="mobile-fab" onclick="event.preventDefault(); openQuickContact();">
   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
   Get In Touch
 </a>
