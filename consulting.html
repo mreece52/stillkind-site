@@ -275,7 +275,7 @@
   .cv-attribution { font-size:13px; color:rgba(246,241,231,0.55); }
   .cv-divider { height:1px; background:rgba(246,241,231,0.15); margin:28px 0; }
   .cv-list { display:flex; flex-direction:column; gap:14px; }
-  .cv-list-item { display:flex; gap:12px; align-items:flex-start; font-size:14.5px; color:rgba(246,241,231,0.75); }
+  .cv-list-item { display:flex; gap:12px; align-items:flex-start; font-size:14.5px; color:var(--copper); }
   .cv-list-item::before { content:'—'; color:var(--copper); flex-shrink:0; }
   #bar-services { background:var(--paper); }
   .bar-grid { display:grid; grid-template-columns:1fr 1fr; gap:70px; margin-top:56px; align-items:start; }
@@ -522,11 +522,24 @@
       </div>
     </div>
 
-    <div class="pricing-statement">
-      <p>Every situation is different. <strong>Reach out for personalized pricing options.</strong></p>
-    </div>
+    <a href="#" class="pricing-cta" onclick="event.preventDefault(); openQuickContact();">
+      <span>Every situation is different. Reach out for personalized pricing options.</span>
+      <span class="pricing-cta-arrow">→</span>
+    </a>
   </div>
 </section>
+
+<style>
+  .pricing-cta {
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    margin-top:32px; padding:22px 26px;
+    background:var(--paper2); border-left:3px solid var(--copper); border-radius:2px;
+    transition:background 0.2s;
+  }
+  .pricing-cta:hover { background:#E7DBC2; }
+  .pricing-cta span:first-child { font-family:'Lora',serif; font-size:17px; color:var(--ink); }
+  .pricing-cta-arrow { font-size:20px; flex-shrink:0; color:var(--copper); }
+</style>
 
 <section id="consulting-cta" style="background:var(--ink); padding-top:90px; padding-bottom:90px;">
   <div class="section-inner" style="text-align:center;">
