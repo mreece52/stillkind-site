@@ -286,7 +286,9 @@
     border-left:3px solid var(--copper);
     border-radius:2px;
     padding:18px 24px;
+    cursor:pointer; transition:background 0.2s;
   }
+  .bar-price-banner:hover { background:#E7DBC2; }
   .bar-price-banner-label {
     font-family:'Inter',sans-serif;
     font-size:11px; letter-spacing:0.14em; text-transform:uppercase;
@@ -316,6 +318,14 @@
     margin-bottom:6px;
   }
   .feature-tile-desc { font-size:13.5px; color:var(--lgrey); line-height:1.5; }
+  .feature-tile-cta {
+    background:var(--ink); display:flex; align-items:flex-end; justify-content:space-between;
+    gap:12px; cursor:pointer; text-decoration:none;
+  }
+  .feature-tile-cta:hover { background:#221D15; }
+  .feature-tile-cta .feature-tile-name { color:var(--paper); }
+  .feature-tile-cta .feature-tile-desc { color:rgba(246,241,231,0.6); }
+  .feature-tile-cta-arrow { font-size:22px; color:var(--copper); flex-shrink:0; }
   .package-card {
     border:1px solid rgba(23,20,15,0.15);
     border-radius:4px; padding:30px 28px; margin-bottom:16px;
@@ -461,11 +471,11 @@
     <h1 class="section-title" style="font-size:clamp(38px, 5vw, 62px);">Curated bar experiences for <em>Chicago &amp; the suburbs.</em></h1>
     <p class="section-lede">Every event is built around you: your guest count, your hours, your vibe. No fixed packages. Just a fully customizable experience, priced around what you actually need.</p>
 
-    <div class="bar-price-banner">
+    <a href="#" class="bar-price-banner" onclick="event.preventDefault(); openQuickContact();">
       <div class="bar-price-banner-label">Experiences start at</div>
       <div class="bar-price-banner-amount">$350</div>
       <div class="bar-price-banner-note">Fully custom from there, built around your hours and what you choose below.</div>
-    </div>
+    </a>
   </div>
 </section>
 
@@ -516,11 +526,13 @@
         <div class="feature-tile-name">Kindness Included</div>
         <div class="feature-tile-desc">Always. It's not an add-on. It's the whole point.</div>
       </div>
-      <div class="feature-tile feature-tile-cta">
-        <div class="feature-tile-name">Build Your Event</div>
-        <div class="feature-tile-desc">Mix and match. Tell us what you need and we'll build the quote around it.</div>
-        <a href="#" class="feature-tile-link" onclick="event.preventDefault(); openQuickContact();">Get In Touch &rarr;</a>
-      </div>
+      <a href="#" class="feature-tile feature-tile-cta" onclick="event.preventDefault(); openQuickContact();">
+        <div>
+          <div class="feature-tile-name">Build Your Event</div>
+          <div class="feature-tile-desc">Mix and match. Tell us what you need and we'll build the quote around it.</div>
+        </div>
+        <span class="feature-tile-cta-arrow">&rarr;</span>
+      </a>
     </div>
 
     <div class="bar-cred bar-cred-solo">
