@@ -762,7 +762,6 @@
     <li><a href="/presents.html">Community Engagement</a></li>
     <li><a href="/bar-services.html">Bar Services</a></li>
     <li><a href="/consulting.html">Consulting</a></li>
-    <li><a href="/faq.html">FAQ</a></li>
     <li><a href="https://instagram.com/stillkindchi" target="_blank" class="nav-ig" aria-label="Instagram">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
     </a></li>
@@ -778,7 +777,6 @@
   <a href="/presents.html">Community Engagement</a>
   <a href="/bar-services.html">Bar Services</a>
   <a href="/consulting.html">Consulting</a>
-  <a href="/faq.html">FAQ</a>
   <a href="https://instagram.com/stillkindchi" target="_blank">Instagram</a>
   <a href="#" class="mobile-cta" onclick="event.preventDefault(); openQuickContact();">Get In Touch</a>
 </div>
@@ -843,26 +841,11 @@
 <!-- PILLARS -->
 <!-- CONSULTING (flagship) -->
 <!-- FAQ PREVIEW -->
-<section id="faq-preview" style="background:var(--paper2);">
-  <div class="section-inner">
-    <div class="kicker">Quick Answers</div>
-    <h2 class="section-title">Frequently asked <em>questions.</em></h2>
-
-    <div class="faq-preview-list">
-      <div class="faq-preview-item">
-        <div class="faq-preview-q">What areas do you service?</div>
-      </div>
-      <div class="faq-preview-item">
-        <div class="faq-preview-q">Who is Still Kind Consulting actually for?</div>
-      </div>
-      <div class="faq-preview-item">
-        <div class="faq-preview-q">How do I find out about upcoming events?</div>
-      </div>
-    </div>
-
-    <a href="/faq.html" class="btn-outline" style="margin-top:32px; display:inline-block;">See All FAQs →</a>
-  </div>
-</section>
+<a href="/faq.html" id="faq-preview" style="display:flex; align-items:center; justify-content:center; gap:14px; padding:36px 24px; background:var(--paper2); text-decoration:none; border-top:1px solid rgba(23,20,15,0.08); border-bottom:1px solid rgba(23,20,15,0.08); transition:background 0.2s ease;" onmouseover="this.style.background='rgba(184,115,51,0.08)'" onmouseout="this.style.background='var(--paper2)'">
+  <span style="display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:50%; border:1.5px solid var(--copper); color:var(--copper); font-family:'Lora',serif; font-style:italic; font-size:18px; flex-shrink:0;">?</span>
+  <span style="font-family:'Lora',serif; font-size:19px; color:var(--ink);">Got questions? <em style="color:var(--copper); font-style:italic;">See our FAQs</em></span>
+  <span style="color:var(--copper); font-size:18px;">→</span>
+</a>
 
 <style>
   .faq-preview-list { margin-top:40px; display:flex; flex-direction:column; }
@@ -871,20 +854,23 @@
   }
   .faq-preview-item:last-child { border-bottom:1px solid rgba(23,20,15,0.1); }
   .faq-preview-q { font-family:'Lora',serif; font-size:18px; color:var(--ink); }
+  .faq-preview-a { font-size:15px; color:var(--grey); margin-top:6px; line-height:1.5; }
 </style>
 
-<section id="contact">
-  <div class="section-inner">
-    <div class="kicker">Get In Touch</div>
-    <h2 class="section-title">Let's <em>talk.</em></h2>
-    <p class="section-lede">You're not filling out a form. You're starting a conversation, and we'll answer quickly and kindly.</p>
+<section id="contact" style="padding:80px 56px;">
+  <div class="section-inner contact-grid">
+    <div>
+      <div class="kicker">Get In Touch</div>
+      <h2 class="section-title" style="font-size:clamp(32px, 4vw, 46px);">Let's <em>talk.</em></h2>
+      <p class="section-lede" style="margin-top:14px;">You're not filling out a form. You're starting a conversation, and we'll answer quickly and kindly.</p>
+    </div>
 
     <div class="unified-contact">
       <div class="form-field">
         <label class="form-label">What's this about?</label>
         <select class="form-select" id="contactReason" onchange="updateContactForm()">
           <option value="consulting">Consulting — Executive Culture &amp; Leadership Strategy</option>
-          <option value="bar-services">Bar Services — Book an Event</option>
+          <option value="bar-services" selected>Bar Services — Book an Event</option>
           <option value="presents">Community Engagement — Causes, Events &amp; Partnerships</option>
         </select>
       </div>
@@ -1249,6 +1235,8 @@
 
     document.getElementById('fields-bar-services').style.display = (reason === 'bar-services') ? 'block' : 'none';
   }
+
+  updateContactForm();
 
   function handleSubmit(e, form) {
     e.preventDefault();
