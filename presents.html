@@ -897,7 +897,8 @@
 <!-- UPCOMING EVENTS (flagship section — no more three-way split) -->
 <section id="presents-events" style="padding-top:20px; padding-bottom:0;">
   <div class="section-inner">
-    <div class="kicker" style="margin-bottom:14px;">Upcoming</div>
+    <div class="kicker" style="margin-bottom:6px;">Upcoming</div>
+    <p style="font-size:14px; color:var(--lgrey); font-style:italic; margin-bottom:14px;">Upcoming events to be added soon.</p>
     <div id="communityGrid" style="border:1px solid rgba(23,20,15,0.12); border-radius:4px; overflow:hidden;"></div>
   </div>
 </section>
@@ -905,15 +906,48 @@
 <!-- PAST MOMENT: POUR IT FORWARD PHOTO GALLERY (collapsed dropdown, not a full section) -->
 <section id="presents-gallery" style="padding-top:4px; padding-bottom:20px;">
   <div class="section-inner">
+
+    <!-- COMMUNITY IMPACT -->
+    <div style="padding:8px 4px 32px;">
+      <div class="kicker" style="margin-bottom:4px;">Community Impact</div>
+      <h2 class="section-title" style="font-size:clamp(26px, 3vw, 34px); margin-bottom:22px;">What Pour It Forward <em>gave back.</em></h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:28px 24px;">
+        <div style="border-top:3px solid var(--copper); padding-top:12px;">
+          <div style="font-family:'Lora',serif; font-size:24px; font-weight:600; color:var(--ink);">Highest Revenue</div>
+          <div style="font-size:13px; color:var(--grey); margin-top:4px; line-height:1.5;">Best-performing night at the bar on this date, beating every previous year</div>
+        </div>
+        <div style="border-top:3px solid var(--copper); padding-top:12px;">
+          <div style="font-family:'Lora',serif; font-size:24px; font-weight:600; color:var(--ink);">More Beers Sold</div>
+          <div style="font-size:13px; color:var(--grey); margin-top:4px; line-height:1.5;">$1 from every beer went to the cause — and it drove sales higher than a normal night</div>
+        </div>
+        <div style="border-top:3px solid var(--copper); padding-top:12px;">
+          <div style="font-family:'Lora',serif; font-size:24px; font-weight:600; color:var(--ink);">Great Vibes</div>
+          <div style="font-size:13px; color:var(--grey); margin-top:4px; line-height:1.5;">The energy in the room led to higher than average sales and staff tips</div>
+        </div>
+        <div style="border-top:3px solid var(--copper); padding-top:12px;">
+          <div style="font-family:'Lora',serif; font-size:24px; font-weight:600; color:var(--ink);">Sold Out</div>
+          <div style="font-size:13px; color:var(--grey); margin-top:4px; line-height:1.5;">Event-specific merch, gone by the end of the night</div>
+        </div>
+        <div style="border-top:3px solid var(--copper); padding-top:12px;">
+          <div style="font-family:'Lora',serif; font-size:24px; font-weight:600; color:var(--copper);">3,500+ Meals</div>
+          <div style="font-size:13px; color:var(--grey); margin-top:4px; line-height:1.5;">Generated through donations</div>
+        </div>
+        <div style="border-top:3px solid var(--copper); padding-top:12px;">
+          <div style="font-family:'Lora',serif; font-size:24px; font-weight:600; color:var(--copper);">Donation Bin Filled</div>
+          <div style="font-size:13px; color:var(--grey); margin-top:4px; line-height:1.5;">Multiple times over the course of the night</div>
+        </div>
+      </div>
+    </div>
+
     <details style="border:1px solid rgba(23,20,15,0.12); border-radius:4px; padding:0; overflow:hidden;">
       <summary style="cursor:pointer; list-style:none; padding:18px 22px; font-family:'Lora',serif; font-size:17px; font-weight:500; color:var(--ink); display:flex; align-items:center; justify-content:space-between; background:var(--paper2);">
         <span>See photos from Pour It Forward — A Night of Community</span>
         <span style="color:var(--copper); font-size:20px;">+</span>
       </summary>
       <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:14px; padding:20px;">
-        <img src="/content/uploads/pour-it-forward-group.jpeg" alt="Pour It Forward group photo, Still Kind team and guests" loading="lazy" style="width:100%; border-radius:4px; cursor:pointer;" onclick="openLightbox('/content/uploads/pour-it-forward-group.jpeg')" />
-        <img src="/content/uploads/pour-it-forward-crowd.jpeg" alt="Guests at the bar during Pour It Forward" loading="lazy" style="width:100%; border-radius:4px; cursor:pointer;" onclick="openLightbox('/content/uploads/pour-it-forward-crowd.jpeg')" />
-        <img src="/content/uploads/pour-it-forward-shirts.jpeg" alt="Still Kind Bar Services shirts at Pour It Forward" loading="lazy" style="width:100%; border-radius:4px; cursor:pointer;" onclick="openLightbox('/content/uploads/pour-it-forward-shirts.jpeg')" />
+        <img src="/content/uploads/pour-it-forward-group.jpeg" alt="Pour It Forward group photo, Still Kind team and guests" loading="lazy" style="width:100%; border-radius:4px; cursor:pointer;" onclick="openLightbox(this.src)" />
+        <img src="/content/uploads/pour-it-forward-crowd.jpeg" alt="Guests at the bar during Pour It Forward" loading="lazy" style="width:100%; border-radius:4px; cursor:pointer;" onclick="openLightbox(this.src)" />
+        <img src="/content/uploads/pour-it-forward-shirts.jpeg" alt="Still Kind Bar Services shirts at Pour It Forward" loading="lazy" style="width:100%; border-radius:4px; cursor:pointer;" onclick="openLightbox(this.src)" />
       </div>
     </details>
   </div>
@@ -1218,10 +1252,10 @@
       if (events.length) {
         grid.innerHTML = events.map(renderEventCard).join('');
       } else {
-        grid.innerHTML = '<div class="community-empty">No upcoming events right now. Check back soon.</div>';
+        grid.innerHTML = '<div class="community-empty">Upcoming events to be added soon.</div>';
       }
     } catch (err) {
-      grid.innerHTML = '<div class="community-empty">Check @stillkindchi for the latest events.</div>';
+      grid.innerHTML = '<div class="community-empty">Upcoming events to be added soon.</div>';
     }
   }
   loadCommunitySection();
