@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Still Kind — Today's Thing</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #17140F;
+    --cream: #F6F1E7;
+    --copper: #B5502E;
+    --copper-light: #D98A5F;
+    --muted: #8A8378;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--ink);
+    font-family: 'Inter', sans-serif;
+  }
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 24px;
+  }
+  .card {
+    max-width: 560px;
+    width: 100%;
+    text-align: center;
+  }
+  .label {
+    font-family: 'Lora', serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--copper-light);
+    margin-bottom: 28px;
+  }
+  .message {
+    font-family: 'Lora', serif;
+    font-weight: 600;
+    font-size: clamp(26px, 6vw, 42px);
+    line-height: 1.35;
+    color: var(--cream);
+    margin: 0 0 44px;
+    min-height: 1.4em;
+  }
+  .btn {
+    display: inline-block;
+    background: var(--copper);
+    color: var(--cream);
+    font-family: 'Lora', serif;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    padding: 14px 34px;
+    border-radius: 999px;
+    letter-spacing: 0.3px;
+    transition: opacity 0.15s ease;
+  }
+  .btn:hover { opacity: 0.85; }
+  .footer {
+    margin-top: 40px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="label">Still Kind &middot; Today's Thing</div>
+  <div class="message" id="message">Loading something kind...</div>
+  <a class="btn" href="https://www.stillkind.co" target="_blank" rel="noopener">Still Kind &rarr;</a>
+  <div class="footer">A new one every day. Scan again tomorrow.</div>
+</div>
+
+<script>
+  var messages = [
+    "You're allowed to take up space in a room and not apologize for it.",
+    "Somebody at this bar peaked tonight and it might be you. Let it happen.",
+    "You don't have to have it figured out to be worth talking to.",
+    "Tell the person next to you one true thing. Watch what happens.",
+    "Being kind is not the same as being a pushover. You can do both at once.",
+    "Your weird little obsession is not a flaw, it's the most interesting thing about you.",
+    "The bravest thing in this room tonight might just be showing up.",
+    "You are exactly the kind of person someone needed to sit next to today.",
+    "Nobody here is as put-together as they look. Relax.",
+    "The world does not need another person who takes themselves too seriously. Be the other kind.",
+    "You've survived every version of yourself so far. That's a pretty good record.",
+    "Say the nice thing out loud. The one you're thinking right now.",
+    "You're not behind. You're just on a schedule nobody else can see.",
+    "Buy the round. Tell the joke. Stay five more minutes.",
+    "Somebody is proud of you and hasn't said it yet.",
+    "You are allowed to leave a conversation that isn't serving you, kindly.",
+    "The version of you from five years ago would be stunned you made it here.",
+    "Compliment a stranger today. Make it weirdly specific.",
+    "You don't need a reason to be kind to someone tonight. Do it anyway.",
+    "The thing you're nervous to ask for is probably easier to get than you think.",
+    "Be the person who remembers names. It matters more than you'd guess.",
+    "You're funnier than you give yourself credit for. Say the joke.",
+    "Someone in this room needs a reason to laugh tonight. Be that reason.",
+    "You can be a little chaotic and still be a genuinely good person.",
+    "It's not too late to text that person back.",
+    "You are more fun at a party than your anxiety tells you.",
+    "The best stories at a bar start with 'okay this is going to sound insane, but'.",
+    "Let yourself be a regular somewhere. It's good for your soul.",
+    "Today's a good day to tip extra and mean it.",
+    "You are someone's favorite person to run into unexpectedly.",
+    "Being still kind means being kind even when nobody's watching you do it.",
+    "You don't owe anyone a polished version of your week. The real one is fine.",
+    "Somebody needs you to ask 'hey, are you actually okay?' tonight.",
+    "You are allowed to be a work in progress and still be worth knowing.",
+    "That thing you're overthinking? Nobody else remembers it. Let it go.",
+    "The loudest person at the bar is usually the one who needs the most patience.",
+    "You've made it through harder nights than this one. You'll make it through this one too.",
+    "Go talk to the stranger. Worst case, you get a weird story out of it.",
+    "You are not too much. You are exactly enough, loudly.",
+    "Kindness is still the most underrated move in the room."
+  ];
+
+  function dayOfYear(d) {
+    var start = new Date(d.getFullYear(), 0, 0);
+    var diff = d - start;
+    return Math.floor(diff / 86400000);
+  }
+
+  var idx = dayOfYear(new Date()) % messages.length;
+  document.getElementById('message').textContent = messages[idx];
+</script>
+
+</body>
+</html>
