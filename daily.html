@@ -11,8 +11,8 @@
     --ink: #17140F;
     --cream: #F6F1E7;
     --copper: #B5502E;
-    --copper-light: #D98A5F;
     --muted: #8A8378;
+    --hairline: #2A251D;
   }
   * { box-sizing: border-box; }
   html, body {
@@ -28,102 +28,116 @@
     padding: 32px 24px;
   }
   .card {
-    max-width: 560px;
+    max-width: 540px;
     width: 100%;
     text-align: center;
   }
-  .label {
+  .wordmark {
     font-family: 'Lora', serif;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 700;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
+    color: var(--cream);
+    margin-bottom: 6px;
+  }
+  .label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
     text-transform: uppercase;
-    color: var(--copper-light);
-    margin-bottom: 28px;
+    color: var(--muted);
+    margin-bottom: 36px;
+  }
+  .rule {
+    width: 36px;
+    height: 1.5px;
+    background: var(--copper);
+    margin: 0 auto 36px;
   }
   .message {
     font-family: 'Lora', serif;
     font-weight: 600;
-    font-size: clamp(26px, 6vw, 42px);
-    line-height: 1.35;
+    font-size: clamp(24px, 5.5vw, 38px);
+    line-height: 1.4;
     color: var(--cream);
-    margin: 0 0 44px;
+    margin: 0 0 48px;
     min-height: 1.4em;
   }
   .btn {
     display: inline-block;
     background: var(--copper);
     color: var(--cream);
-    font-family: 'Lora', serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 600;
-    font-size: 15px;
+    font-size: 14px;
     text-decoration: none;
-    padding: 14px 34px;
+    padding: 14px 32px;
     border-radius: 999px;
     letter-spacing: 0.3px;
     transition: opacity 0.15s ease;
   }
   .btn:hover { opacity: 0.85; }
   .footer {
-    margin-top: 40px;
+    margin-top: 36px;
     font-size: 11px;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     color: var(--muted);
-    text-transform: uppercase;
   }
 </style>
 </head>
 <body>
 
 <div class="card">
-  <div class="label">Still Kind &middot; Today's Thing</div>
+  <div class="wordmark">STILL KIND</div>
+  <div class="label">Today's Thing</div>
+  <div class="rule"></div>
   <div class="message" id="message">Loading something kind...</div>
-  <a class="btn" href="https://www.stillkind.co" target="_blank" rel="noopener">Still Kind &rarr;</a>
+  <a class="btn" href="https://www.instagram.com/stillkindchi/" target="_blank" rel="noopener">Follow @stillkindchi</a>
   <div class="footer">A new one every day. Scan again tomorrow.</div>
 </div>
 
 <script>
   var messages = [
-    "You're allowed to take up space in a room and not apologize for it.",
-    "Somebody at this bar peaked tonight and it might be you. Let it happen.",
-    "You don't have to have it figured out to be worth talking to.",
-    "Tell the person next to you one true thing. Watch what happens.",
-    "Being kind is not the same as being a pushover. You can do both at once.",
-    "Your weird little obsession is not a flaw, it's the most interesting thing about you.",
-    "The bravest thing in this room tonight might just be showing up.",
-    "You are exactly the kind of person someone needed to sit next to today.",
-    "Nobody here is as put-together as they look. Relax.",
-    "The world does not need another person who takes themselves too seriously. Be the other kind.",
-    "You've survived every version of yourself so far. That's a pretty good record.",
-    "Say the nice thing out loud. The one you're thinking right now.",
-    "You're not behind. You're just on a schedule nobody else can see.",
-    "Buy the round. Tell the joke. Stay five more minutes.",
-    "Somebody is proud of you and hasn't said it yet.",
-    "You are allowed to leave a conversation that isn't serving you, kindly.",
-    "The version of you from five years ago would be stunned you made it here.",
-    "Compliment a stranger today. Make it weirdly specific.",
-    "You don't need a reason to be kind to someone tonight. Do it anyway.",
-    "The thing you're nervous to ask for is probably easier to get than you think.",
-    "Be the person who remembers names. It matters more than you'd guess.",
-    "You're funnier than you give yourself credit for. Say the joke.",
-    "Someone in this room needs a reason to laugh tonight. Be that reason.",
-    "You can be a little chaotic and still be a genuinely good person.",
-    "It's not too late to text that person back.",
-    "You are more fun at a party than your anxiety tells you.",
-    "The best stories at a bar start with 'okay this is going to sound insane, but'.",
-    "Let yourself be a regular somewhere. It's good for your soul.",
-    "Today's a good day to tip extra and mean it.",
-    "You are someone's favorite person to run into unexpectedly.",
-    "Being still kind means being kind even when nobody's watching you do it.",
-    "You don't owe anyone a polished version of your week. The real one is fine.",
-    "Somebody needs you to ask 'hey, are you actually okay?' tonight.",
-    "You are allowed to be a work in progress and still be worth knowing.",
-    "That thing you're overthinking? Nobody else remembers it. Let it go.",
-    "The loudest person at the bar is usually the one who needs the most patience.",
-    "You've made it through harder nights than this one. You'll make it through this one too.",
-    "Go talk to the stranger. Worst case, you get a weird story out of it.",
-    "You are not too much. You are exactly enough, loudly.",
-    "Kindness is still the most underrated move in the room."
+    "You just walked in and the room's vibe went up two points. Science.",
+    "That joke you just told? Add it to your highlight reel. It was that good.",
+    "You are built different and the data (your group chat) supports this.",
+    "Order the top-shelf thing. You're not a well-drink person tonight.",
+    "Somebody at this bar is going to tell their roommate about you tomorrow like you're a celebrity sighting.",
+    "You stopped being \"a lot\" the day everyone else got boring. Keep going.",
+    "This week tried to end you and you showed up anyway looking like this. Legendary.",
+    "You could start a cult based on vibes alone. Please don't. But you could.",
+    "Nobody asked for your main-character arc to start tonight, but here we are.",
+    "You're the reason this playlist suddenly feels better.",
+    "Compliment yourself out loud right now. Nobody's listening. Do it anyway.",
+    "You looked in a mirror today and saw somebody who has their life together. Keep that energy.",
+    "Your laugh just made a stranger across the room smile. That's a public service.",
+    "You are, undefeated, the funniest person at this table tonight.",
+    "That drink order was iconic. The bartender is still thinking about it.",
+    "You're one good story away from becoming this bar's folklore.",
+    "Nobody peer-pressured you into being this interesting. You just are.",
+    "You've got the energy of someone who just won something. Act like you did.",
+    "Your \"weird\" is somebody else's favorite thing about you. Lean all the way in.",
+    "This is your Roman Empire moment: being undeniably likable at a bar on a weeknight.",
+    "You're not drunk off one drink, you're just finally relaxed enough to be your full self. Let her rip.",
+    "Somebody just screenshotted something you said to send to their group chat.",
+    "You are having main-character energy and the extras (everyone else) know it.",
+    "The bartender remembers you. That's basically a celebrity endorsement.",
+    "You're too fun for a Tuesday and that's exactly the problem Tuesday should have.",
+    "Somebody tonight is going to go home and say \"I met the funniest person.\" That's you. Stay humble. Or don't.",
+    "You've got main-character hair tonight. Flip it accordingly.",
+    "This is your sign to be slightly too confident about something minor. Go for it.",
+    "You are, undeniably, a vibe. An entire mood. A whole weather system.",
+    "If tonight had a producer's cut, you'd get a slow-motion entrance.",
+    "You're the plot twist this group chat didn't know it needed.",
+    "Somebody's going to adopt your catchphrase from tonight by Monday.",
+    "You are objectively more interesting than your phone. Put it down for five minutes and prove it.",
+    "You walked in like you owned the place. Respect the delusion, it's working.",
+    "Your confidence tonight could be bottled and sold as a supplement.",
+    "You're the reason this night gets upgraded from \"fine\" to \"we have to tell people about this.\"",
+    "Somebody's going to ask the bartender \"who was that\" about you. Let the legend grow.",
+    "You are, undefeated, the best thing that's happened to this bar in the last hour.",
+    "Whatever you're about to say next is going to be quoted later. No pressure.",
+    "You're a whole personality and tonight the world finally caught up to it."
   ];
 
   function dayOfYear(d) {
