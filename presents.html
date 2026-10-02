@@ -1209,6 +1209,7 @@
     const d = new Date(event.date + 'T00:00:00');
     const month = MONTH_NAMES[d.getMonth()] || '';
     const day = d.getDate() || '';
+    const isPostponed = event.status === 'postponed';
 
     const mapHref = event.map_link
       ? event.map_link
@@ -1218,19 +1219,25 @@
       ? `<span style="color:var(--lgrey);">${event.location}</span>`
       : '';
 
-    const ticketBtn = event.ticket_link
-      ? `<a href="${event.ticket_link}" target="_blank" onclick="event.stopPropagation()" style="font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--copper); flex-shrink:0;">${event.ticket_label || 'Sign Up →'}</a>`
-      : (mapHref ? `<a href="${mapHref}" target="_blank" onclick="event.stopPropagation()" style="font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--copper); flex-shrink:0;">Directions →</a>` : '');
+    const ticketBtn = isPostponed
+      ? `<span style="font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--lgrey); flex-shrink:0;">New Date Soon</span>`
+      : (event.ticket_link
+        ? `<a href="${event.ticket_link}" target="_blank" onclick="event.stopPropagation()" style="font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--copper); flex-shrink:0;">${event.ticket_label || 'Sign Up →'}</a>`
+        : (mapHref ? `<a href="${mapHref}" target="_blank" onclick="event.stopPropagation()" style="font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--copper); flex-shrink:0;">Directions →</a>` : ''));
+
+    const postponedBadge = isPostponed
+      ? `<span style="display:inline-block; margin-left:8px; font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink); border:1.5px solid var(--ink); border-radius:999px; padding:2px 9px; vertical-align:middle;">Postponed</span>`
+      : '';
 
     return `
       <div style="display:flex; align-items:center; gap:16px; padding:16px 18px; border-bottom:1px solid rgba(23,20,15,0.08);">
         <div style="text-align:center; flex-shrink:0; width:44px;">
-          <div style="font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--copper);">${month}</div>
-          <div style="font-family:'Lora',serif; font-size:20px; color:var(--ink);">${day}</div>
+          <div style="font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:${isPostponed ? 'var(--lgrey)' : 'var(--copper)'};">${month}</div>
+          <div style="font-family:'Lora',serif; font-size:20px; color:${isPostponed ? 'var(--lgrey)' : 'var(--ink)'};">${day}</div>
         </div>
         <div style="flex:1; min-width:0;">
-          <div style="font-family:'Lora',serif; font-size:16px; color:var(--ink); font-weight:500;">${event.title || ''}</div>
-          <div style="font-size:13px; margin-top:2px;">${event.cause ? `<span style="color:var(--copper);">${event.cause}</span>${locBit ? ' · ' : ''}` : ''}${locBit}</div>
+          <div style="font-family:'Lora',serif; font-size:16px; color:${isPostponed ? 'var(--lgrey)' : 'var(--ink)'}; font-weight:500;">${event.title || ''}${postponedBadge}</div>
+          <div style="font-size:13px; margin-top:2px;">${event.cause ? `<span style="color:${isPostponed ? 'var(--lgrey)' : 'var(--copper)'};">${event.cause}</span>${locBit ? ' · ' : ''}` : ''}${locBit}</div>
         </div>
         ${ticketBtn}
       </div>`;
