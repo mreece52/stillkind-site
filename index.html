@@ -589,6 +589,16 @@
     opacity:0; transition:opacity 0.2s;
   }
   .event-card:hover .event-card-expand { opacity:1; }
+  .event-card.is-postponed .event-card-img,
+  .event-card.is-postponed .event-card-noimg { filter:grayscale(0.35) brightness(0.55); }
+  .event-card-postponed-stamp {
+    position:absolute; top:50%; left:50%; z-index:3;
+    transform:translate(-50%,-50%) rotate(-8deg);
+    border:3px solid #F6F1E7; color:#F6F1E7;
+    font-family:'Inter',sans-serif; font-weight:800; font-size:clamp(16px,2.4vw,22px); letter-spacing:3px;
+    padding:7px 20px; text-transform:uppercase; white-space:nowrap;
+    background:rgba(23,20,15,0.4);
+  }
 
   /* Merch teaser — real image card, clickable to the shop */
   .merch-card {
@@ -1074,6 +1084,8 @@
     const d = new Date(event.date + 'T00:00:00');
     const month = MONTH_NAMES[d.getMonth()] || '';
     const day = d.getDate() || '';
+    const isPostponed = event.status === 'postponed';
+    const postponedStamp = isPostponed ? `<div class="event-card-postponed-stamp">Postponed</div>` : '';
 
     const imgLayer = event.image
       ? `<img class="event-card-img" src="${event.image}" alt="${event.title || 'Event'}" loading="lazy" />`
@@ -1103,9 +1115,10 @@
     const clickToExpand = event.image ? ` onclick="openLightbox('${event.image}')" style="cursor:pointer;"` : '';
 
     return `
-      <div class="event-card"${clickToExpand}>
+      <div class="event-card${isPostponed ? ' is-postponed' : ''}"${clickToExpand}>
         ${imgLayer}
         <div class="event-card-scrim"></div>
+        ${postponedStamp}
         ${expandBtn}
         <div class="event-card-date-badge">
           <div class="month">${month}</div>
