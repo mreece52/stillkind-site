@@ -446,6 +446,18 @@
     .bar-price-banner { padding:26px 24px; }
     footer { padding:40px 24px; }
   }
+
+  .bar-cred-solo { column-count:2; column-gap:40px; }
+  .bar-cred-solo .bar-cred-item { break-inside:avoid; }
+  .feat-drop { border:1px solid var(--paper2); background:var(--paper2); border-radius:8px; }
+  .feat-drop summary { list-style:none; cursor:pointer; display:flex; align-items:baseline; gap:14px; padding:20px 24px; flex-wrap:wrap; }
+  .feat-drop summary::-webkit-details-marker { display:none; }
+  .feat-drop-label { font-family:'Lora',serif; font-size:24px; color:var(--ink); }
+  .feat-drop-sub { font-size:14px; color:var(--lgrey); flex:1; }
+  .feat-drop-chev { width:10px; height:10px; border-right:2px solid var(--copper); border-bottom:2px solid var(--copper); transform:rotate(45deg); transition:transform .2s; margin-left:auto; align-self:center; }
+  .feat-drop[open] .feat-drop-chev { transform:rotate(-135deg); }
+  .feat-drop .feature-grid { margin:0; border-top:1px solid rgba(0,0,0,0.08); }
+  @media (max-width:700px){ .bar-cred-solo { column-count:1; } }
 </style>
 </head>
 <body>
@@ -479,11 +491,11 @@
   <a href="#" class="mobile-cta" onclick="event.preventDefault(); openQuickContact();">Get In Touch</a>
 </div>
 
-<section id="bar-services-hero" style="padding-top:160px;">
+<section id="bar-services-hero" style="padding-top:140px; padding-bottom:40px;">
   <div class="section-inner">
     <div class="kicker">Private Event Bartending &middot; Now Booking Nov &amp; Dec</div>
     <h1 class="section-title" style="font-size:clamp(38px, 5vw, 62px);">Private event bartender for <em>Chicago &amp; the suburbs.</em></h1>
-    <p class="section-lede">Twenty years in hospitality, from banquet floors and catering to running the Grey Goose lounge at the Farmers Insurance Open. I run your bar, your floor, or both, so you can enjoy your own party. Holiday parties, weddings, corporate events, galas.</p>
+    <p class="section-lede">I run your bar, your floor, or both, so you can enjoy your own party. Holiday parties, weddings, corporate events, galas.</p>
 
     <a href="#" class="bar-price-banner" onclick="event.preventDefault(); openQuickContact();">
       <div class="bar-price-banner-label">Events start at</div>
@@ -493,26 +505,26 @@
   </div>
 </section>
 
-<section id="bar-services-experience" style="padding-top:20px; padding-bottom:20px;">
+<section id="bar-services-experience" style="padding-top:20px; padding-bottom:0;">
   <div class="section-inner">
-    <div class="kicker">Why Hire Me</div>
-    <h2 class="section-title" style="font-size:clamp(28px, 3.4vw, 42px);">Every role in the room. <em>Not just the bar.</em></h2>
-    <p class="section-lede">I've worked every job this industry has: bartender, bar manager, assistant GM, GM, operator, banquet captain, and years of catering. That means your event gets someone who sees the whole room, not just the drinks.</p>
+    <div class="kicker">Credentials</div>
     <div class="bar-cred bar-cred-solo">
       <div class="bar-cred-item"><b>&check;</b> 20 years in hospitality, coast to coast</div>
+      <div class="bar-cred-item"><b>&check;</b> Bartender, bar manager, AGM, GM, and operator</div>
       <div class="bar-cred-item"><b>&check;</b> Four seasons running the Grey Goose lounge, 17th hole, Farmers Insurance Open</div>
       <div class="bar-cred-item"><b>&check;</b> Banquet captain and catering experience</div>
       <div class="bar-cred-item"><b>&check;</b> Cocktail menu creation for events and venues</div>
+      <div class="bar-cred-item"><b>&check;</b> BASSET certified</div>
+      <div class="bar-cred-item"><b>&check;</b> ServSafe certified</div>
       <div class="bar-cred-item"><b>&check;</b> Fully insured: liquor liability &amp; product liability</div>
-      <div class="bar-cred-item"><b>&check;</b> ANAB-CFP Certified Food Protection Manager</div>
     </div>
   </div>
 </section>
 
-<section id="bar-services-features" style="padding-top:20px;">
+<section id="bar-services-features" style="padding-top:24px; padding-bottom:20px;">
   <div class="section-inner">
-    <div class="kicker">What I Do</div>
-    <h2 class="section-title" style="font-size:clamp(28px, 3.4vw, 42px); margin-bottom:8px;">Built around <em>your event.</em></h2>
+    <details class="feat-drop">
+      <summary><span class="feat-drop-label">What I Do</span><span class="feat-drop-sub">Everything I can build around your event</span><span class="feat-drop-chev" aria-hidden="true"></span></summary>
     <div class="feature-grid">
       <div class="feature-tile">
         <div class="feature-tile-name">Corporate &amp; Holiday Parties</div>
@@ -578,10 +590,11 @@
         <span class="feature-tile-cta-arrow">&rarr;</span>
       </a>
     </div>
+    </details>
   </div>
 </section>
 
-<section id="bar-services-how" style="padding-top:60px; padding-bottom:60px;">
+<section id="bar-services-how" style="padding-top:30px; padding-bottom:50px;">
   <div class="section-inner">
     <div class="kicker">How Booking Works</div>
     <div class="service-list" style="max-width:760px; margin-top:12px;">
@@ -604,14 +617,10 @@
         </div>
       </div>
     </div>
-    <div class="bar-cred bar-cred-solo" style="margin-top:32px;">
-      <div class="bar-cred-item"><b>&check;</b> Chicago &amp; suburbs service area</div>
-      <div class="bar-cred-item"><b>&check;</b> Now booking November &amp; December holiday events</div>
-    </div>
   </div>
 </section>
 
-<section id="bar-services-cta" style="background:var(--ink); padding-top:90px; padding-bottom:90px;">
+<section id="bar-services-cta" style="background:var(--ink); padding-top:70px; padding-bottom:70px;">
   <div class="section-inner" style="text-align:center;">
     <h2 class="section-title" style="color:var(--paper); font-size:clamp(28px,3.6vw,42px);">Booking holiday events now.</h2>
     <p class="section-lede" style="color:rgba(246,241,231,0.65); margin-left:auto; margin-right:auto;">Tell me your date, your guest count, your vibe. I'll get back to you quickly.</p>
