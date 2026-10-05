@@ -458,7 +458,7 @@
   <a href="#" class="mobile-cta" onclick="event.preventDefault(); openQuickContact();">Get In Touch</a>
 </div>
 
-<section id="coaching-hero" style="padding-top:150px; padding-bottom:40px;">
+<section id="coaching-hero" style="padding-top:130px; padding-bottom:28px;">
   <div class="section-inner">
     <div class="kicker">Personal &amp; Leadership Coaching &middot; Chicago &amp; Remote</div>
     <h1 class="section-title" style="font-size:clamp(38px, 5vw, 62px);">Stuck is not <em>where you stay.</em></h1>
@@ -469,20 +469,41 @@
   </div>
 </section>
 
-<section id="coaching-why" style="padding-top:40px; padding-bottom:40px;">
-  <div class="section-inner">
+<style>
+  .acc-wrap { max-width:none; }
+  .acc { border:1px solid rgba(23,20,15,0.12); background:var(--paper2); border-radius:6px; margin-bottom:12px; }
+  .acc summary { list-style:none; cursor:pointer; display:flex; align-items:baseline; gap:14px; padding:20px 24px; flex-wrap:wrap; }
+  .acc summary::-webkit-details-marker { display:none; }
+  .acc-t { font-family:'Lora',serif; font-size:22px; color:var(--ink); }
+  .acc-s { font-size:14px; color:var(--lgrey); flex:1; }
+  .acc-chev { width:10px; height:10px; border-right:2px solid var(--copper); border-bottom:2px solid var(--copper); transform:rotate(45deg); transition:transform .2s; margin-left:auto; align-self:center; }
+  .acc[open] .acc-chev { transform:rotate(-135deg); }
+  .acc-body { padding:6px 24px 26px; border-top:1px solid rgba(23,20,15,0.1); }
+  .acc-body .service-grid { margin-top:18px; gap:40px; }
+  .acc-body .service-list { max-width:none !important; }
+  @media (max-width:900px){ .acc-body .service-grid { grid-template-columns:1fr; } .acc summary { padding:18px; } .acc-body { padding:6px 18px 22px; } }
+</style>
+
+<section id="coaching-acc" style="padding-top:10px; padding-bottom:50px;">
+  <div class="section-inner acc-wrap">
+<details class="acc">
+  <summary><span class="acc-t">Why Me</span><span class="acc-s">Twenty years behind the bar, one hard reset</span><span class="acc-chev" aria-hidden="true"></span></summary>
+  <div class="acc-body">
     <div class="service-grid" style="margin-top:0;">
       <div>
-        <div class="kicker">Why Me</div>
         <h2 class="section-title" style="font-size:clamp(28px, 3.4vw, 40px); margin-bottom:18px;">I'm not a coach because of a certificate. <em>I'm a coach because I've been stuck.</em></h2>
-        <p class="coach-p">I spent twenty years in hospitality, from Pennsylvania to San Diego to Chicago. Bartender, bar manager, GM, operator. I ran the Grey Goose lounge on the 17th hole at the Farmers Insurance Open for four seasons. I know how to hold a room together under pressure.</p>
+        <div class="coach-lines">
+          <p>Stuck is a place you're in, not who you are.</p>
+          <p>I spent twenty years making rooms feel good for everyone else. Now I help you do it for your own life.</p>
+          <p>I'm not going to tell you it's easy. I'm going to tell you it's possible.</p>
+        </div>
         <p class="coach-p">Then my own life came apart. I lost the relationship I'd built everything around, and underneath all that showing up for everyone else, I had no idea how to show up for myself. I had to rebuild from the floor, and that rebuild became Still Kind.</p>
-        <p class="coach-p">I'm not going to tell you it's easy. I'm going to tell you it's possible. I did it. I'll show you how.</p>
+        <p class="coach-p">I did it. I'll show you how.</p>
       </div>
 
       <div class="coaching-visual">
         <div class="cv-label">The Still Kind Difference</div>
-        <div class="cv-quote">"Most coaches come from a textbook. I come from rock bottom and twenty years behind the bar."</div>
+        <div class="cv-quote">"Most coaches learned it in a corporate office. I learned it behind a bar."</div>
         <div class="cv-attribution">Madison Reece, Founder</div>
         <div class="cv-divider"></div>
         <div class="cv-list">
@@ -494,11 +515,11 @@
       </div>
     </div>
   </div>
-</section>
+</details>
+<details class="acc">
+  <summary><span class="acc-t">This Might Be You</span><span class="acc-s">Who this is for</span><span class="acc-chev" aria-hidden="true"></span></summary>
+  <div class="acc-body">
 
-<section id="coaching-for" style="padding-top:30px; padding-bottom:30px;">
-  <div class="section-inner">
-    <div class="kicker">This Might Be You</div>
     <div class="bar-cred-solo-wrap">
       <div class="coach-fit">
         <div class="coach-fit-item">You're good at taking care of everyone else and running on empty yourself.</div>
@@ -508,11 +529,11 @@
       </div>
     </div>
   </div>
-</section>
+</details>
+<details class="acc">
+  <summary><span class="acc-t">Working Together</span><span class="acc-s">Free intro call, 1:1 sessions, packages, team workshops</span><span class="acc-chev" aria-hidden="true"></span></summary>
+  <div class="acc-body">
 
-<section id="coaching-services" style="padding-top:30px; padding-bottom:30px;">
-  <div class="section-inner">
-    <div class="kicker">Working Together</div>
     <div class="service-list" style="max-width:820px; margin-top:12px;">
       <div class="service-item"><div>
         <div class="service-item-name">1. Free Intro Call</div>
@@ -532,11 +553,11 @@
       </div></div>
     </div>
   </div>
-</section>
+</details>
+<details class="acc">
+  <summary><span class="acc-t">The Framework</span><span class="acc-s">Five pillars: presence, connection, communication, consistency, the ripple</span><span class="acc-chev" aria-hidden="true"></span></summary>
+  <div class="acc-body">
 
-<section id="coaching-pillars" style="padding-top:30px; padding-bottom:60px;">
-  <div class="section-inner">
-    <div class="kicker">The Framework</div>
     <div class="coach-pillars">
       <div><b>Presence</b>Control what you bring into the room.</div>
       <div><b>Connection</b>Make the person in front of you feel seen.</div>
@@ -545,10 +566,14 @@
       <div><b>The Ripple</b>Your kindness reaches people you'll never meet.</div>
     </div>
   </div>
+</details>
+  </div>
 </section>
 
 <style>
   .coach-p { font-size:17px; line-height:1.7; color:var(--grey); margin-bottom:16px; }
+  .coach-lines { margin-bottom:22px; }
+  .coach-lines p { font-family:'Lora',serif; font-size:19px; line-height:1.5; color:var(--ink); border-left:3px solid var(--copper); padding:4px 0 4px 18px; margin-bottom:14px; }
   .coach-fit { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:12px; }
   .coach-fit-item { background:var(--paper2); border-left:3px solid var(--copper); border-radius:2px; padding:18px 22px; font-size:15.5px; line-height:1.55; color:var(--ink); }
   .coach-pillars { display:grid; grid-template-columns:repeat(5, 1fr); gap:0; margin-top:14px; border:1px solid rgba(23,20,15,0.12); border-radius:4px; overflow:hidden; }
@@ -563,7 +588,7 @@
   }
 </style>
 
-<section id="coaching-cta" style="background:var(--ink); padding-top:70px; padding-bottom:70px;">
+<section id="coaching-cta" style="background:var(--ink); padding-top:56px; padding-bottom:56px;">
   <div class="section-inner" style="text-align:center;">
     <h2 class="section-title" style="color:var(--paper); font-size:clamp(28px,3.6vw,42px);">Ready to move?</h2>
     <p class="section-lede" style="color:rgba(246,241,231,0.65); margin-left:auto; margin-right:auto;">Start with a free 20-minute call. No pressure, no pitch. Just a real conversation about what's next.</p>
