@@ -449,14 +449,19 @@
 
   .bar-cred-solo { column-count:2; column-gap:40px; }
   .bar-cred-solo .bar-cred-item { break-inside:avoid; }
-  .feat-drop { border:1px solid var(--paper2); background:var(--paper2); border-radius:8px; }
-  .feat-drop summary { list-style:none; cursor:pointer; display:flex; align-items:baseline; gap:14px; padding:20px 24px; flex-wrap:wrap; }
-  .feat-drop summary::-webkit-details-marker { display:none; }
-  .feat-drop-label { font-family:'Lora',serif; font-size:24px; color:var(--ink); }
-  .feat-drop-sub { font-size:14px; color:var(--lgrey); flex:1; }
-  .feat-drop-chev { width:10px; height:10px; border-right:2px solid var(--copper); border-bottom:2px solid var(--copper); transform:rotate(45deg); transition:transform .2s; margin-left:auto; align-self:center; }
-  .feat-drop[open] .feat-drop-chev { transform:rotate(-135deg); }
-  .feat-drop .feature-grid { margin:0; border-top:1px solid rgba(0,0,0,0.08); }
+  .acc-wrap { max-width:none; }
+  .acc { border:1px solid rgba(23,20,15,0.12); background:var(--paper2); border-radius:6px; margin-bottom:12px; }
+  .acc summary { list-style:none; cursor:pointer; display:flex; align-items:baseline; gap:14px; padding:20px 24px; flex-wrap:wrap; }
+  .acc summary::-webkit-details-marker { display:none; }
+  .acc-t { font-family:'Lora',serif; font-size:22px; color:var(--ink); }
+  .acc-s { font-size:14px; color:var(--lgrey); flex:1; }
+  .acc-chev { width:10px; height:10px; border-right:2px solid var(--copper); border-bottom:2px solid var(--copper); transform:rotate(45deg); transition:transform .2s; margin-left:auto; align-self:center; }
+  .acc[open] .acc-chev { transform:rotate(-135deg); }
+  .acc-body { padding:18px 24px 24px; border-top:1px solid rgba(23,20,15,0.1); }
+  .acc-body .feature-grid { margin:0; }
+  .acc-body .bar-cred { background:none; border:none; padding:0; }
+  .acc-body .service-list { max-width:none !important; margin-top:0 !important; }
+  @media (max-width:700px){ .acc summary { padding:18px; } .acc-body { padding:16px 18px 20px; } }
   @media (max-width:700px){ .bar-cred-solo { column-count:1; } }
 </style>
 </head>
@@ -491,7 +496,7 @@
   <a href="#" class="mobile-cta" onclick="event.preventDefault(); openQuickContact();">Get In Touch</a>
 </div>
 
-<section id="bar-services-hero" style="padding-top:140px; padding-bottom:40px;">
+<section id="bar-services-hero" style="padding-top:130px; padding-bottom:28px;">
   <div class="section-inner">
     <div class="kicker">Private Event Bartending &middot; Now Booking Nov &amp; Dec</div>
     <h1 class="section-title" style="font-size:clamp(38px, 5vw, 62px);">Private event bartender for <em>Chicago &amp; the suburbs.</em></h1>
@@ -505,27 +510,12 @@
   </div>
 </section>
 
-<section id="bar-services-experience" style="padding-top:20px; padding-bottom:0;">
-  <div class="section-inner">
-    <div class="kicker">Credentials</div>
-    <div class="bar-cred bar-cred-solo">
-      <div class="bar-cred-item"><b>&check;</b> 20 years in hospitality, coast to coast</div>
-      <div class="bar-cred-item"><b>&check;</b> Bartender, bar manager, AGM, GM, and operator</div>
-      <div class="bar-cred-item"><b>&check;</b> Four seasons running the Grey Goose lounge, 17th hole, Farmers Insurance Open</div>
-      <div class="bar-cred-item"><b>&check;</b> Banquet captain and catering experience</div>
-      <div class="bar-cred-item"><b>&check;</b> Cocktail menu creation for events and venues</div>
-      <div class="bar-cred-item"><b>&check;</b> BASSET certified</div>
-      <div class="bar-cred-item"><b>&check;</b> ServSafe certified</div>
-      <div class="bar-cred-item"><b>&check;</b> Fully insured: liquor liability &amp; product liability</div>
-    </div>
-  </div>
-</section>
-
-<section id="bar-services-features" style="padding-top:24px; padding-bottom:20px;">
-  <div class="section-inner">
-    <details class="feat-drop">
-      <summary><span class="feat-drop-label">What I Do</span><span class="feat-drop-sub">Everything I can build around your event</span><span class="feat-drop-chev" aria-hidden="true"></span></summary>
-    <div class="feature-grid">
+<section id="bar-services-acc" style="padding-top:10px; padding-bottom:50px;">
+  <div class="section-inner acc-wrap">
+    <details class="acc">
+      <summary><span class="acc-t">What I Do</span><span class="acc-s">Everything I can build around your event</span><span class="acc-chev" aria-hidden="true"></span></summary>
+      <div class="acc-body">
+<div class="feature-grid">
       <div class="feature-tile">
         <div class="feature-tile-name">Corporate &amp; Holiday Parties</div>
         <div class="feature-tile-desc">Office parties, client events, galas, and banquets, run smoothly.</div>
@@ -590,14 +580,27 @@
         <span class="feature-tile-cta-arrow">&rarr;</span>
       </a>
     </div>
+      </div>
     </details>
-  </div>
-</section>
-
-<section id="bar-services-how" style="padding-top:30px; padding-bottom:50px;">
-  <div class="section-inner">
-    <div class="kicker">How Booking Works</div>
-    <div class="service-list" style="max-width:760px; margin-top:12px;">
+    <details class="acc">
+      <summary><span class="acc-t">Credentials</span><span class="acc-s">20 years, BASSET and ServSafe certified, fully insured</span><span class="acc-chev" aria-hidden="true"></span></summary>
+      <div class="acc-body">
+<div class="bar-cred bar-cred-solo">
+      <div class="bar-cred-item"><b>&check;</b> 20 years in hospitality, coast to coast</div>
+      <div class="bar-cred-item"><b>&check;</b> Bartender, bar manager, AGM, GM, and operator</div>
+      <div class="bar-cred-item"><b>&check;</b> Four seasons running the Grey Goose lounge, 17th hole, Farmers Insurance Open</div>
+      <div class="bar-cred-item"><b>&check;</b> Banquet captain and catering experience</div>
+      <div class="bar-cred-item"><b>&check;</b> Cocktail menu creation for events and venues</div>
+      <div class="bar-cred-item"><b>&check;</b> BASSET certified</div>
+      <div class="bar-cred-item"><b>&check;</b> ServSafe certified</div>
+      <div class="bar-cred-item"><b>&check;</b> Fully insured: liquor liability &amp; product liability</div>
+    </div>
+      </div>
+    </details>
+    <details class="acc">
+      <summary><span class="acc-t">How Booking Works</span><span class="acc-s">Three steps, no surprises</span><span class="acc-chev" aria-hidden="true"></span></summary>
+      <div class="acc-body">
+<div class="service-list" style="max-width:760px; margin-top:12px;">
       <div class="service-item">
         <div>
           <div class="service-item-name">1. Tell me about your event</div>
@@ -617,10 +620,12 @@
         </div>
       </div>
     </div>
+      </div>
+    </details>
   </div>
 </section>
 
-<section id="bar-services-cta" style="background:var(--ink); padding-top:70px; padding-bottom:70px;">
+<section id="bar-services-cta" style="background:var(--ink); padding-top:56px; padding-bottom:56px;">
   <div class="section-inner" style="text-align:center;">
     <h2 class="section-title" style="color:var(--paper); font-size:clamp(28px,3.6vw,42px);">Booking holiday events now.</h2>
     <p class="section-lede" style="color:rgba(246,241,231,0.65); margin-left:auto; margin-right:auto;">Tell me your date, your guest count, your vibe. I'll get back to you quickly.</p>
