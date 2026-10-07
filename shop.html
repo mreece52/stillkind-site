@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Framework | Still Kind</title>
-<meta name="description" content="The Still Kind Framework: five pillars for leading the person in front of you. Presence, Connection, Communication, Consistency, and The Ripple.">
+<title>Shop | Still Kind</title>
+<meta name="description" content="The Still Kind first drop: the Kindness Deck, the Still Kind of Thirsty mocktail book, tees, hoodies, hats, beanies and stickers. Pre-orders open October 12.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -239,7 +239,7 @@
     font-family:'Lora',serif; font-size:28px; font-weight:500; color:var(--ink);
   }
   .pillar-desc { color:var(--grey); font-size:16.5px; line-height:1.7; padding-top:4px; }
-  #consulting {
+  #coaching {
     background:var(--paper2);
     border-top:1px solid rgba(23,20,15,0.08);
     border-bottom:1px solid rgba(23,20,15,0.08);
@@ -260,7 +260,7 @@
     margin-top:24px; font-size:15px; font-style:italic; color:var(--lgrey);
     padding-top:20px; border-top:1px solid rgba(23,20,15,0.12);
   }
-  .consulting-visual {
+  .coaching-visual {
     background:var(--ink); border-radius:4px; padding:48px 40px;
     color:var(--paper); position:sticky; top:110px;
   }
@@ -276,7 +276,7 @@
   .cv-divider { height:1px; background:rgba(246,241,231,0.15); margin:28px 0; }
   .cv-list { display:flex; flex-direction:column; gap:14px; }
   .cv-list-item { display:flex; gap:12px; align-items:flex-start; font-size:14.5px; color:rgba(246,241,231,0.75); }
-  .cv-list-item::before { content:'•'; color:var(--copper); flex-shrink:0; }
+  .cv-list-item::before { content:'—'; color:var(--copper); flex-shrink:0; }
   #bar-services { background:var(--paper); }
   .bar-grid { display:grid; grid-template-columns:1fr 1fr; gap:70px; margin-top:56px; align-items:start; }
   .bar-price-banner {
@@ -419,12 +419,13 @@
     }
     .pillar-row { grid-template-columns:50px 1fr; }
     .pillar-row > .pillar-desc { grid-column:1 / -1; }
-    .consulting-visual { position:static; }
+    .coaching-visual { position:static; }
     .feature-grid { grid-template-columns:repeat(2, 1fr); }
     .bar-price-banner { padding:26px 24px; }
     footer { padding:40px 24px; }
   }
 </style>
+<link rel="stylesheet" href="assets/shop.css">
 <link rel="stylesheet" href="assets/sk.css">
 <link rel="icon" type="image/png" href="assets/logo-ink.png">
 </head>
@@ -436,7 +437,7 @@
   </a>
   <div class="sk-nav-right">
     <ul class="nav-links">
-    <li><a href="shop.html">Shop</a></li>
+    <li><a href="shop.html" class="is-current" aria-current="page">Shop</a></li>
     <li><a href="events.html">Show Up Nights</a></li>
       <li><a href="index.html#contact" onclick="if(window.openQuickContact){event.preventDefault();openQuickContact();}" class="nav-cta">Get In Touch</a></li>
     </ul>
@@ -450,7 +451,7 @@
 <div class="mobile-menu sk-menu" id="mobileMenu">
   <div class="sk-menu-main">
     <a href="index.html">Home</a>
-    <a href="shop.html">Shop</a>
+    <a href="shop.html" class="is-current">Shop</a>
     <a href="events.html">Show Up Nights</a>
     <a href="presents.html">Our Impact</a>
     <a href="partners.html">Causes We Back</a>
@@ -467,54 +468,153 @@
   <div class="sk-menu-help">Having a hard time? Call or text <a href="tel:988">988</a>, any time.</div>
 </div>
 
-<section id="framework-hero" style="padding-top:160px;">
+<section class="s-hero">
   <div class="section-inner">
-    <div class="kicker">The Still Kind Framework</div>
-    <h1 class="section-title" style="font-size:clamp(38px, 5vw, 62px);">Five pillars. One belief: <em>kindness compounds.</em></h1>
-    <p class="section-lede">Every Still Kind engagement, every workshop, every coaching session, every event, is built on the same framework. Developed behind a bar. Refined for any leader, any team, any room.</p>
+    <div class="kicker">The Shop</div>
+    <h1 class="section-title s-title">The first drop.</h1>
+    <p class="section-lede s-lede">Things that start real conversations.</p>
+    <p class="s-status" data-preorder-note>Founding run pre-orders open <b>October 12</b>.</p>
   </div>
 </section>
 
-<section id="pillars" style="padding-top:20px;">
+<section class="s-products">
   <div class="section-inner">
-    <div class="pillars-list" style="margin-top:0;">
-      <div class="pillar-row">
-        <div class="pillar-num">01</div>
-        <div class="pillar-name">Presence</div>
-        <div class="pillar-desc">Control what you bring into the room. Nothing else. But that's enough. The room never has to know what it's costing you to give them a good one.</div>
-      </div>
-      <div class="pillar-row">
-        <div class="pillar-num">02</div>
-        <div class="pillar-name">Connection</div>
-        <div class="pillar-desc">Make the person in front of you feel genuinely seen. Not handled. Seen. Rarely a grand gesture. Usually just someone doing an ordinary thing, unasked, at exactly the right moment.</div>
-      </div>
-      <div class="pillar-row">
-        <div class="pillar-num">03</div>
-        <div class="pillar-name">Communication</div>
-        <div class="pillar-desc">Say it so it lands. Behavior, not character. And just as often, it's noticing what someone did right and actually saying so, out loud, by name.</div>
-      </div>
-      <div class="pillar-row">
-        <div class="pillar-num">04</div>
-        <div class="pillar-name">Consistency</div>
-        <div class="pillar-desc">Be the same person whether it's a slow Tuesday or everything's on fire. Not calm. Just still you. Reliability is a form of kindness.</div>
-      </div>
-      <div class="pillar-row">
-        <div class="pillar-num">05</div>
-        <div class="pillar-name">The Ripple</div>
-        <div class="pillar-desc">You'll never meet most of the people your kindness reaches. It doesn't wait for you to be ready, either. It moves through you, and past you, whether you notice or not.</div>
-      </div>
+    <h2 class="s-group">Start a conversation</h2>
+    <div class="s-grid">
+      <article class="s-card">
+        <div class="s-tile s-tile-deck"><span class="s-tile-rule"></span><span class="s-tile-line">Your kindness was noticed.</span><span class="s-tile-meta">The Kindness Deck</span></div>
+        <div class="s-info">
+          <div class="s-row"><h3 class="s-name">The Kindness Deck</h3><b class="s-price">$25</b></div>
+          <p class="s-desc">25 cards that get people actually talking. Funny, real, a little irreverent. Works at a bar, a dinner table, or a team meeting that needs help.</p>
+          <button class="s-btn" data-item="The Kindness Deck ($25)" data-preorder-btn>Get on the List</button>
+        </div>
+      </article>
+      <article class="s-card">
+        <div class="s-tile s-tile-book"><span class="s-tile-rule"></span><span class="s-tile-line"><i>Still Kind of Thirsty</i></span><span class="s-tile-meta">Zero-proof. Full personality.</span></div>
+        <div class="s-info">
+          <div class="s-row"><h3 class="s-name">Still Kind of Thirsty</h3><b class="s-price">$20</b></div>
+          <p class="s-desc">The mocktail book. 18 zero-proof drinks with names like Ex Texted Me and Therapy Was Booked Out. Funnier than it needs to be.</p>
+          <button class="s-btn" data-item="Still Kind of Thirsty, mocktail book ($20)" data-preorder-btn>Get on the List</button>
+        </div>
+      </article>
+      <article class="s-card">
+        <div class="s-tile s-tile-sticker"><span class="s-sticker">Still Kind. Still here.</span></div>
+        <div class="s-info">
+          <div class="s-row"><h3 class="s-name">Sticker</h3><b class="s-price">$5</b></div>
+          <p class="s-desc">Put it somewhere people need the reminder. Laptop, water bottle, bathroom mirror.</p>
+          <button class="s-btn" data-item="Sticker ($5)" data-preorder-btn>Get on the List</button>
+        </div>
+      </article>
+    </div>
+    <h2 class="s-group">Wear it</h2>
+    <div class="s-grid s-grid-4">
+      <article class="s-card">
+        <div class="s-tile s-tile-photo"><img src="content/uploads/web/tee-madison.jpg" alt="Madison Reece, founder, in the Still Kind tee" width="900" height="1125" loading="lazy" /></div>
+        <div class="s-info">
+          <div class="s-row"><h3 class="s-name">Tee</h3><b class="s-price">$32</b></div>
+          <p class="s-desc">Black tee, Still Kind on the front. Goes with everything you already own. S to 3XL.</p>
+          <button class="s-btn" data-item="Tee ($32)" data-sized data-preorder-btn>Get on the List</button>
+        </div>
+      </article>
+      <article class="s-card">
+        <div class="s-tile s-tile-logo"><img src="assets/logo-white.png" alt="" width="140" height="68" /><span class="s-tile-meta">Hoodie</span></div>
+        <div class="s-info">
+          <div class="s-row"><h3 class="s-name">Hoodie</h3><b class="s-price">$60</b></div>
+          <p class="s-desc">Same design, warmer. The holiday gift that actually gets worn. S to 3XL.</p>
+          <button class="s-btn" data-item="Hoodie ($60)" data-sized data-preorder-btn>Get on the List</button>
+        </div>
+      </article>
+      <article class="s-card">
+        <div class="s-tile s-tile-logo"><img src="assets/logo-white.png" alt="" width="140" height="68" /><span class="s-tile-meta">Embroidered hat</span></div>
+        <div class="s-info">
+          <div class="s-row"><h3 class="s-name">Hat</h3><b class="s-price">$32</b></div>
+          <p class="s-desc">Embroidered Still Kind hat. One size, adjustable.</p>
+          <button class="s-btn" data-item="Hat ($32)" data-preorder-btn>Get on the List</button>
+        </div>
+      </article>
+      <article class="s-card">
+        <div class="s-tile s-tile-logo s-tile-clay"><img src="assets/logo-ink.png" alt="" width="140" height="68" /><span class="s-tile-meta">Cuffed beanie</span></div>
+        <div class="s-info">
+          <div class="s-row"><h3 class="s-name">Beanie</h3><b class="s-price">$30</b></div>
+          <p class="s-desc">Cuffed and embroidered. Chicago winter is coming either way.</p>
+          <button class="s-btn" data-item="Beanie ($30)" data-preorder-btn>Get on the List</button>
+        </div>
+      </article>
+    </div>
+    <p class="s-money"><b>Where the money goes.</b> We're finalizing our nonprofit partner right now. When it's official, it'll be right here, with exactly how much of every sale goes to them.</p>
+  </div>
+</section>
+
+<section id="gifting" class="s-gifting">
+  <div class="section-inner s-gifting-grid">
+    <div>
+      <div class="kicker">Gifting For a Team</div>
+      <h2 class="section-title">A gift that says <em>we actually care.</em></h2>
+    </div>
+    <div>
+      <p class="s-gift-copy">Kindness Decks are <b>$20 each for 20 or more</b>, with a note from your company inside. Order by <b>November 20</b> for the holidays.</p>
+      <a href="index.html#contact" class="btn-primary" data-topic="Shop or team orders">Ask About Team Orders</a>
     </div>
   </div>
 </section>
 
-<section id="framework-cta" style="background:var(--ink); padding-top:90px; padding-bottom:90px;">
-  <div class="section-inner" style="text-align:center;">
-    <h2 class="section-title" style="color:var(--paper); font-size:clamp(28px,3.6vw,42px);">Want to build this into your team?</h2>
-    <p class="section-lede" style="color:rgba(246,241,231,0.65); margin-left:auto; margin-right:auto;">This framework is the foundation of every Still Kind coaching session and team workshop. For hospitality leaders, corporate teams, and anyone ready to lead the more human way.</p>
-    <div style="margin-top:32px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
-      <a href="coaching.html" class="btn-primary">Explore Coaching</a>
-      <a href="#" class="btn-outline" style="border-color:rgba(246,241,231,0.4); color:var(--paper);" onclick="event.preventDefault(); openQuickContact();">Get In Touch</a>
+<section id="preorder" class="s-form-wrap">
+  <div class="section-inner s-form-grid">
+    <div>
+      <div class="kicker" data-preorder-kicker>Get on the List</div>
+      <h2 class="section-title">Claim yours from the <em>founding run.</em></h2>
+      <p class="section-lede">No payment today. Tell us what you want and we'll email you to confirm, with a payment link and a pickup or shipping date. Apparel prints once each run fills.</p>
     </div>
+    <form name="preorder" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="unified-contact" id="preorderForm" onsubmit="handlePreorder(event, this)">
+      <input type="hidden" name="form-name" value="preorder" />
+      <p hidden><label>Leave this empty <input name="bot-field" /></label></p>
+      <div class="form-field">
+        <label class="form-label" for="po-item">Item</label>
+        <select class="form-select" name="item" id="po-item" required>
+          <option value="The Kindness Deck ($25)">The Kindness Deck ($25)</option>
+          <option value="Still Kind of Thirsty, mocktail book ($20)">Still Kind of Thirsty, mocktail book ($20)</option>
+          <option value="Tee ($32)">Tee ($32)</option>
+          <option value="Hoodie ($60)">Hoodie ($60)</option>
+          <option value="Hat ($32)">Hat ($32)</option>
+          <option value="Beanie ($30)">Beanie ($30)</option>
+          <option value="Sticker ($5)">Sticker ($5)</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label" for="po-qty">Quantity</label>
+          <input class="form-input" type="number" name="quantity" id="po-qty" min="1" max="200" value="1" required />
+        </div>
+        <div class="form-field" id="po-size-field">
+          <label class="form-label" for="po-size">Size</label>
+          <select class="form-select" name="size" id="po-size">
+            <option value="">Pick one</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option><option>3XL</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label" for="po-name">Name</label>
+          <input class="form-input" type="text" name="name" id="po-name" required />
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="po-email">Email</label>
+          <input class="form-input" type="email" name="email" id="po-email" required />
+        </div>
+      </div>
+      <div class="form-field">
+        <span class="form-label">How do you want it?</span>
+        <div class="s-radios">
+          <label><input type="radio" name="delivery" value="Pickup in Chicago" checked /> Pickup in Chicago</label>
+          <label><input type="radio" name="delivery" value="Ship it" /> Ship it</label>
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="form-label" for="po-notes">Anything else? <span style="font-weight:400; text-transform:none; letter-spacing:0;">(more than one item, a gift note, whatever)</span></label>
+        <textarea class="form-textarea form-input" name="notes" id="po-notes"></textarea>
+      </div>
+      <button type="submit" class="form-submit" id="poSubmit" data-preorder-btn>Get on the List</button>
+    </form>
   </div>
 </section>
 
@@ -708,6 +808,49 @@
   Get In Touch
 </a>
 
+
+<script>
+  (function () {
+    var form = document.getElementById('preorderForm');
+    var item = document.getElementById('po-item');
+    var sizeField = document.getElementById('po-size-field');
+    var size = document.getElementById('po-size');
+    function sized(v) { return /^(Tee|Hoodie)/.test(v); }
+    function sync() { var s = sized(item.value); sizeField.style.display = s ? '' : 'none'; size.required = s; }
+    item.addEventListener('change', sync); sync();
+    document.querySelectorAll('.s-card [data-item]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        item.value = btn.getAttribute('data-item'); sync();
+        document.getElementById('preorder').scrollIntoView({ behavior: 'smooth' });
+        setTimeout(function () { (sized(item.value) ? size : document.getElementById('po-name')).focus({ preventScroll: true }); }, 500);
+      });
+    });
+    window.handlePreorder = function (e, f) {
+      e.preventDefault();
+      var btn = document.getElementById('poSubmit'); var original = btn.textContent;
+      btn.textContent = 'Sending...'; btn.disabled = true;
+      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(f)).toString() })
+        .then(function () { btn.textContent = "You're on the list. Check your email."; setTimeout(function () { f.reset(); sync(); btn.textContent = original; btn.disabled = false; }, 3500); })
+        .catch(function () { btn.textContent = 'Something went wrong, try again'; btn.disabled = false; });
+    };
+    var open = new Date() >= new Date('2026-10-12T00:00:00-05:00');
+    var k = document.querySelector('[data-preorder-kicker]'); if (k && open) k.textContent = 'Pre-Order';
+  })();
+</script>
+
+<script>
+  // Pre-orders open Oct 12, 2026 (Chicago time). Before then, buttons say "Get on the List".
+  (function () {
+    var open = new Date() >= new Date('2026-10-12T00:00:00-05:00');
+    document.querySelectorAll('[data-preorder-note]').forEach(function (el) {
+      el.innerHTML = open ? '<b>Pre-orders are open.</b>' : 'Pre-orders open <b>October 12</b>.';
+    });
+    document.querySelectorAll('[data-preorder-btn]').forEach(function (el) {
+      el.textContent = open ? 'Pre-Order Now' : 'Get on the List';
+    });
+    document.documentElement.classList.toggle('preorders-open', open);
+  })();
+</script>
 <script>
   // Any link with data-topic opens the contact popup with that topic picked.
   document.addEventListener('click', function (e) {

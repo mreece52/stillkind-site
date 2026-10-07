@@ -1,4 +1,13 @@
-# Still Kind Presents domain redirects to the Events & Merch section
-# on the main site, until the standalone Still Kind Presents site is ready.
-https://stillkindpresents.co/*  https://stillkind.co/#community  301!
-https://www.stillkindpresents.co/*  https://stillkind.co/#community  301!
+# Short links. 200 = show that page at the short URL. 301 = permanent redirect.
+/today              /daily.html          200
+/shop               /shop.html           200
+/merch              /shop                301
+/merch.html         /shop                301
+/kind-nights        /events.html         200
+/events             /events.html         200
+/consulting         /coaching            301
+/consulting.html    /coaching            301
+
+# Still Kind Presents domain points to the community page on the main site.
+https://stillkindpresents.co/*      https://stillkind.co/presents   301!
+https://www.stillkindpresents.co/*  https://stillkind.co/presents   301!

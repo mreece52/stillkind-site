@@ -1,0 +1,119 @@
+/* Still Kind shared layer: nav, menu, footer, support line.
+   Loaded after each page's own styles so these rules win. */
+
+:root {
+  --ink:#17140F; --paper:#F6F1E7; --paper2:#EFE7D6; --copper:#B5502E; --copper2:#8F3D22;
+  --clay:#D8C9AA; --grey:#55504A; --lgrey:#8A8378;
+}
+
+/* ---------- NAV ---------- */
+nav.sk-nav { padding:18px 56px; gap:24px; }
+nav.sk-nav .nav-logo img { height:28px; width:auto; }
+nav.sk-nav .nav-links { gap:34px; }
+nav.sk-nav .nav-links a { text-decoration:none; }
+nav.sk-nav .nav-links a.is-current { color:var(--ink); }
+nav.sk-nav .nav-links a.is-current::after { right:0; }
+nav.sk-nav .nav-cta { color:var(--paper) !important; }
+.sk-menu-btn {
+  display:inline-flex; align-items:center; gap:10px;
+  background:none; border:1px solid rgba(23,20,15,0.22); border-radius:2px;
+  padding:9px 14px; cursor:pointer; color:var(--ink);
+  font:600 12px/1 'Inter',sans-serif; letter-spacing:0.08em; text-transform:uppercase;
+  transition:border-color .2s, background .2s;
+}
+.sk-menu-btn:hover { border-color:var(--ink); }
+.sk-menu-btn .bars { display:flex; flex-direction:column; gap:4px; width:16px; }
+.sk-menu-btn .bars span { display:block; height:1.5px; background:currentColor; border-radius:2px; transition:transform .25s, opacity .2s; }
+.sk-menu-btn.is-open .bars span:nth-child(1) { transform:translateY(5.5px) rotate(45deg); }
+.sk-menu-btn.is-open .bars span:nth-child(2) { opacity:0; }
+.sk-menu-btn.is-open .bars span:nth-child(3) { transform:translateY(-5.5px) rotate(-45deg); }
+nav.sk-nav .nav-burger { display:none !important; }
+.sk-nav-right { display:flex; align-items:center; gap:28px; }
+
+@media (max-width:900px) {
+  nav.sk-nav, nav.sk-nav[style] { padding:14px 20px !important; }
+  nav.sk-nav .nav-links { display:none !important; }
+  nav.sk-nav .nav-logo img { height:24px; }
+}
+
+/* ---------- SLIDE-OUT MENU ---------- */
+.mobile-menu.sk-menu {
+  width:min(88vw, 380px); padding:88px 32px 32px; gap:0; overflow-y:auto; z-index:260;
+}
+.mobile-menu-overlay { z-index:255 !important; }
+.mobile-menu.sk-menu a { text-decoration:none; }
+.mobile-menu.sk-menu .sk-menu-main a {
+  display:block; font-family:'Lora',serif; font-size:23px; font-weight:500; color:var(--ink);
+  padding:12px 0; border-bottom:1px solid rgba(23,20,15,0.1);
+}
+.mobile-menu.sk-menu .sk-menu-main a.is-current { color:var(--copper2); }
+.mobile-menu.sk-menu .sk-menu-label {
+  margin:30px 0 6px; font:700 11px/1 'Inter',sans-serif; letter-spacing:0.12em;
+  text-transform:uppercase; color:var(--copper2);
+}
+.mobile-menu.sk-menu .sk-menu-also a {
+  display:block; padding:14px 0; border-bottom:1px solid rgba(23,20,15,0.1);
+  font-family:'Inter',sans-serif; color:var(--ink);
+}
+.mobile-menu.sk-menu .sk-menu-also b { display:block; font-family:'Lora',serif; font-size:19px; font-weight:500; }
+.mobile-menu.sk-menu .sk-menu-also small { display:block; font-size:13px; color:var(--grey); margin-top:2px; }
+.mobile-menu.sk-menu .sk-menu-cta {
+  display:block; margin-top:26px; background:var(--ink); color:var(--paper) !important; text-align:center;
+  border-radius:2px; padding:15px 0; font:700 13px/1 'Inter',sans-serif; letter-spacing:0.07em; text-transform:uppercase;
+}
+.mobile-menu.sk-menu .sk-menu-ig { display:block; margin-top:16px; text-align:center; font-size:14px; color:var(--grey); }
+.mobile-menu.sk-menu .sk-menu-help {
+  margin-top:26px; padding-top:18px; border-top:1px solid rgba(23,20,15,0.12);
+  font-size:13px; line-height:1.55; color:var(--grey);
+}
+.mobile-menu.sk-menu .sk-menu-help a { color:var(--copper2); font-weight:600; text-decoration:underline; text-underline-offset:3px; }
+
+/* ---------- SUPPORT LINE (988) ---------- */
+.sk-help {
+  background:var(--paper2); border-top:1px solid rgba(23,20,15,0.08);
+  padding:22px 56px; text-align:center; font-size:15px; color:var(--grey); line-height:1.6;
+}
+.sk-help strong { color:var(--ink); font-weight:600; }
+.sk-help a { color:var(--copper2); font-weight:600; text-decoration:underline; text-underline-offset:3px; }
+@media (max-width:900px){ .sk-help { padding:20px 24px; font-size:14px; } }
+
+/* ---------- FOOTER ---------- */
+footer.sk-footer { background:var(--ink); padding:56px 56px 32px; color:rgba(246,241,231,0.7); }
+.sk-footer-top { max-width:1320px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; gap:32px; flex-wrap:wrap; padding-bottom:28px; border-bottom:1px solid rgba(246,241,231,0.12); }
+.sk-footer-brand { display:flex; align-items:center; gap:18px; }
+.sk-footer-brand img { height:32px; width:auto; }
+.sk-footer-brand span { font-family:'Lora',serif; font-style:italic; font-size:17px; color:var(--paper); }
+.sk-footer-links { display:flex; flex-wrap:wrap; gap:8px 26px; }
+.sk-footer-links a { font-size:14px; color:rgba(246,241,231,0.78); text-decoration:none; transition:color .2s; }
+.sk-footer-links a:hover { color:var(--paper); }
+.sk-footer-help { max-width:1320px; margin:24px auto 0; font-size:14px; line-height:1.6; color:rgba(246,241,231,0.72); }
+.sk-footer-help b { color:var(--paper); font-weight:600; }
+.sk-footer-help a { color:#E39A78; font-weight:600; text-decoration:underline; text-underline-offset:3px; }
+.sk-footer-bottom { max-width:1320px; margin:12px auto 0; font-size:13px; color:rgba(246,241,231,0.5); }
+@media (max-width:900px){
+  footer.sk-footer { padding:44px 24px 28px; }
+  .sk-footer-top { flex-direction:column; align-items:flex-start; gap:22px; }
+  .sk-footer-links { display:grid; grid-template-columns:1fr 1fr; gap:10px 24px; }
+}
+
+/* Give the floating mobile contact button room above the footer */
+@media (max-width:900px){ .mobile-fab { bottom:18px; } }
+
+/* reset old per-page menu link styles inside the new menu */
+.mobile-menu.sk-menu a { border-bottom:none; padding:0; font-size:15px; font-family:'Inter',sans-serif; font-weight:400; }
+.mobile-menu.sk-menu .sk-menu-main a,
+.mobile-menu.sk-menu .sk-menu-also a { border-bottom:1px solid rgba(23,20,15,0.1); }
+.mobile-menu.sk-menu .sk-menu-main a { padding:12px 0; font-family:'Lora',serif; font-size:23px; font-weight:500; }
+.mobile-menu.sk-menu .sk-menu-also a { padding:14px 0; }
+.mobile-menu.sk-menu .sk-menu-cta { padding:15px 0; font-size:13px; font-weight:700; }
+.mobile-menu.sk-menu .sk-menu-help a { font-size:13px; font-weight:600; }
+nav.sk-nav { z-index:270; }
+
+/* Buttons and titles on dark CTA bands */
+section[style*="background:var(--ink)"] .btn-primary { background:var(--paper); color:var(--ink); }
+section[style*="background:var(--ink)"] .btn-primary:hover { background:#E39A78; color:var(--ink); }
+section[style*="background:var(--ink)"] .section-inner[style*="center"] .section-title { margin-left:auto; margin-right:auto; }
+/* Small copper labels use the deeper copper for readable contrast on cream */
+.kicker, .hero-eyebrow { color:var(--copper2); }
+.kicker::before, .hero-eyebrow::before { background:var(--copper2); }
+.mobile-fab { display:none !important; }
