@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Still Kind — Today's Thing</title>
+<title>Today's Thing | Still Kind</title>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -83,6 +83,11 @@
     letter-spacing: 0.5px;
     color: var(--muted);
   }
+  .help { margin-top:28px; padding-top:22px; border-top:1px solid var(--hairline); font-size:14px; line-height:1.6; color:#B9B2A6; }
+  .help a { color:#E39A78; font-weight:600; }
+  .home { display:inline-block; margin-top:18px; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); text-decoration:none; }
+  .home:hover { color:var(--cream); }
+  .footer { color:#9C9588; }
 </style>
 </head>
 <body>
@@ -94,50 +99,42 @@
   <div class="message" id="message">Loading something kind...</div>
   <a class="btn" href="https://www.instagram.com/stillkindchi/" target="_blank" rel="noopener">Follow @stillkindchi</a>
   <div class="footer">A new one every day. Scan again tomorrow.</div>
+  <div class="help">Today been a lot? Call or text <a href="tel:988">988</a>, the Suicide &amp; Crisis Lifeline. Free, confidential, 24/7.</div>
+  <a class="home" href="index.html">stillkind.co</a>
 </div>
 
 <script>
   var messages = [
-    "You just walked in and the room's vibe went up two points. Science.",
-    "That joke you just told? Add it to your highlight reel. It was that good.",
-    "You are built different and the data (your group chat) supports this.",
-    "Order the top-shelf thing. You're not a well-drink person tonight.",
-    "Somebody at this bar is going to tell their roommate about you tomorrow like you're a celebrity sighting.",
-    "You stopped being \"a lot\" the day everyone else got boring. Keep going.",
-    "This week tried to end you and you showed up anyway looking like this. Legendary.",
+    "You showed up today. That counts more than you think.",
+    "Text the friend who went quiet. Just \"thinking of you\" is plenty.",
+    "Drink some water. Eat something real. You're a houseplant with opinions.",
+    "You don't have to have it all figured out by tonight. Or this year.",
+    "Somebody is having a better day because you exist. Annoying, but true.",
+    "Hard days are allowed. So is asking for help on one.",
+    "You've survived every bad day so far. Undefeated record.",
+    "Compliment a stranger today. Worst case, you made it weird for three seconds.",
+    "Rest is not a reward you have to earn.",
+    "Your weird is somebody else's favorite thing about you. Lean in.",
+    "You walked in and the room got a little better. That's just science.",
+    "Small wins still count. Made the bed? Legend.",
+    "Ask the bartender their name. Then actually use it.",
+    "Nobody is thinking about that thing you said in 2019. Let it go.",
+    "You're allowed to leave early. You're allowed to stay home. You're allowed to come back.",
+    "Today's goal: be a little kinder to the person in the mirror.",
+    "Call your grandma. Or someone's grandma. Grandmas love a call.",
+    "Put the phone down for five minutes. You're more interesting than the feed.",
+    "Still here? Good. We like you here.",
+    "It's okay to not be okay today. Tomorrow gets a fresh start.",
+    "Be the reason someone's group chat says \"okay but that was so nice.\"",
+    "Check on your strong friend. They're tired too.",
     "You could start a cult based on vibes alone. Please don't. But you could.",
-    "Nobody asked for your main-character arc to start tonight, but here we are.",
-    "You're the reason this playlist suddenly feels better.",
-    "Compliment yourself out loud right now. Nobody's listening. Do it anyway.",
-    "You looked in a mirror today and saw somebody who has their life together. Keep that energy.",
-    "Your laugh just made a stranger across the room smile. That's a public service.",
-    "You are, undefeated, the funniest person at this table tonight.",
-    "That drink order was iconic. The bartender is still thinking about it.",
-    "You're one good story away from becoming this bar's folklore.",
-    "Nobody peer-pressured you into being this interesting. You just are.",
-    "You've got the energy of someone who just won something. Act like you did.",
-    "Your \"weird\" is somebody else's favorite thing about you. Lean all the way in.",
-    "This is your Roman Empire moment: being undeniably likable at a bar on a weeknight.",
-    "You're not drunk off one drink, you're just finally relaxed enough to be your full self. Let her rip.",
-    "Somebody just screenshotted something you said to send to their group chat.",
-    "You are having main-character energy and the extras (everyone else) know it.",
-    "The bartender remembers you. That's basically a celebrity endorsement.",
-    "You're too fun for a Tuesday and that's exactly the problem Tuesday should have.",
-    "Somebody tonight is going to go home and say \"I met the funniest person.\" That's you. Stay humble. Or don't.",
-    "You've got main-character hair tonight. Flip it accordingly.",
-    "This is your sign to be slightly too confident about something minor. Go for it.",
-    "You are, undeniably, a vibe. An entire mood. A whole weather system.",
-    "If tonight had a producer's cut, you'd get a slow-motion entrance.",
-    "You're the plot twist this group chat didn't know it needed.",
-    "Somebody's going to adopt your catchphrase from tonight by Monday.",
-    "You are objectively more interesting than your phone. Put it down for five minutes and prove it.",
-    "You walked in like you owned the place. Respect the delusion, it's working.",
-    "Your confidence tonight could be bottled and sold as a supplement.",
-    "You're the reason this night gets upgraded from \"fine\" to \"we have to tell people about this.\"",
-    "Somebody's going to ask the bartender \"who was that\" about you. Let the legend grow.",
-    "You are, undefeated, the best thing that's happened to this bar in the last hour.",
-    "Whatever you're about to say next is going to be quoted later. No pressure.",
-    "You're a whole personality and tonight the world finally caught up to it."
+    "Hold the door. Let someone merge. Tip like you mean it.",
+    "Today will be dope. And if it isn't, tomorrow's on deck.",
+    "You're one good story away from becoming local folklore.",
+    "Say thank you out loud, by name, to someone who earned it.",
+    "Progress is still progress when it's slow.",
+    "Take the walk. Chicago weather is a suggestion.",
+    "If nobody told you today: you're doing better than you think."
   ];
 
   function dayOfYear(d) {
