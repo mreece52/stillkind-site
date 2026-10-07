@@ -12,7 +12,7 @@
 .h-narrow { max-width:760px; margin:0 auto; }
 .h-why-title { font-family:'Lora',serif; font-weight:500; font-size:clamp(36px, 4.6vw, 60px); line-height:1.1; color:var(--paper); }
 .h-why-title em { color:#E39A78; }
-.h-why-body { margin:26px auto 0; max-width:560px; font-size:19px; line-height:1.7; color:rgba(246,241,231,0.8); }
+.h-why-body { margin:26px auto 0; max-width:600px; text-wrap:pretty; font-size:19px; line-height:1.7; color:rgba(246,241,231,0.8); }
 .h-sign { margin-top:22px; font-family:'Lora',serif; font-style:italic; color:rgba(246,241,231,0.7); }
 
 .h-drop { padding:110px 56px; }
