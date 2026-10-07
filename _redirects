@@ -1,10 +1,15 @@
 # Short links. 200 = show that page at the short URL. 301 = permanent redirect.
 /today              /daily.html          200
 /shop               /shop.html           200
+/framework          /                    301
+/framework.html     /                    301
+/showcase           /                    301
+/showcase.html      /                    301
 /story              /                    301
 /story.html         /                    301
 /merch              /shop                301
 /merch.html         /shop                301
+/show-up-nights     /events.html         200
 /kind-nights        /events.html         200
 /events             /events.html         200
 /consulting         /coaching            301
