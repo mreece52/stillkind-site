@@ -3,9 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Community &amp; Impact | Still Kind</title>
+<title>Our Impact | Still Kind</title>
 <meta name="description" content="What Still Kind does in the community: Show Up Nights, the causes we back, and what Pour It Forward gave back.">
-<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Our Impact | Still Kind">
+<meta property="og:description" content="What Still Kind does in the community: Show Up Nights, the causes we back, and what Pour It Forward gave back.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://stillkind.co/presents.html">
+<meta property="og:image" content="https://stillkind.co/content/uploads/web/kind-night-group.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Our Impact | Still Kind">
+<meta name="twitter:description" content="What Still Kind does in the community: Show Up Nights, the causes we back, and what Pour It Forward gave back.">
+<meta name="twitter:image" content="https://stillkind.co/content/uploads/web/kind-night-group.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -924,7 +932,6 @@
 <section id="presents-events" style="padding-top:20px; padding-bottom:0;">
   <div class="section-inner">
     <div class="kicker" style="margin-bottom:6px;">Upcoming</div>
-    <p style="font-size:14px; color:var(--lgrey); font-style:italic; margin-bottom:14px;">Upcoming events to be added soon.</p>
     <div id="communityGrid" style="border:1px solid rgba(23,20,15,0.12); border-radius:4px; overflow:hidden;"></div>
   </div>
 </section>
@@ -991,7 +998,7 @@
       <div>
         <div class="choice-card-label">The First Drop</div>
         <div class="choice-card-title">The Shop</div>
-        <div class="choice-card-desc">Tees, hoodies, hats, beanies, the Kindness Deck and the mocktail book. Pre-orders open October 12.</div>
+        <div class="choice-card-desc">Tees, hoodies, hats, beanies, the Kindness Deck and the mocktail book.</div>
         <div class="choice-card-cta">Shop the drop &rarr;</div>
       </div>
       <span class="choice-card-tap-hint">→</span>
@@ -1283,6 +1290,13 @@
     document.body.style.overflow = '';
   }
 
+  // Shown whenever events.json has nothing newer. Update the date and swap in
+  // real details (location, ticket link) once they're locked — then this whole
+  // fallback can come out and live entirely in events.json.
+  const FALLBACK_EVENTS = [
+    { date: '2026-12-01', title: 'Defiant Culture', cause: 'Details coming soon' }
+  ];
+
   async function loadCommunitySection() {
     const grid = document.getElementById('communityGrid');
     if (!grid) return;
@@ -1296,13 +1310,15 @@
         .filter(e => e.date && new Date(e.date + 'T00:00:00') >= today)
         .sort((a, b) => new Date(a.date) - new Date(b.date));
 
+      if (!events.length) events = FALLBACK_EVENTS;
+
       if (events.length) {
         grid.innerHTML = events.map(renderEventCard).join('');
       } else {
         grid.innerHTML = '<div class="community-empty">Upcoming events to be added soon.</div>';
       }
     } catch (err) {
-      grid.innerHTML = '<div class="community-empty">Upcoming events to be added soon.</div>';
+      grid.innerHTML = FALLBACK_EVENTS.map(renderEventCard).join('');
     }
   }
   loadCommunitySection();
