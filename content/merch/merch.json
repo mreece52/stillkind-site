@@ -1,7 +1,7 @@
 [
   {"title":"Still Kind Collection","image":"/collection-group-lifestyle.jpeg","headline":"Your people. A little Still Kind.","description":"Tees, hoodies, hats, beanies, playing cards and the mocktail book. Good things for good company.","link":"/shop","link_text":"Explore the shop"},
-  {"title":"Today Will Be Dope Tee","image":"/tee-black-lifestyle.jpeg","headline":"Today Will Be Dope","description":"Black or cream. A little optimism, a little attitude. $25.","link":"/shop#wear","link_text":"See the tees"},
-  {"title":"Still Kind Hoodie","image":"/hoodie-black.jpeg","headline":"Same reminder. Extra warmth.","description":"Still Kind hoodies in black or cream. $45.","link":"/shop#wear","link_text":"See the hoodies"},
-  {"title":"Still Kind Beanie","image":"/beanie-black-lifestyle.jpeg","headline":"A little warmth. Still Kind.","description":"Black cuffed beanie with the Still Kind script detail. $20.","link":"/shop#wear","link_text":"See the beanie"},
-  {"title":"Still Kind Hat","image":"/hat-black-lifestyle.jpeg","headline":"Wear the reminder.","description":"The black Still Kind cap. $35.","link":"/shop#wear","link_text":"See the hat"}
+  {"title":"Today Will Be Dope Tee","image":"/tee-black-lifestyle.jpeg","headline":"Today Will Be Dope","description":"Black or cream. A little optimism, a little attitude.","link":"/shop#wear","link_text":"See the tees"},
+  {"title":"Still Kind Hoodie","image":"/hoodie-black.jpeg","headline":"Same reminder. Extra warmth.","description":"Still Kind hoodies in black or cream.","link":"/shop#wear","link_text":"See the hoodies"},
+  {"title":"Still Kind Beanie","image":"/beanie-black-lifestyle.jpeg","headline":"A little warmth. Still Kind.","description":"Black cuffed beanie with the Still Kind script detail.","link":"/shop#wear","link_text":"See the beanie"},
+  {"title":"Still Kind Hat","image":"/hat-black-lifestyle.jpeg","headline":"Wear the reminder.","description":"The black Still Kind cap.","link":"/shop#wear","link_text":"See the hat"}
 ]
