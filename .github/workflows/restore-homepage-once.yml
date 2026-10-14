@@ -1,0 +1,60 @@
+name: Restore original homepage once
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/restore-homepage-once.yml']
+permissions:
+  contents: write
+jobs:
+  restore:
+    if: github.event.head_commit.message == 'Restore original homepage design with focused merchandise preview'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Restore original layout and update only merchandise preview
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import subprocess, re
+          from html.parser import HTMLParser
+          from pathlib import Path
+          source = subprocess.check_output(['git','show','a329eb85be931dade3af877092caf9d7b0536ada:index.html'], text=True)
+          class Finder(HTMLParser):
+              def __init__(self, text):
+                  super().__init__()
+                  self.text=text; self.lines=text.splitlines(keepends=True); self.depth=0; self.start=None; self.spans=[]
+              def offset(self):
+                  line,col=self.getpos(); return sum(map(len,self.lines[:line-1]))+col
+              def handle_starttag(self, tag, attrs):
+                  if tag=='div':
+                      if self.depth: self.depth+=1
+                      elif 'h-drop-grid' in dict(attrs).get('class','').split(): self.start=self.offset(); self.depth=1
+              def handle_endtag(self, tag):
+                  if tag=='div' and self.depth:
+                      self.depth-=1
+                      if not self.depth: self.spans.append((self.start,self.offset()+len('</div>')))
+          finder=Finder(source); finder.feed(source)
+          assert len(finder.spans)==1, 'Expected exactly one original merchandise preview; no changes written'
+          products=[('tee-black-lifestyle.jpeg','Today Will Be Dope Tee','$25','shop.html#wear'),('IMG_2445.jpeg','Still Kind of Thirsty','$40','shop.html#mocktail-book'),('Final-final-deck-of-cards-.pdf.jpeg','Playing Cards','$20','shop.html#playing-cards')]
+          cards=[]
+          for image,title,price,link in products:
+              fit=' style="object-fit:contain;object-position:center;background:#efe7d6"' if image!='tee-black-lifestyle.jpeg' else ''
+              cards.append(f'<a class="h-item" href="{link}"><div class="h-item-tile"><img src="{image}" alt="{title}" loading="lazy"{fit}></div><div class="h-item-row"><span>{title}</span><b>{price}</b></div></a>')
+          start,end=finder.spans[0]
+          source=source[:start]+'<div class="h-drop-grid">'+''.join(cards)+'</div>'+source[end:]
+          source=re.sub(r'<(p|div|span)\b[^>]*class="[^"]*\bh-head-note\b[^"]*"[^>]*>.*?</\1>', '<p class="h-head-note">Things worth sharing.</p>', source, flags=re.S)
+          override='<style id="homepage-preview-mobile-fix">.h-drop-grid .h-item:last-child{display:block}@media(max-width:900px){.h-drop-grid .h-item:last-child{display:block}}</style>'
+          assert '</head>' in source
+          source=source.replace('</head>',override+'</head>',1)
+          assert all(image in source for image,_,_,_ in products)
+          Path('index.html').write_text(source)
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          if ! git diff --cached --quiet; then
+            git commit -m 'Restore original homepage framing, hero and copper accents; update three product tiles'
+            git push origin HEAD:main
+          fi
