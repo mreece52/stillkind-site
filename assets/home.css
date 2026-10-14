@@ -49,3 +49,6 @@
   .h-nights-grid { grid-template-columns:1fr; gap:28px; }
 }
 .h-item-tile img[src*="tee-madison"] { object-position:center 8%; }
+
+/* Hide only the homepage hero subtitle; no replacement copy. */
+.sk-home .h-hero .h-lede { display:none; }
