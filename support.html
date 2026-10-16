@@ -442,7 +442,6 @@
     <ul class="nav-links">
     <li><a href="shop.html">Shop</a></li>
     <li><a href="events.html">Show Up Nights</a></li>
-      <li><a href="index.html#contact" onclick="if(window.openQuickContact){event.preventDefault();openQuickContact();}" class="nav-cta">Get In Touch</a></li>
     </ul>
     <button class="sk-menu-btn" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
       <span class="bars"><span></span><span></span><span></span></span> Menu
@@ -461,14 +460,7 @@
     <a href="faq.html">FAQ</a>
     <a href="support.html" class="is-current">Find Support</a>
   </div>
-  <div class="sk-menu-label">Also from Still Kind</div>
-  <div class="sk-menu-also">
-    <a href="bar-services.html"><b>Bar Services</b><small>Private event bartending</small></a>
-    <a href="coaching.html"><b>Coaching</b><small>1:1 coaching. Not therapy.</small></a>
-  </div>
-  <a class="sk-menu-cta" href="index.html#contact" onclick="if(window.openQuickContact){event.preventDefault();openQuickContact();}">Get In Touch</a>
   <a class="sk-menu-ig" href="https://instagram.com/stillkindchi" target="_blank" rel="noopener">@stillkindchi on Instagram</a>
-  <div class="sk-menu-help">Having a hard time? Call or text <a href="tel:988">988</a>, any time.</div>
 </div>
 
 <section id="support-hero" style="padding-top:160px; background:var(--ink);">
@@ -476,8 +468,12 @@
     <div class="kicker" style="color:var(--clay);">
       <span style="display:inline-block;width:34px;height:1.5px;background:var(--clay);margin-right:12px;"></span>Find Support
     </div>
-    <h1 class="section-title" style="color:var(--paper); font-size:clamp(38px, 5vw, 62px);">You don't have to buy anything or sign up for anything to get help.</h1>
-    <p class="section-lede" style="color:rgba(246,241,231,0.72);">Still Kind is a community brand, not a crisis service — so if you need to talk to someone right now, here's exactly where that help actually is.</p>
+    <h1 class="section-title" style="color:var(--paper); font-size:clamp(34px, 4.6vw, 54px);">If you need to talk to someone right now, call or text <a href="tel:988" style="color:#E8955F;">988</a>.</h1>
+    <p class="section-lede" style="color:rgba(246,241,231,0.78); max-width:680px;">Still Kind is not a mental health provider and not a therapist. 988 is the fastest, most reliable way to reach a real person right now. It's free, confidential, and available 24/7.</p>
+    <div style="display:flex; gap:14px; flex-wrap:wrap; margin-top:32px;">
+      <a href="tel:988" class="btn-primary" style="font-size:16px; padding:18px 32px;">Call 988</a>
+      <a href="sms:988" class="btn-outline" style="font-size:16px; padding:17px 30px; border-color:var(--paper); color:var(--paper);">Text 988</a>
+    </div>
   </div>
 </section>
 
@@ -564,129 +560,6 @@
   <div class="sk-footer-bottom">&copy; 2026 Still Kind LLC. Chicago, Illinois.</div>
 </footer>
 
-<!-- QUICK CONTACT POPUP -->
-<div class="quick-contact-overlay" id="quickContactOverlay" onclick="closeQuickContact(event)">
-  <div class="quick-contact-modal" onclick="event.stopPropagation()">
-    <button class="quick-contact-close" onclick="closeQuickContact()" aria-label="Close">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button>
-    <div class="quick-contact-kicker">Get In Touch</div>
-    <h3 class="quick-contact-title">Let's <em>talk.</em></h3>
-    <p class="quick-contact-sub">Quick note. We'll get back to you fast.</p>
-
-    <form name="quick-contact" method="POST" data-netlify="true" onsubmit="handleQuickContactSubmit(event, this)" id="quickContactForm">
-      <input type="hidden" name="form-name" value="quick-contact" />
-      <div class="form-field">
-        <label class="form-label" for="qcTopic">What's this about?</label>
-        <select class="form-select" name="topic" id="qcTopic">
-          <option>Show Up Nights</option>
-          <option>Host a Show Up Night</option>
-          <option>Shop or team orders</option>
-          <option>Bar Services</option>
-          <option>Coaching</option>
-          <option>Something else</option>
-        </select>
-      </div>
-      
-      <div class="form-field">
-        <label class="form-label">Name</label>
-        <input class="form-input" type="text" name="name" required />
-      </div>
-      <div class="form-field">
-        <label class="form-label">Best way to reach you</label>
-        <input class="form-input" type="text" name="contact_info" placeholder="Phone or email" required />
-      </div>
-      <div class="form-field">
-        <label class="form-label">How can we help? <span id="wordCountLabel" style="font-weight:400; color:var(--lgrey);">(50 words max)</span></label>
-        <textarea class="form-textarea form-input" name="reason" id="quickContactReason" maxlength="400" oninput="enforceWordLimit(this)" required></textarea>
-      </div>
-      <button type="submit" class="form-submit" id="quickContactSubmitBtn">Send</button>
-    </form>
-  </div>
-</div>
-
-<!-- Hidden form for Netlify build-time detection -->
-<form name="quick-contact" data-netlify="true" hidden>
-  <input type="text" name="topic" />
-  <input type="text" name="name" />
-  <input type="text" name="contact_info" />
-  <textarea name="reason"></textarea>
-</form>
-
-<style>
-  .quick-contact-overlay {
-    display:none; position:fixed; inset:0; z-index:500;
-    background:rgba(23,20,15,0.55); backdrop-filter:blur(3px);
-    align-items:center; justify-content:center; padding:24px;
-  }
-  .quick-contact-overlay.is-open { display:flex; }
-  .quick-contact-modal {
-    background:var(--paper); border-radius:8px; padding:40px 36px 34px;
-    max-width:440px; width:100%; position:relative;
-    box-shadow:0 30px 70px rgba(0,0,0,0.3);
-    max-height:88vh; overflow-y:auto;
-  }
-  .quick-contact-close {
-    position:absolute; top:18px; right:18px; background:none; border:none;
-    color:var(--lgrey); cursor:pointer; padding:6px; transition:color 0.2s;
-  }
-  .quick-contact-close:hover { color:var(--ink); }
-  .quick-contact-kicker {
-    font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--copper);
-    font-weight:700; margin-bottom:8px;
-  }
-  .quick-contact-title { font-family:'Lora',serif; font-size:30px; color:var(--ink); margin-bottom:4px; }
-  .quick-contact-title em { color:var(--copper); font-style:italic; }
-  .quick-contact-sub { font-size:14px; color:var(--lgrey); margin-bottom:26px; }
-  #quickContactReason { min-height:90px; resize:vertical; }
-</style>
-
-<script>
-  function openQuickContact() {
-    document.getElementById('quickContactOverlay').classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeQuickContact(e) {
-    if (e && e.target !== e.currentTarget) return;
-    document.getElementById('quickContactOverlay').classList.remove('is-open');
-    document.body.style.overflow = '';
-  }
-  function enforceWordLimit(el) {
-    const words = el.value.trim().split(/\s+/).filter(Boolean);
-    if (words.length > 50) {
-      el.value = words.slice(0, 50).join(' ');
-    }
-  }
-  function handleQuickContactSubmit(e, form) {
-    e.preventDefault();
-    const btn = document.getElementById('quickContactSubmitBtn');
-    const originalText = btn.textContent;
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-
-    const formData = new FormData(form);
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString(),
-    })
-      .then(() => {
-        btn.textContent = 'Sent. Thank You';
-        setTimeout(() => {
-          closeQuickContact();
-          form.reset();
-          btn.textContent = originalText;
-          btn.disabled = false;
-        }, 1600);
-      })
-      .catch(() => {
-        btn.textContent = 'Something went wrong, try again';
-        btn.disabled = false;
-      });
-  }
-</script>
-
-
 <script>
   window.addEventListener('scroll', () => {
     const nav = document.querySelector('nav');
@@ -729,20 +602,5 @@
   });
 </script>
 
-<a href="#" class="mobile-fab" onclick="event.preventDefault(); openQuickContact();">
-  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-  Get In Touch
-</a>
-
-<script>
-  // Any link with data-topic opens the contact popup with that topic picked.
-  document.addEventListener('click', function (e) {
-    var a = e.target.closest('[data-topic]');
-    if (!a || !window.openQuickContact) return;
-    e.preventDefault(); openQuickContact();
-    var t = document.getElementById('qcTopic'); if (t) t.value = a.getAttribute('data-topic');
-  });
-  if (/^#contact/.test(location.hash) && window.openQuickContact) { openQuickContact(); }
-</script>
 </body>
 </html>
