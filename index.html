@@ -792,7 +792,6 @@
     <a href="index.html" class="is-current">Home</a>
     <a href="shop.html">Shop</a>
     <a href="events.html">Show Up Nights</a>
-    <a href="presents.html">Our Impact</a>
     <a href="partners.html">Causes We Back</a>
     <a href="faq.html">FAQ</a>
     <a href="support.html">Find Support</a>
@@ -1105,7 +1104,7 @@
   function renderMerchCard(item) {
     const img = item.image || '/content/uploads/merch-still-kind-tee.jpg';
     return `
-      <a href="${item.link || '/presents.html#presents-shop'}" class="merch-card">
+      <a href="${item.link || '/shop.html'}" class="merch-card">
         <img class="merch-card-img" src="${img}" alt="${item.headline || 'Still Kind Merch'}" loading="lazy" />
         <div class="merch-card-scrim"></div>
         <div class="merch-card-content">
