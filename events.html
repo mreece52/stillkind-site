@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Show Up Nights | Still Kind</title>
 <meta name="description" content="Show Up Nights: charity nights at Chicago bars from Still Kind. Good people, zero-proof options, and a real reason to leave the house.">
+<meta property="og:title" content="Show Up Nights | Still Kind">
+<meta property="og:description" content="Charity nights at Chicago bars from Still Kind — plus what they've actually raised so far.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://stillkind.co/events.html">
+<meta property="og:image" content="https://stillkind.co/content/uploads/web/kind-night-group.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -128,70 +134,16 @@
     transition:opacity 0.28s ease;
   }
   .mobile-menu-overlay.is-open { opacity:1; pointer-events:auto; }
-  #hero {
-    min-height:100vh;
+  #events-hero {
+    min-height:auto;
     display:flex; flex-direction:column; justify-content:center;
-    padding:160px 56px 100px;
+    padding:160px 56px 70px;
     position:relative;
     background:
       radial-gradient(ellipse 900px 500px at 85% 15%, rgba(181,80,46,0.10), transparent),
       var(--paper);
     border-bottom:1px solid rgba(23,20,15,0.08);
   }
-  .hero-grid {
-    display:grid; grid-template-columns:1.4fr 1fr; gap:64px; align-items:end;
-    max-width:1320px; margin:0 auto; width:100%;
-  }
-  .hero-eyebrow {
-    display:flex; align-items:center; gap:12px;
-    font-size:13px; letter-spacing:0.18em; text-transform:uppercase;
-    color:var(--copper); font-weight:700; margin-bottom:28px;
-  }
-  .hero-eyebrow::before {
-    content:''; width:34px; height:1.5px; background:var(--copper);
-  }
-  .hero-headline {
-    font-size:clamp(48px, 6.4vw, 92px);
-    line-height:0.98; font-weight:500; letter-spacing:-0.01em;
-    color:var(--ink);
-  }
-  .hero-headline em {
-    font-style:italic; font-weight:400; color:var(--copper);
-  }
-  .hero-side {
-    padding-bottom:10px;
-  }
-  .hero-body {
-    font-size:18px; color:var(--grey); line-height:1.7; margin-bottom:32px;
-    max-width:420px;
-  }
-  .hero-buttons { display:flex; gap:14px; flex-wrap:wrap; }
-  .btn-primary {
-    background:var(--ink); color:var(--paper);
-    padding:15px 28px; border-radius:2px;
-    font-size:13px; font-weight:700; letter-spacing:0.07em; text-transform:uppercase;
-    display:inline-block; transition:background 0.2s;
-  }
-  .btn-primary:hover { background:var(--copper); }
-  .btn-outline {
-    border:1.5px solid var(--ink); color:var(--ink);
-    padding:14px 26px; border-radius:2px;
-    font-size:13px; font-weight:700; letter-spacing:0.07em; text-transform:uppercase;
-    display:inline-block; transition:all 0.2s;
-  }
-  .btn-outline:hover { background:var(--ink); color:var(--paper); }
-  .hero-strip {
-    max-width:1320px; margin:80px auto 0; width:100%;
-    display:flex; justify-content:space-between; align-items:center;
-    padding-top:36px; border-top:1px solid rgba(23,20,15,0.1);
-    flex-wrap:wrap; gap:20px;
-  }
-  .hero-strip-item {
-    font-size:13px; letter-spacing:0.04em; color:var(--lgrey);
-  }
-  .hero-strip-item b { color:var(--ink); font-weight:600; }
-  section { padding:130px 56px; position:relative; }
-  .section-inner { max-width:1320px; margin:0 auto; }
   .kicker {
     display:flex; align-items:center; gap:12px;
     font-size:13px; letter-spacing:0.18em; text-transform:uppercase;
@@ -207,169 +159,25 @@
   .section-lede {
     font-size:19px; color:var(--grey); line-height:1.7; max-width:620px; margin-top:24px;
   }
-  #thesis { background:var(--ink); color:var(--paper); }
-  #thesis .kicker { color:var(--clay); }
-  #thesis .kicker::before { background:var(--clay); }
-  #thesis .section-title { color:var(--paper); }
-  #thesis .section-title em { color:#E8955F; }
-  .thesis-grid {
-    display:grid; grid-template-columns:1fr 1fr; gap:70px; margin-top:56px; align-items:start;
+  .hero-strip {
+    max-width:1320px; margin:40px auto 0; width:100%;
+    display:flex; align-items:center;
+    padding-top:28px; border-top:1px solid rgba(23,20,15,0.1);
+    flex-wrap:wrap; gap:14px 36px;
   }
-  .thesis-quote {
-    font-family:'Lora',serif; font-style:italic; font-weight:300;
-    font-size:clamp(24px, 2.4vw, 32px); line-height:1.4;
-    color:var(--paper); border-left:2px solid var(--copper); padding-left:32px;
+  .hero-strip-item {
+    font-size:13.5px; letter-spacing:0.02em; color:var(--lgrey);
   }
-  .thesis-body { color:rgba(246,241,231,0.7); font-size:17px; line-height:1.8; }
-  .thesis-body p { margin-bottom:20px; }
-  .thesis-body strong { color:var(--paper); font-weight:600; }
-  #pillars { background:var(--paper); }
-  .pillars-list { margin-top:60px; }
-  .pillar-row {
-    display:grid; grid-template-columns:80px 1fr 1.3fr; gap:40px;
-    padding:38px 0; border-top:1px solid rgba(23,20,15,0.12);
-    align-items:start;
+  .hero-strip-item b { color:var(--ink); font-weight:600; }
+  section { padding:90px 56px; position:relative; }
+  .section-inner { max-width:1320px; margin:0 auto; }
+  .btn-primary {
+    background:var(--ink); color:var(--paper);
+    padding:15px 28px; border-radius:2px;
+    font-size:13px; font-weight:700; letter-spacing:0.07em; text-transform:uppercase;
+    display:inline-block; transition:background 0.2s;
   }
-  .pillar-row:last-child { border-bottom:1px solid rgba(23,20,15,0.12); }
-  .pillar-num {
-    font-family:'Lora',serif; font-size:16px; color:var(--clay); font-weight:500;
-    padding-top:4px;
-  }
-  .pillar-name {
-    font-family:'Lora',serif; font-size:28px; font-weight:500; color:var(--ink);
-  }
-  .pillar-desc { color:var(--grey); font-size:16.5px; line-height:1.7; padding-top:4px; }
-  #consulting {
-    background:var(--paper2);
-    border-top:1px solid rgba(23,20,15,0.08);
-    border-bottom:1px solid rgba(23,20,15,0.08);
-  }
-  .service-grid {
-    display:grid; grid-template-columns:1fr 1fr; gap:70px; margin-top:56px; align-items:start;
-  }
-  .service-list { display:flex; flex-direction:column; gap:0; }
-  .service-item {
-    padding:26px 0; border-top:1px solid rgba(23,20,15,0.12);
-    display:grid; grid-template-columns:1fr auto; gap:20px; align-items:baseline;
-  }
-  .service-item:last-child { border-bottom:1px solid rgba(23,20,15,0.12); }
-  .service-item-name { font-family:'Lora',serif; font-size:21px; color:var(--ink); font-weight:500; }
-  .service-item-desc { font-size:15px; color:var(--lgrey); margin-top:4px; }
-  .service-item-price { font-size:14px; color:var(--copper); font-weight:700; white-space:nowrap; }
-  .pricing-note {
-    margin-top:24px; font-size:15px; font-style:italic; color:var(--lgrey);
-    padding-top:20px; border-top:1px solid rgba(23,20,15,0.12);
-  }
-  .consulting-visual {
-    background:var(--ink); border-radius:4px; padding:48px 40px;
-    color:var(--paper); position:sticky; top:110px;
-  }
-  .cv-label {
-    font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:var(--clay);
-    margin-bottom:18px; font-weight:700;
-  }
-  .cv-quote {
-    font-family:'Lora',serif; font-style:italic; font-weight:300;
-    font-size:26px; line-height:1.35; color:var(--paper); margin-bottom:24px;
-  }
-  .cv-attribution { font-size:13px; color:rgba(246,241,231,0.55); }
-  .cv-divider { height:1px; background:rgba(246,241,231,0.15); margin:28px 0; }
-  .cv-list { display:flex; flex-direction:column; gap:14px; }
-  .cv-list-item { display:flex; gap:12px; align-items:flex-start; font-size:14.5px; color:rgba(246,241,231,0.75); }
-  .cv-list-item::before { content:'•'; color:var(--copper); flex-shrink:0; }
-  #bar-services { background:var(--paper); }
-  .bar-grid { display:grid; grid-template-columns:1fr 1fr; gap:70px; margin-top:56px; align-items:start; }
-  .bar-price-banner {
-    margin-top:44px;
-    background:var(--ink);
-    border-radius:4px;
-    padding:34px 40px;
-    display:flex; align-items:baseline; flex-wrap:wrap; gap:16px 28px;
-  }
-  .bar-price-banner-label {
-    font-family:'Cinzel',serif; font-family:'Inter',sans-serif;
-    font-size:12px; letter-spacing:0.18em; text-transform:uppercase;
-    color:var(--clay); font-weight:700;
-  }
-  .bar-price-banner-amount {
-    font-family:'Lora',serif; font-size:44px; font-weight:600; color:var(--paper);
-    line-height:1;
-  }
-  .bar-price-banner-note {
-    font-size:14.5px; color:rgba(246,241,231,0.6); flex-basis:100%;
-  }
-  @media (min-width:640px) {
-    .bar-price-banner-note { flex-basis:auto; margin-left:auto; max-width:320px; text-align:right; }
-  }
-  .feature-grid {
-    display:grid; grid-template-columns:repeat(auto-fill, minmax(210px, 1fr));
-    gap:2px; margin-top:36px; background:rgba(23,20,15,0.1);
-    border:1px solid rgba(23,20,15,0.1);
-  }
-  .feature-tile {
-    background:var(--paper); padding:26px 24px; transition:background 0.2s;
-  }
-  .feature-tile:hover { background:var(--paper2); }
-  .feature-tile-highlight { background:var(--paper2); }
-  .feature-tile-highlight:hover { background:#E7DBC2; }
-  .feature-tile-icon { font-size:22px; margin-bottom:12px; }
-  .feature-tile-name {
-    font-family:'Lora',serif; font-size:17px; font-weight:500; color:var(--ink);
-    margin-bottom:6px;
-  }
-  .feature-tile-desc { font-size:13.5px; color:var(--lgrey); line-height:1.5; }
-  .package-card {
-    border:1px solid rgba(23,20,15,0.15);
-    border-radius:4px; padding:30px 28px; margin-bottom:16px;
-    transition:border-color 0.2s, transform 0.2s;
-  }
-  .package-card:hover { border-color:var(--copper); transform:translateY(-2px); }
-  .package-top { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px; }
-  .package-name { font-family:'Lora',serif; font-size:22px; color:var(--ink); font-weight:500; }
-  .package-price { font-family:'Lora',serif; font-size:24px; color:var(--copper); font-weight:600; }
-  .package-desc { font-size:15px; color:var(--grey); line-height:1.6; }
-  .bar-side-copy { font-size:17px; color:var(--grey); line-height:1.8; }
-  .bar-side-copy p { margin-bottom:20px; }
-  .bar-side-copy strong { color:var(--ink); }
-  .bar-cred {
-    margin-top:32px; padding:22px 24px; background:var(--paper2);
-    border-radius:4px; border-left:3px solid var(--copper);
-  }
-  .bar-cred-item { font-size:14px; color:var(--grey); margin-bottom:8px; display:flex; gap:10px; }
-  .bar-cred-item:last-child { margin-bottom:0; }
-  .bar-cred-item b { color:var(--ink); }
-  #about { background:var(--ink); color:var(--paper); }
-  #about .kicker { color:var(--clay); }
-  #about .kicker::before { background:var(--clay); }
-  #about .section-title { color:var(--paper); }
-  #about .section-title em { color:#E8955F; }
-  .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:70px; margin-top:56px; align-items:center; }
-  .about-grid-solo { grid-template-columns:1fr; max-width:760px; }
-  .about-body { color:rgba(246,241,231,0.72); font-size:17px; line-height:1.85; }
-  .about-body p { margin-bottom:20px; }
-  .about-body strong { color:var(--paper); font-weight:600; }
-  .about-visual {
-    aspect-ratio:4/5; background:linear-gradient(155deg, #221D15, #17140F);
-    border-radius:4px; display:flex; align-items:center; justify-content:center;
-    position:relative; overflow:hidden; border:1px solid rgba(246,241,231,0.1);
-  }
-  .about-visual::before {
-    content:''; position:absolute; inset:0;
-    background:radial-gradient(circle at 70% 30%, rgba(181,80,46,0.18), transparent 60%);
-  }
-  .about-visual img { width:56%; position:relative; z-index:2; }
-  #contact { background:var(--paper2); }
-  .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:70px; margin-top:56px; }
-  .contact-path {
-    background:var(--paper); border:1px solid rgba(23,20,15,0.12); border-radius:4px;
-    padding:38px 34px; display:flex; flex-direction:column; height:100%;
-  }
-  .contact-path-label {
-    font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:var(--copper);
-    font-weight:700; margin-bottom:14px;
-  }
-  .contact-path-title { font-family:'Lora',serif; font-size:28px; color:var(--ink); margin-bottom:14px; }
-  .contact-path-desc { font-size:15.5px; color:var(--grey); line-height:1.7; margin-bottom:28px; flex-grow:1; }
+  .btn-primary:hover { background:var(--copper); }
   .form-field { margin-bottom:16px; }
   .form-label {
     font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--lgrey);
@@ -388,41 +196,13 @@
     cursor:pointer; border-radius:2px; transition:background 0.2s; margin-top:6px;
   }
   .form-submit:hover { background:var(--copper); }
-  footer { background:var(--ink); padding:56px; }
-  .footer-inner {
-    max-width:1320px; margin:0 auto;
-    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:24px;
-    padding-bottom:32px; border-bottom:1px solid rgba(246,241,231,0.1);
-  }
-  .footer-logo img { height:22px; }
-  .footer-links { display:flex; gap:32px; flex-wrap:wrap; }
-  .footer-links a {
-    font-size:13px; letter-spacing:0.06em; text-transform:uppercase; color:rgba(246,241,231,0.55);
-    font-weight:600; transition:color 0.2s;
-  }
-  .footer-links a:hover { color:var(--paper); }
-  .footer-bottom {
-    max-width:1320px; margin:24px auto 0;
-    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
-  }
-  .footer-copy { font-size:13px; color:rgba(246,241,231,0.4); }
-  .footer-tagline { font-family:'Lora',serif; font-style:italic; font-size:14px; color:rgba(232,149,95,0.7); }
   @media (max-width: 900px) {
     nav { padding:18px 24px; }
     .nav-links { display:none; }
     .nav-burger { display:flex; }
     .mobile-fab { display:flex; }
-    section { padding:90px 24px; }
-    #hero { padding:130px 24px 70px; }
-    .hero-grid, .thesis-grid, .service-grid, .bar-grid, .about-grid, .contact-grid {
-      grid-template-columns:1fr; gap:40px;
-    }
-    .pillar-row { grid-template-columns:50px 1fr; }
-    .pillar-row > .pillar-desc { grid-column:1 / -1; }
-    .consulting-visual { position:static; }
-    .feature-grid { grid-template-columns:repeat(2, 1fr); }
-    .bar-price-banner { padding:26px 24px; }
-    footer { padding:40px 24px; }
+    section { padding:64px 24px; }
+    #events-hero { padding:130px 24px 50px; }
   }
 
   /* EVENTS PAGE STYLES */
@@ -437,25 +217,9 @@
   .video-toggle:hover { border-color:var(--copper); background:rgba(246,241,231,0.04); }
   #videoToggleIcon { transition:transform 0.25s ease; flex-shrink:0; }
   .video-collapsible { margin-top:24px; }
-  .video-shell {
-    margin-top:24px; aspect-ratio:16/9; max-width:900px;
-    background:linear-gradient(155deg, #221D15, #17140F);
-    border-radius:4px; position:relative; overflow:hidden;
-    display:flex; align-items:center; justify-content:center;
-    border:1px solid rgba(23,20,15,0.1);
-  }
-  .video-shell::before {
-    content:''; position:absolute; inset:0;
-    background:radial-gradient(circle at 60% 40%, rgba(181,80,46,0.18), transparent 60%);
-  }
-  .video-play {
-    position:relative; z-index:2; width:76px; height:76px; border-radius:50%;
-    background:rgba(246,241,231,0.12); border:1.5px solid rgba(246,241,231,0.35);
-    display:flex; align-items:center; justify-content:center;
-  }
-  .video-caption {
-    position:relative; z-index:2; text-align:center; margin-top:18px;
-    font-size:14px; color:rgba(246,241,231,0.55); font-style:italic;
+  .video-real-shell {
+    border-radius:8px; overflow:hidden; background:var(--ink);
+    box-shadow:0 12px 40px rgba(23,20,15,0.2);
   }
 
   .community-grid {
@@ -517,14 +281,6 @@
     padding:9px 16px; border-radius:20px; transition:all 0.2s;
   }
   .event-card-ticket-btn:hover { background:var(--copper); color:#FFFFFF; }
-  .event-card-expand {
-    position:absolute; top:16px; right:16px; z-index:2;
-    width:32px; height:32px; border-radius:50%;
-    background:rgba(10,9,7,0.55); backdrop-filter:blur(2px);
-    display:flex; align-items:center; justify-content:center;
-    opacity:0; transition:opacity 0.2s;
-  }
-  .event-card:hover .event-card-expand { opacity:1; }
   .event-card.is-postponed .event-card-img,
   .event-card.is-postponed .event-card-noimg { filter:grayscale(0.35) brightness(0.55); }
   .event-card-postponed-stamp {
@@ -549,29 +305,34 @@
     background:rgba(246,241,231,0.12); border:1px solid rgba(246,241,231,0.25);
     display:flex; align-items:center; justify-content:center; cursor:pointer;
   }
-
-  .merch-card {
-    padding:26px 28px; background:var(--ink); border-radius:4px; color:var(--paper);
-  }
-  .merch-card-label {
-    font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--clay);
-    font-weight:700; margin-bottom:8px;
-  }
-  .merch-card-title { font-family:'Lora',serif; font-size:19px; margin-bottom:6px; }
-  .merch-card-desc { font-size:13.5px; color:rgba(246,241,231,0.65); margin-bottom:14px; }
-  .merch-card-link { font-size:13px; font-weight:700; color:var(--copper); }
   .community-loading { font-size:14px; color:var(--lgrey); font-style:italic; grid-column:1/-1; }
   .community-empty { font-size:14px; color:var(--lgrey); font-style:italic; grid-column:1/-1; }
 
-  .community-next-card {
-    margin-top:24px; padding:26px 28px; border:1.5px dashed rgba(23,20,15,0.2); border-radius:4px;
+  .events-pipeline-note {
+    margin-top:28px; font-size:14.5px; color:var(--lgrey); font-style:italic; line-height:1.6;
+    max-width:560px;
   }
-  .community-next-label {
-    font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--copper); font-weight:700;
-    margin-bottom:8px;
+  .events-pipeline-note a {
+    color:var(--copper); font-style:normal; font-weight:600; border-bottom:1px solid rgba(181,80,46,0.35);
   }
-  .community-next-title { font-family:'Lora',serif; font-size:19px; color:var(--ink); margin-bottom:4px; }
-  .community-next-desc { font-size:13.5px; color:var(--lgrey); }</style>
+  .events-pipeline-note a:hover { border-color:var(--copper); }
+
+  .gallery-details {
+    border:1px solid rgba(23,20,15,0.12); border-radius:4px; overflow:hidden;
+  }
+  .gallery-details summary {
+    cursor:pointer; list-style:none; padding:18px 22px;
+    font-family:'Lora',serif; font-size:16.5px; font-weight:500; color:var(--ink);
+    display:flex; align-items:center; justify-content:space-between; background:var(--paper2);
+  }
+  .gallery-details summary::-webkit-details-marker { display:none; }
+  .gallery-details summary .plus { color:var(--copper); font-size:20px; transition:transform 0.2s; }
+  .gallery-details[open] summary .plus { transform:rotate(45deg); }
+  .gallery-grid {
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:14px; padding:20px;
+  }
+  .gallery-grid img { width:100%; border-radius:4px; cursor:pointer; }
+</style>
 <link rel="stylesheet" href="assets/sk.css">
 <link rel="icon" type="image/png" href="assets/logo-ink.png">
 </head>
@@ -599,7 +360,6 @@
     <a href="index.html">Home</a>
     <a href="shop.html">Shop</a>
     <a href="events.html" class="is-current">Show Up Nights</a>
-    <a href="presents.html">Our Impact</a>
     <a href="partners.html">Causes We Back</a>
     <a href="faq.html">FAQ</a>
   </div>
@@ -613,54 +373,79 @@
   <div class="sk-menu-help">Having a hard time? Call or text <a href="tel:988">988</a>, any time.</div>
 </div>
 
-<section id="events-hero" style="padding-top:160px;">
+<!-- HERO — Show Up Nights, with the impact proof folded straight in -->
+<section id="events-hero">
   <div class="section-inner">
     <div class="kicker">Show Up Nights</div>
     <h1 class="section-title" style="font-size:clamp(38px, 5vw, 62px);">Not just a mission statement. <em>An actual calendar.</em></h1>
     <p class="section-lede">Charity nights at Chicago bars. Good people, a cause worth showing up for, and a real reason to leave the house.</p>
+
+    <div class="hero-strip">
+      <div class="hero-strip-item"><b>$450</b> raised our first night out</div>
+      <div class="hero-strip-item"><b>3,500+</b> meals funded for The Friendship Center</div>
+      <div class="hero-strip-item"><b>Highest-revenue night</b> the bar had all year</div>
+    </div>
   </div>
 </section>
 
-<section id="events-video" style="padding-top:20px; padding-bottom:20px;">
+<!-- RECAP VIDEO -->
+<section id="events-video">
   <div class="section-inner">
     <button class="video-toggle" id="videoToggle" onclick="toggleVideoSection()">
-      <span>See It Live: Event Recap Video</span>
+      <span>Watch: Pour It Forward recap</span>
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" id="videoToggleIcon"><path d="M6 9l6 6 6-6"/></svg>
     </button>
     <div class="video-collapsible" id="videoCollapsible" style="display:none;">
-      <div class="video-shell">
+      <div class="video-real-shell">
         <video
-          id="presentsVideo"
-          class="video-real"
           controls
+          playsinline
           preload="metadata"
           poster="content/uploads/web/kind-night-crowd.jpg"
-          style="display:none; width:100%; height:100%; object-fit:cover; border-radius:4px;"
+          style="width:100%; height:auto; display:block; aspect-ratio:16/9; background:var(--ink);"
         >
           <source src="content/uploads/videos/pour-it-forward-recap.mp4" type="video/mp4">
         </video>
-        <div class="video-play" id="videoPlayPlaceholder">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="#F6F1E7"><path d="M8 5v14l11-7z"/></svg>
-        </div>
       </div>
-      <div class="video-caption" id="videoCaption">Event recap video coming soon. First up: Pour It Forward, Sept 17.</div>
     </div>
   </div>
 </section>
 
-<section id="events-list" style="padding-top:20px;">
+<!-- UPCOMING EVENTS -->
+<section id="events-list" style="padding-top:60px; padding-bottom:30px;">
   <div class="section-inner">
-    <div class="community-grid" id="communityGrid">
+    <div class="kicker">Upcoming</div>
+    <div class="community-grid" id="communityGrid" style="margin-top:36px;">
       <div class="community-loading">Loading events&hellip;</div>
     </div>
 
-    <div class="community-next-card">
-      <div class="community-next-label">Coming This Winter</div>
-      <div class="community-next-title">Toy Drive &amp; Food Drive</div>
-      <div class="community-next-desc">Location and date to be determined. Details coming soon.</div>
-    </div>
+    <p class="events-pipeline-note">We're already locking in the next few — some causes confirmed, some venues still being finalized. New nights get posted to <a href="https://instagram.com/stillkindchi" target="_blank" rel="noopener">@stillkindchi</a> the moment they're real.</p>
   </div>
 </section>
+
+<!-- PROOF: WHAT THE LAST ONE GAVE BACK -->
+<section id="events-gallery" style="padding-top:0; padding-bottom:70px;">
+  <div class="section-inner">
+    <details class="gallery-details">
+      <summary>
+        <span>Photos from Pour It Forward: A Night of Community</span>
+        <span class="plus">+</span>
+      </summary>
+      <div class="gallery-grid">
+        <img src="content/uploads/pour-it-forward-group.jpeg" alt="Pour It Forward group photo, Still Kind team and guests" loading="lazy" onclick="openLightbox(this.src)" />
+        <img src="content/uploads/pour-it-forward-crowd.jpeg" alt="Guests at the bar during Pour It Forward" loading="lazy" onclick="openLightbox(this.src)" />
+        <img src="content/uploads/pour-it-forward-shirts.jpeg" alt="Still Kind Bar Services shirts at Pour It Forward" loading="lazy" onclick="openLightbox(this.src)" />
+      </div>
+    </details>
+  </div>
+</section>
+
+<div class="lightbox-overlay" id="lightboxOverlay" onclick="if(event.target===this) closeLightbox()">
+  <div class="lightbox-close" onclick="closeLightbox()">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F6F1E7" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </div>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="Event photo" />
+</div>
 
 <script>
   function toggleVideoSection() {
@@ -670,20 +455,28 @@
     box.style.display = isOpen ? 'none' : 'block';
     icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
   }
-  (function checkForRealVideo() {
-    const video = document.getElementById('presentsVideo');
-    const placeholder = document.getElementById('videoPlayPlaceholder');
-    const caption = document.getElementById('videoCaption');
-    fetch('content/uploads/videos/pour-it-forward-recap.mp4', { method: 'HEAD' })
-      .then(res => {
-        if (res.ok) {
-          video.style.display = 'block';
-          placeholder.style.display = 'none';
-          caption.textContent = 'Straight from the event, Pour It Forward.';
-        }
-      })
-      .catch(() => { /* file not there yet, placeholder stays up */ });
-  })();
+
+  function openLightbox(src) {
+    const overlay = document.getElementById('lightboxOverlay');
+    const img = document.getElementById('lightboxImg');
+    if (!overlay || !img) return;
+    img.src = src;
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    const overlay = document.getElementById('lightboxOverlay');
+    if (!overlay) return;
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  // Shown only when events.json has nothing upcoming yet. Swap in real
+  // details (location, ticket link) as soon as they're locked, then this
+  // can come out entirely and live in events.json.
+  const FALLBACK_EVENTS = [
+    { date: '2026-12-01', title: 'Defiant Culture', cause: 'Cause to be announced' }
+  ];
 
   async function loadCommunitySection() {
     const grid = document.getElementById('communityGrid');
@@ -692,11 +485,17 @@
       const res = await fetch('content/events/events.json').catch(() => null);
       let events = [];
       if (res && res.ok) events = await res.json();
-      grid.innerHTML = events.length
-        ? events.map(renderEventCard).join('')
-        : '<div class="community-empty">No upcoming events right now. Check back soon.</div>';
+
+      const today = new Date(); today.setHours(0,0,0,0);
+      events = (events || [])
+        .filter(e => e.date && new Date(e.date + 'T00:00:00') >= today)
+        .sort((a, b) => new Date(a.date) - new Date(b.date));
+
+      if (!events.length) events = FALLBACK_EVENTS;
+
+      grid.innerHTML = events.map(renderEventCard).join('');
     } catch (err) {
-      grid.innerHTML = '<div class="community-empty">Check @stillkindchi for the latest events.</div>';
+      grid.innerHTML = FALLBACK_EVENTS.map(renderEventCard).join('');
     }
   }
 
@@ -790,7 +589,7 @@
           <option>Something else</option>
         </select>
       </div>
-      
+
       <div class="form-field">
         <label class="form-label">Name</label>
         <input class="form-input" type="text" name="name" required />
@@ -913,22 +712,6 @@
   mobileMenuOverlay.addEventListener('click', () => toggleMobileMenu(false));
   mobileMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => toggleMobileMenu(false));
-  });
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.08 });
-
-  document.querySelectorAll('.pillar-row').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(16px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    observer.observe(el);
   });
 </script>
 
