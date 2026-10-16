@@ -1,21 +1,398 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Shop | Still Kind</title><meta name="description" content="Still Kind apparel, playing cards and the Still Kind of Thirsty mocktail book. Group orders and personalized restaurant collaborations."><link rel="icon" href="assets/logo-ink.png"><style>
-*{box-sizing:border-box}body{margin:0;background:#f6f1e7;color:#17140f;font:16px/1.65 Arial,sans-serif}a{color:inherit}header,main,footer{max-width:1320px;margin:auto;padding:28px}header{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;border-bottom:1px solid #d8c9aa}header img{width:65px}nav{display:flex;gap:22px;flex-wrap:wrap}nav a{text-decoration:none}h1,h2,h3{font-family:Georgia,serif;font-weight:400;line-height:1.15}h1{font-size:clamp(48px,7vw,86px);margin:20px 0}h2{font-size:36px}h3{font-size:25px;margin:0}.intro{padding:55px 0 40px}.eyebrow{text-transform:uppercase;letter-spacing:.15em;color:#b5502e;font-size:12px}.lede{font-size:21px;max-width:650px;color:#55504a}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-bottom:60px}.card{border:1px solid #d8c9aa;min-width:0;background:#fffaf2}.photo{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}.gallery{display:grid;grid-template-columns:1fr 1fr;gap:3px}.gallery .photo{aspect-ratio:3/4}.info{padding:24px}.row{display:flex;justify-content:space-between;gap:15px}.price{white-space:nowrap}.desc{color:#55504a}.button,button{display:inline-block;background:#17140f;color:#f6f1e7;border:0;padding:13px 20px;text-decoration:none;font:inherit;cursor:pointer}.button:hover,button:hover{background:#b5502e}.placeholder{aspect-ratio:4/5;background:#efe7d6;display:flex;flex-direction:column;justify-content:center;padding:35px;font:36px/1.25 Georgia,serif}.placeholder small{font:14px/1.6 Arial,sans-serif;margin-top:20px}.photo-wrap{position:relative}.badge{position:absolute;top:12px;left:12px;background:#17140f;color:#f6f1e7;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:6px 10px;border-radius:2px;z-index:1}.card-highlight{border:2px solid #b5502e;box-shadow:0 8px 24px rgba(181,80,46,.15)}.fundraiser-note{background:#efe7d6;border-left:3px solid #b5502e;padding:18px 22px;margin:-32px 0 60px;font-size:15px;color:#55504a;max-width:620px}.fundraiser-note strong{color:#b5502e}.collab{background:#efe7d6;padding:40px;margin:40px 0}.order{max-width:760px;padding:30px 0 70px}label{display:block;margin:18px 0 6px}input,select,textarea{width:100%;padding:13px;background:#fffaf2;border:1px solid #b5a995;font:inherit}textarea{min-height:130px}footer{border-top:1px solid #d8c9aa;color:#55504a}footer a{margin-right:20px}@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.lifestyle{gap:25px}}@media(max-width:600px){header,main,footer{padding:20px}.grid,.lifestyle{grid-template-columns:1fr}.collab{padding:25px}.intro{padding-top:30px}}
-</style></head><body>
-<header><a href="index.html" aria-label="Still Kind home"><img src="assets/logo-ink.png" alt="Still Kind"></a><nav aria-label="Main navigation"><a href="shop.html" aria-current="page">Shop</a><a href="events.html">Show Up Nights</a><a href="presents.html">Our Impact</a><a href="index.html#contact">Get in touch</a></nav></header>
-<main><section class="intro"><p class="eyebrow">The shop</p><h1>Good things.<br>Still Kind.</h1><p class="lede">Rep the reminder. Deal someone in. Make something worth sipping.</p><p>Browse the collection below. Online payment is not yet enabled; send an inquiry to confirm availability, shipping and payment details.</p></section>
-<section aria-labelledby="wear"><h2 id="wear">Wear it.</h2><div class="grid">
-<article class="card"><div class="gallery"><img class="photo" src="hoodie-black.jpeg" alt="Black Still Kind hoodie, flat lay" loading="lazy"><img class="photo" src="hoodie-cream.jpeg" alt="Cream Still Kind hoodie showing the chest design" loading="lazy"></div><div class="info"><div class="row"><h3>Still Kind Hoodie</h3><span class="price">$45</span></div><p class="desc">Same reminder. Extra warmth. Choose black or cream.</p><a class="button" href="#order" data-product="Still Kind Hoodie ($45)">Ask about this hoodie</a></div></article>
-<article class="card card-highlight"><div class="photo-wrap"><img class="photo" src="beanie-black-lifestyle.jpeg" alt="Black cuffed beanie with still kind script embroidery" loading="lazy"><span class="badge">Winter Fundraiser Pick</span></div><div class="info"><div class="row"><h3>Still Kind Beanie</h3><span class="price">$20</span></div><p class="desc">Black, cuffed, and finished with the little reminder. Our winter go-to for the cause.</p><a class="button" href="#order" data-product="Still Kind Beanie ($20)">Ask about this beanie</a></div></article>
-<article class="card"><img class="photo" src="hat-still-kind-pair.png" alt="Black and cream Still Kind caps side by side" loading="lazy"><div class="info"><div class="row"><h3>Still Kind Hat</h3><span class="price">$35</span></div><p class="desc">Black or cream. Still Kind lettering. Good company optional, but encouraged.</p><a class="button" href="#order" data-product="Still Kind Hat ($35)">Ask about this hat</a></div></article>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop | Still Kind</title>
+<meta name="description" content="Still Kind apparel, the Kindness Deck and the Still Kind of Thirsty mocktail book. Our winter pick: 86% of Beanie profits go to Hope For The Day.">
+<link rel="icon" type="image/png" href="assets/logo-ink.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  :root {
+    --ink:      #17140F;
+    --paper:    #F6F1E7;
+    --paper2:   #EFE7D6;
+    --copper:   #B5502E;
+    --copper2:  #8F3D22;
+    --clay:     #D8C9AA;
+    --grey:     #55504A;
+    --lgrey:    #8A8378;
+    --white:    #FFFFFF;
+  }
+  html { scroll-behavior:smooth; }
+  body { background:var(--paper); color:var(--ink); font-family:'Inter',sans-serif; font-size:16px; line-height:1.6; overflow-x:hidden; }
+  h1,h2,h3,h4 { font-family:'Lora',serif; font-weight:500; }
+  a { color:inherit; text-decoration:none; }
+  img { display:block; max-width:100%; }
+  ::selection { background:var(--copper); color:var(--paper); }
+
+  /* ===== NAV (shared system) ===== */
+  nav { position:fixed; top:0; left:0; right:0; z-index:250; display:flex; align-items:center; justify-content:space-between; padding:22px 56px; background:rgba(246,241,231,0.88); backdrop-filter:blur(10px); border-bottom:1px solid rgba(23,20,15,0.08); transition:padding 0.3s ease; }
+  .nav-logo img { height:26px; width:auto; }
+  .nav-links { display:flex; align-items:center; gap:40px; list-style:none; }
+  .nav-links a { font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:var(--grey); font-weight:600; position:relative; padding-bottom:4px; transition:color 0.2s; }
+  .nav-links a::after { content:''; position:absolute; bottom:0; left:0; right:100%; height:1.5px; background:var(--copper); transition:right 0.25s ease; }
+  .nav-links a:hover { color:var(--ink); }
+  .nav-links a:hover::after { right:0; }
+  .nav-cta { background:var(--ink); color:var(--paper) !important; padding:11px 22px; border-radius:2px; font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; }
+  .nav-cta::after { display:none; }
+  .nav-cta:hover { background:var(--copper); }
+  .nav-burger { display:none; flex-direction:column; justify-content:center; gap:5px; width:32px; height:32px; background:none; border:none; cursor:pointer; padding:0; z-index:220; position:relative; }
+  .nav-burger span { display:block; width:100%; height:2px; background:var(--ink); border-radius:2px; transition:transform 0.25s ease, opacity 0.2s ease; }
+  .nav-burger.is-open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+  .nav-burger.is-open span:nth-child(2) { opacity:0; }
+  .nav-burger.is-open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+  .mobile-menu { position:fixed; top:0; right:0; bottom:0; width:min(78vw, 340px); background:var(--paper); border-left:1px solid rgba(23,20,15,0.12); z-index:200; padding:100px 36px 40px; display:flex; flex-direction:column; gap:4px; transform:translateX(100%); transition:transform 0.32s cubic-bezier(.4,0,.2,1); box-shadow:-8px 0 30px rgba(0,0,0,0.08); }
+  .mobile-menu.is-open { transform:translateX(0); }
+  .mobile-menu a { font-family:'Lora',serif; font-size:22px; font-weight:500; color:var(--ink); padding:14px 0; border-bottom:1px solid rgba(23,20,15,0.1); }
+  .mobile-menu-overlay { position:fixed; inset:0; background:rgba(23,20,15,0.35); z-index:190; opacity:0; pointer-events:none; transition:opacity 0.28s ease; }
+  .mobile-menu-overlay.is-open { opacity:1; pointer-events:auto; }
+  .mobile-fab { display:none; position:fixed; bottom:20px; right:20px; z-index:150; align-items:center; gap:8px; background:var(--ink); color:var(--paper); padding:14px 20px; border-radius:30px; font-size:13px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; box-shadow:0 8px 24px rgba(23,20,15,0.3); }
+  .mobile-fab svg { flex-shrink:0; }
+  .sk-menu-also { display:flex; flex-direction:column; gap:2px; margin-top:6px; }
+  .sk-menu-also a { font-family:'Inter',sans-serif; font-size:14px; font-weight:600; color:var(--ink); padding:12px 0; border-bottom:1px solid rgba(23,20,15,0.08); }
+  .sk-menu-also a small { display:block; font-weight:400; color:var(--lgrey); font-size:12.5px; margin-top:2px; }
+  .sk-menu-label { font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--copper); font-weight:700; margin-top:22px; }
+  .sk-menu-cta { margin-top:18px; background:var(--ink); color:var(--paper) !important; text-align:center; border-radius:2px; padding:14px 0; font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; border-bottom:none !important; }
+  .sk-menu-ig { font-size:13px; color:var(--grey); margin-top:16px; border-bottom:none !important; padding:0 !important; }
+  .sk-menu-help { margin-top:20px; font-size:12.5px; color:var(--lgrey); line-height:1.6; }
+  .sk-menu-help a { color:var(--copper2); font-weight:600; }
+
+  /* ===== LAYOUT ===== */
+  .wrap { max-width:1180px; margin:0 auto; padding:0 48px; }
+  section { padding:70px 48px; }
+  .kicker { display:flex; align-items:center; gap:12px; font-size:12.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--copper); font-weight:700; margin-bottom:16px; }
+  .kicker::before { content:''; width:30px; height:1.5px; background:var(--copper); }
+
+  /* ===== HERO ===== */
+  #shop-hero { padding-top:150px; padding-bottom:36px; background: radial-gradient(ellipse 800px 420px at 85% 10%, rgba(181,80,46,0.09), transparent), var(--paper); }
+  #shop-hero h1 { font-size:clamp(38px, 5.4vw, 64px); line-height:1.02; letter-spacing:-0.01em; max-width:680px; }
+  #shop-hero h1 em { font-style:italic; font-weight:400; color:var(--copper); }
+  .honest-note { margin-top:30px; max-width:680px; background:var(--paper2); border-left:3px solid var(--copper); padding:22px 26px; font-size:15.5px; color:var(--grey); line-height:1.7; }
+  .honest-note strong { color:var(--ink); }
+
+  /* ===== FEATURED GRID (even cards) ===== */
+  #featured { padding-top:30px; }
+  .featured-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:22px; margin-top:8px; }
+  .pcard { background:var(--white); border:1px solid rgba(23,20,15,0.1); border-radius:6px; overflow:hidden; display:flex; flex-direction:column; transition:transform 0.2s ease, box-shadow 0.2s ease; }
+  .pcard:hover { transform:translateY(-3px); box-shadow:0 14px 30px rgba(23,20,15,0.1); }
+  .pcard-highlight { border:2px solid var(--copper); box-shadow:0 10px 28px rgba(181,80,46,0.16); }
+  .pcard-photo-wrap { position:relative; aspect-ratio:1/1; overflow:hidden; background:var(--paper2); }
+  .pcard-photo-wrap img { width:100%; height:100%; object-fit:cover; }
+  .pcard-badge { position:absolute; top:12px; left:12px; background:var(--ink); color:var(--paper); font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; font-weight:700; padding:6px 10px; border-radius:20px; }
+  .pcard-body { padding:20px 20px 22px; display:flex; flex-direction:column; flex-grow:1; }
+  .pcard-top { display:flex; justify-content:space-between; align-items:baseline; gap:12px; }
+  .pcard-name { font-family:'Lora',serif; font-size:19px; color:var(--ink); }
+  .pcard-price { font-size:13.5px; color:var(--copper); font-weight:700; white-space:nowrap; }
+  .pcard-desc { font-size:14px; color:var(--lgrey); line-height:1.55; margin-top:8px; flex-grow:1; }
+  .pcard-btn { margin-top:16px; display:inline-block; text-align:center; background:var(--ink); color:var(--paper); border:0; padding:12px 16px; font-size:12.5px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; border-radius:2px; cursor:pointer; transition:background 0.2s; }
+  .pcard-btn:hover { background:var(--copper); }
+  .fundraiser-line { margin-top:26px; font-size:14.5px; color:var(--grey); }
+  .fundraiser-line strong { color:var(--copper); }
+
+  /* ===== MORE ROW (compact, uniform) ===== */
+  #more { padding-top:10px; padding-bottom:46px; }
+  .more-label { font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--lgrey); font-weight:700; margin-bottom:18px; }
+  .more-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; }
+  .mcard { display:flex; align-items:center; gap:14px; background:var(--white); border:1px solid rgba(23,20,15,0.08); border-radius:6px; padding:12px; transition:border-color 0.2s; }
+  .mcard:hover { border-color:var(--copper); }
+  .mcard-photo { width:64px; height:64px; border-radius:4px; object-fit:cover; background:var(--paper2); flex-shrink:0; }
+  .mcard-info { min-width:0; }
+  .mcard-name { font-size:13.5px; font-weight:600; color:var(--ink); line-height:1.3; }
+  .mcard-price { font-size:12px; color:var(--copper); font-weight:700; margin-top:2px; }
+
+  /* ===== GROUP ORDERS STRIP ===== */
+  #collab-strip { background:var(--ink); padding:54px 48px; }
+  .collab-row { max-width:1180px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; }
+  .collab-row h2 { color:var(--paper); font-size:clamp(22px, 2.6vw, 30px); max-width:560px; }
+  .collab-row p { color:rgba(246,241,231,0.65); font-size:14.5px; margin-top:8px; max-width:480px; }
+  .btn-primary { background:var(--paper); color:var(--ink); padding:14px 26px; border-radius:2px; font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; display:inline-block; transition:background 0.2s; white-space:nowrap; }
+  .btn-primary:hover { background:var(--copper); color:var(--paper); }
+
+  /* ===== QUICK CONTACT POPUP ===== */
+  .quick-contact-overlay { display:none; position:fixed; inset:0; z-index:500; background:rgba(23,20,15,0.55); backdrop-filter:blur(3px); align-items:center; justify-content:center; padding:24px; }
+  .quick-contact-overlay.is-open { display:flex; }
+  .quick-contact-modal { background:var(--paper); border-radius:8px; padding:38px 34px 32px; max-width:430px; width:100%; position:relative; box-shadow:0 30px 70px rgba(0,0,0,0.3); max-height:88vh; overflow-y:auto; }
+  .quick-contact-close { position:absolute; top:16px; right:16px; background:none; border:none; color:var(--lgrey); cursor:pointer; padding:6px; }
+  .quick-contact-close:hover { color:var(--ink); }
+  .quick-contact-kicker { font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--copper); font-weight:700; margin-bottom:6px; }
+  .quick-contact-title { font-family:'Lora',serif; font-size:26px; color:var(--ink); margin-bottom:4px; }
+  .quick-contact-sub { font-size:13.5px; color:var(--lgrey); margin-bottom:22px; }
+  .form-field { margin-bottom:14px; }
+  .form-label { font-size:11.5px; letter-spacing:0.07em; text-transform:uppercase; color:var(--lgrey); font-weight:600; display:block; margin-bottom:6px; }
+  .form-input, .form-textarea, .form-select { width:100%; background:var(--white); border:1px solid rgba(23,20,15,0.2); padding:11px 13px; font-family:'Inter',sans-serif; font-size:14.5px; color:var(--ink); border-radius:2px; outline:none; transition:border-color 0.2s; }
+  .form-input:focus, .form-textarea:focus, .form-select:focus { border-color:var(--copper); }
+  .form-textarea { resize:vertical; min-height:80px; }
+  .form-submit { background:var(--ink); color:var(--paper); border:none; padding:13px 24px; font-size:12.5px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; cursor:pointer; border-radius:2px; transition:background 0.2s; margin-top:4px; width:100%; }
+  .form-submit:hover { background:var(--copper); }
+
+  /* ===== FOOTER (shared system) ===== */
+  footer.sk-footer { background:var(--ink); padding:48px; }
+  .sk-footer-top { max-width:1180px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; padding-bottom:26px; border-bottom:1px solid rgba(246,241,231,0.1); }
+  .sk-footer-brand { display:flex; align-items:center; gap:10px; }
+  .sk-footer-brand img { height:20px; }
+  .sk-footer-brand span { font-family:'Lora',serif; font-style:italic; color:var(--paper); font-size:14px; }
+  .sk-footer-links { display:flex; gap:26px; flex-wrap:wrap; }
+  .sk-footer-links a { font-size:12.5px; letter-spacing:0.05em; text-transform:uppercase; color:rgba(246,241,231,0.55); font-weight:600; }
+  .sk-footer-links a:hover { color:var(--paper); }
+  .sk-footer-help { max-width:1180px; margin:20px auto 0; font-size:13px; color:rgba(246,241,231,0.55); }
+  .sk-footer-help a { color:var(--paper); font-weight:600; }
+  .sk-footer-bottom { max-width:1180px; margin:14px auto 0; font-size:12.5px; color:rgba(246,241,231,0.35); }
+
+  @media (max-width: 900px) {
+    nav { padding:18px 24px; }
+    .nav-links { display:none; }
+    .nav-burger { display:flex; }
+    .mobile-fab { display:flex; }
+    section { padding:50px 24px; }
+    #shop-hero { padding-top:120px; }
+    .wrap { padding:0 24px; }
+    .featured-grid { grid-template-columns:1fr; }
+    .more-grid { grid-template-columns:1fr; }
+    .collab-row { flex-direction:column; align-items:flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="sk-nav">
+  <a href="index.html" class="nav-logo" aria-label="Still Kind home">
+    <img src="assets/logo-ink.png" alt="Still Kind" width="57" height="28" />
+  </a>
+  <div class="sk-nav-right" style="display:flex;align-items:center;gap:18px;">
+    <ul class="nav-links">
+      <li><a href="shop.html" aria-current="page">Shop</a></li>
+      <li><a href="events.html">Show Up Nights</a></li>
+      <li><a href="#" onclick="event.preventDefault();openQuickContact('Something else');" class="nav-cta">Get In Touch</a></li>
+    </ul>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="events.html">Show Up Nights</a>
+  <a href="presents.html">Our Impact</a>
+  <a href="partners.html">Causes We Back</a>
+  <a href="faq.html">FAQ</a>
+  <a href="support.html">Find Support</a>
+  <div class="sk-menu-label">Also from Still Kind</div>
+  <div class="sk-menu-also">
+    <a href="bar-services.html"><b>Bar Services</b><small>Private event bartending</small></a>
+  </div>
+  <a class="sk-menu-cta" href="#" onclick="event.preventDefault(); openQuickContact('Something else');">Get In Touch</a>
+  <a class="sk-menu-ig" href="https://instagram.com/stillkindchi" target="_blank" rel="noopener">@stillkindchi on Instagram</a>
+  <div class="sk-menu-help">Having a hard time? Call or text <a href="tel:988">988</a>, any time.</div>
 </div>
-<p class="fundraiser-note"><strong>86%</strong> of profits from every Still Kind Beanie goes straight to Hope For The Day's 86 the Silence initiative — our winter pick for the cause.</p>
+
+<section id="shop-hero">
+  <div class="wrap">
+    <div class="kicker">The Shop</div>
+    <h1>Good things.<br><em>Still Kind.</em></h1>
+    <p class="honest-note">Quick and honest, since we've spent a long time standing in front of people for a living: we sell things because selling things is how a small brand stays open — it pays for Show Up Nights and keeps the lights on. <strong>Where something gives back to Hope For The Day, we say exactly how much.</strong> No vague "a portion of proceeds," no fine print. Just good stuff, made by people who mean it.</p>
+  </div>
 </section>
-<section aria-labelledby="goods"><h2 id="goods">Bring something to the table.</h2><div class="grid">
-<article class="card" id="playing-cards"><img class="photo" style="object-fit:contain;background:#efe7d6" src="Final-final-deck-of-cards-.pdf.jpeg" alt="Still Kind playing card deck artwork" loading="lazy"><div class="info"><div class="row"><h3>Playing Card Deck</h3><span class="price">$20</span></div><p class="desc">The Still Kind playing card deck. Deal someone in.</p><a class="button" href="#order" data-product="Playing Card Deck ($20)">Ask about the cards</a></div></article>
-<article class="card" id="mocktail-book"><img class="photo" style="object-fit:contain;background:#efe7d6" src="IMG_2445.jpeg" alt="Still Kind of Thirsty cover: zero-proof drinks and unsolicited advice" loading="lazy"><div class="info"><div class="row"><h3>Still Kind of Thirsty</h3><span class="price">$40</span></div><p class="desc">Zero-proof drinks. Unsolicited advice.</p><a class="button" href="#order" data-product="Still Kind of Thirsty Mocktail Book ($40)">Ask about the book</a></div></article>
-<article class="card"><div class="placeholder">Still Kind.<br>Still here.</div><div class="info"><div class="row"><h3>Sticker</h3><span class="price">$5</span></div><p class="desc">Put the reminder somewhere you will see it.</p><a class="button" href="#order" data-product="Sticker ($5)">Ask about stickers</a></div></article>
-</div></section>
-<section class="collab" id="collaborations"><p class="eyebrow">Group orders &amp; collaborations</p><h2>Your people. Your place.<br>A little Still Kind.</h2><p class="lede">Planning a restaurant collaboration, getting your crew together, or making something personal? We can help with group orders and personalized pieces for your restaurant, bar, team, or next gathering.</p><p>Tell us what you have in mind. We'll talk through the options, quantities, pricing, and timing together.</p><a class="button" href="index.html#contact">Let's make something together</a></section>
-<section class="order" id="order"><p class="eyebrow">Product inquiries</p><h2>Found something you like?</h2><p>No payment is collected here. Tell us what you want and we'll follow up to confirm availability, pricing, shipping or pickup, and payment details.</p><form name="preorder" method="POST" data-netlify="true" netlify-honeypot="bot-field"><input type="hidden" name="form-name" value="preorder"><p hidden><label>Leave blank<input name="bot-field"></label></p><label for="item">Product</label><select id="item" name="item" required><option>Still Kind Hoodie ($45)</option><option>Still Kind Beanie ($20)</option><option>Still Kind Hat ($35)</option><option>Playing Card Deck ($20)</option><option>Still Kind of Thirsty Mocktail Book ($40)</option><option>Sticker ($5)</option><option>Group or personalized order</option></select><label for="quantity">Quantity</label><input id="quantity" name="quantity" type="number" min="1" max="200" value="1" required><label for="name">Name</label><input id="name" name="name" autocomplete="name" required><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required><label for="details">Color, size &amp; anything else</label><textarea id="details" name="details" placeholder="For apparel, include your preferred color and size. For group or personalized orders, tell us about your restaurant, team or event."></textarea><p><button type="submit">Send inquiry</button></p></form></section></main>
-<footer><p>Still Kind. Still here.</p><p><a href="index.html">Home</a><a href="faq.html">FAQ</a><a href="partners.html">Causes We Back</a><a href="bar-services.html">Bar Services</a></p><p>Having a hard time? Call or text <a href="tel:988">988</a>.</p></footer><script>document.querySelectorAll('[data-product]').forEach(function(a){a.addEventListener('click',function(){document.getElementById('item').value=a.dataset.product;});});</script></body></html>
+
+<section id="featured">
+  <div class="wrap">
+    <div class="featured-grid">
+
+      <div class="pcard">
+        <div class="pcard-photo-wrap">
+          <img src="hoodie-black.jpeg" alt="Black Still Kind hoodie, flat lay" loading="lazy" />
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-top"><span class="pcard-name">Hoodie</span><span class="pcard-price">$45</span></div>
+          <p class="pcard-desc">The reminder, with extra warmth. Black or cream.</p>
+          <button class="pcard-btn" onclick="openQuickContact('Still Kind Hoodie ($45)')">Ask about this</button>
+        </div>
+      </div>
+
+      <div class="pcard pcard-highlight">
+        <div class="pcard-photo-wrap">
+          <img src="beanie-black-lifestyle.jpeg" alt="Black cuffed beanie with Still Kind script embroidery" loading="lazy" />
+          <span class="pcard-badge">Winter Fundraiser Pick</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-top"><span class="pcard-name">Beanie</span><span class="pcard-price">$20</span></div>
+          <p class="pcard-desc">Black, cuffed, and finished with the little reminder.</p>
+          <button class="pcard-btn" onclick="openQuickContact('Still Kind Beanie ($20)')">Ask about this</button>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pcard-photo-wrap">
+          <img src="IMG_2445.jpeg" alt="Still Kind of Thirsty book cover" loading="lazy" />
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-top"><span class="pcard-name">Still Kind of Thirsty</span><span class="pcard-price">$40</span></div>
+          <p class="pcard-desc">Zero-proof drinks. Unsolicited advice.</p>
+          <button class="pcard-btn" onclick="openQuickContact('Still Kind of Thirsty Mocktail Book ($40)')">Ask about this</button>
+        </div>
+      </div>
+
+    </div>
+    <p class="fundraiser-line"><strong>86%</strong> of profits from every Beanie goes straight to Hope For The Day's 86 the Silence initiative.</p>
+  </div>
+</section>
+
+<section id="more">
+  <div class="wrap">
+    <div class="more-label">More from the shop</div>
+    <div class="more-grid">
+      <a class="mcard" href="#" onclick="event.preventDefault();openQuickContact('Still Kind Hat ($35)')">
+        <img class="mcard-photo" src="hat-still-kind-pair.png" alt="Still Kind cap" loading="lazy" />
+        <div class="mcard-info"><div class="mcard-name">Hat</div><div class="mcard-price">$35</div></div>
+      </a>
+      <a class="mcard" href="#" onclick="event.preventDefault();openQuickContact('Playing Card Deck ($20)')">
+        <img class="mcard-photo" src="Final-final-deck-of-cards-.pdf.jpeg" alt="Still Kind playing card deck" loading="lazy" />
+        <div class="mcard-info"><div class="mcard-name">Playing Cards</div><div class="mcard-price">$20</div></div>
+      </a>
+      <a class="mcard" href="#" onclick="event.preventDefault();openQuickContact('Sticker ($5)')">
+        <img class="mcard-photo" src="assets/logo-ink.png" alt="Still Kind sticker" loading="lazy" style="object-fit:contain;padding:14px;background:var(--paper2)" />
+        <div class="mcard-info"><div class="mcard-name">Sticker</div><div class="mcard-price">$5</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="collab-strip">
+  <div class="collab-row">
+    <div>
+      <h2>Your people. Your place. A little Still Kind.</h2>
+      <p>Group orders, team gifts, restaurant collaborations — we'll talk through options and pricing together.</p>
+    </div>
+    <a href="#" class="btn-primary" onclick="event.preventDefault();openQuickContact('Group or personalized order')">Let's Talk</a>
+  </div>
+</section>
+
+<footer class="sk-footer">
+  <div class="sk-footer-top">
+    <a href="index.html" class="sk-footer-brand" aria-label="Still Kind home">
+      <img src="assets/logo-white.png" alt="Still Kind" width="70" height="34" />
+      <span>Still Kind. Still here.</span>
+    </a>
+    <div class="sk-footer-links">
+      <a href="index.html">Home</a>
+      <a href="faq.html">FAQ</a>
+      <a href="partners.html">Causes We Back</a>
+      <a href="bar-services.html">Bar Services</a>
+      <a href="https://instagram.com/stillkindchi" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+  <p class="sk-footer-help"><b>Having a hard time?</b> Call or text <a href="tel:988">988</a>, the Suicide &amp; Crisis Lifeline. Free, confidential, 24/7. In an emergency, call <a href="tel:911">911</a>.</p>
+  <div class="sk-footer-bottom">&copy; 2026 Still Kind LLC. Chicago, Illinois.</div>
+</footer>
+
+<!-- QUICK CONTACT POPUP -->
+<div class="quick-contact-overlay" id="quickContactOverlay" onclick="closeQuickContact(event)">
+  <div class="quick-contact-modal" onclick="event.stopPropagation()">
+    <button class="quick-contact-close" onclick="closeQuickContact()" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="quick-contact-kicker">Product Inquiry</div>
+    <h3 class="quick-contact-title">Found something?</h3>
+    <p class="quick-contact-sub">No payment collected here. We'll follow up to confirm sizing, availability and payment.</p>
+
+    <form name="shop-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleShopSubmit(event, this)" id="shopInquiryForm">
+      <input type="hidden" name="form-name" value="shop-inquiry" />
+      <p hidden><label>Leave blank<input name="bot-field"></label></p>
+      <div class="form-field">
+        <label class="form-label" for="scItem">Item</label>
+        <select class="form-select" name="item" id="scItem">
+          <option>Still Kind Hoodie ($45)</option>
+          <option>Still Kind Beanie ($20)</option>
+          <option>Still Kind of Thirsty Mocktail Book ($40)</option>
+          <option>Still Kind Hat ($35)</option>
+          <option>Playing Card Deck ($20)</option>
+          <option>Sticker ($5)</option>
+          <option>Group or personalized order</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label class="form-label">Name</label>
+        <input class="form-input" type="text" name="name" required />
+      </div>
+      <div class="form-field">
+        <label class="form-label">Best way to reach you</label>
+        <input class="form-input" type="text" name="contact_info" placeholder="Phone or email" required />
+      </div>
+      <div class="form-field">
+        <label class="form-label">Color, size, quantity — anything else</label>
+        <textarea class="form-textarea form-input" name="details" id="scDetails" maxlength="400"></textarea>
+      </div>
+      <button type="submit" class="form-submit" id="scSubmitBtn">Send</button>
+    </form>
+  </div>
+</div>
+
+<!-- Hidden form for Netlify build-time detection -->
+<form name="shop-inquiry" data-netlify="true" hidden>
+  <input type="text" name="item" />
+  <input type="text" name="name" />
+  <input type="text" name="contact_info" />
+  <textarea name="details"></textarea>
+</form>
+
+<script>
+  function openQuickContact(product) {
+    document.getElementById('quickContactOverlay').classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    if (product) {
+      var sel = document.getElementById('scItem');
+      for (var i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].text === product) { sel.selectedIndex = i; break; }
+      }
+    }
+  }
+  function closeQuickContact(e) {
+    if (e && e.target !== e.currentTarget) return;
+    document.getElementById('quickContactOverlay').classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+  function handleShopSubmit(e, form) {
+    e.preventDefault();
+    const btn = document.getElementById('scSubmitBtn');
+    const original = btn.textContent;
+    btn.textContent = 'Sending...'; btn.disabled = true;
+    const formData = new FormData(form);
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString(),
+    }).then(() => {
+      btn.textContent = 'Sent. Thank you';
+      setTimeout(() => { closeQuickContact(); form.reset(); btn.textContent = original; btn.disabled = false; }, 1600);
+    }).catch(() => {
+      btn.textContent = 'Something went wrong, try again'; btn.disabled = false;
+    });
+  }
+
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.innerWidth > 900) nav.style.padding = window.scrollY > 40 ? '12px 56px' : '18px 56px';
+  });
+  const navBurger = document.getElementById('navBurger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+  function toggleMobileMenu(open) {
+    const shouldOpen = open !== undefined ? open : !mobileMenu.classList.contains('is-open');
+    mobileMenu.classList.toggle('is-open', shouldOpen);
+    mobileMenuOverlay.classList.toggle('is-open', shouldOpen);
+    navBurger.classList.toggle('is-open', shouldOpen);
+    navBurger.setAttribute('aria-expanded', shouldOpen);
+    document.body.style.overflow = shouldOpen ? 'hidden' : '';
+  }
+  navBurger.addEventListener('click', () => toggleMobileMenu());
+  mobileMenuOverlay.addEventListener('click', () => toggleMobileMenu(false));
+  mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => toggleMobileMenu(false)));
+</script>
+
+</body>
+</html>
