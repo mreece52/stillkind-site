@@ -15,6 +15,10 @@
 /consulting         /coaching            301
 /consulting.html    /coaching            301
 
+# Our Impact: use the causes page until a dedicated impact page is available.
+/presents.html      /partners.html       302
+/presents           /partners.html       302
+
 # Still Kind Presents domain points to the community page on the main site.
 https://stillkindpresents.co/*      https://stillkind.co/presents   301!
 https://www.stillkindpresents.co/*  https://stillkind.co/presents   301!
