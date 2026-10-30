@@ -1,4 +1,4 @@
-name: Apply approved kindness copy once
+name: Restore approved founder copy once
 on:
   push:
     branches: [main]
@@ -7,62 +7,40 @@ permissions:
   contents: write
 jobs:
   refresh:
-    if: github.event.head_commit.message == 'Apply approved Still Kind kindness-first copy refresh'
+    if: github.event.head_commit.message == 'Restore approved ranch opening in refreshed homepage'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Apply source-checked homepage and causes edits
+      - name: Replace only the founder section
         shell: bash
         run: |
           python3 - <<'PY'
           from pathlib import Path
           import re, hashlib
-          
-          def read_checked(name, sha):
-              data = Path(name).read_bytes()
-              actual = hashlib.sha1(b'blob ' + str(len(data)).encode() + b'\0' + data).hexdigest()
-              if actual != sha:
-                  raise RuntimeError('Source changed; refusing to overwrite ' + name)
-              return data.decode('utf-8')
-          
-          def replace_once(text, old, new, count=1):
-              if text.count(old) != count:
-                  raise RuntimeError('Unexpected source for replacement: ' + old[:80])
-              return text.replace(old, new)
-          
-          def section(text, ident, replacement):
-              pattern = r'<section\b[^>]*\bid="' + re.escape(ident) + r'"[^>]*>.*?</section>'
-              result, count = re.subn(pattern, lambda m: replacement, text, flags=re.S)
-              if count != 1:
-                  raise RuntimeError('Expected one section: ' + ident)
-              return result
-          
-          home = read_checked('index.html', '3ae9158f271ce7df39e0ac61efcf547dabfcf437')
-          partners = read_checked('partners.html', '4f4913a2f33d9a06d9e4b52122457fbbe844b243')
-          home = replace_once(home, 'Still Kind puts mental health at the center of the hospitality conversation. For the people holding the room while carrying their own lives.', 'Everyday kindness. Real connection. Still Kind brings people together through products, gatherings, and community projects rooted in care.', 3)
-          home = replace_once(home, 'Mental health. Hospitality. The people holding the room.', 'Everyday kindness. Real connection. A community that shows up.', 1)
-          home = replace_once(home, 'An excuse to get together. A reason to talk about the stuff we usually don’t. Hospitality, mental health, and good company.', 'An excuse to get together. A chance to make a connection. Good company, local causes, and a little more kindness in the room.', 1)
-          home = section(home, 'why', '<section id="why" class="h-why">\n  <div class="h-narrow">\n    <h2 class="h-why-title">Nobody should go through it <em>alone.</em></h2>\n    <p class="h-why-body">Your rent is still due. Your mom is still calling. You barely slept. And table twelve needs a fourth side of ranch.</p>\n    <p class="h-why-body">That’s the work: holding the room while carrying your own life.</p>\n    <p class="h-why-body">Still Kind is about showing up for the people around us. Front of house. Back of house. Across the table and outside the room. Sometimes that means helping a neighbor, backing a local cause, or simply making someone feel welcome.</p>\n    <p class="h-why-body">Not because anyone needs pity. Because being good at taking care of people shouldn’t mean nobody notices when you need a little care, too.</p>\n    <p class="h-sign">Madison Reece, Founder</p>\n  </div>\n</section>')
-          home = section(home, 'what-we-do', '<section id="what-we-do" style="background:var(--paper2); padding:90px 56px;">\n  <div class="section-inner" style="max-width:900px;">\n    <div class="kicker">What Still Kind Does</div>\n    <p style="font-size:19px; color:var(--grey); line-height:1.75; max-width:760px;">We bring people together through products, gatherings, and community projects rooted in a simple belief: care belongs in everyday life. From something you wear to a night spent in good company, each is a way to carry that idea forward.</p>\n  </div>\n</section>')
-          home = section(home, 'partner-hftd', '')
-          home = replace_once(home, '<!-- FLAGSHIP PARTNER: HOPE FOR THE DAY -->', '')
-          if home.count('<footer') != 1: raise RuntimeError('Expected one footer')
-          home = home.replace('<footer', '<section id="partner-hftd" style="background:var(--paper2); padding:80px 24px;">\n  <div class="section-inner">\n    <div class="kicker">Causes We Back</div>\n    <h2 class="section-title">Different causes. The same <em>care.</em></h2>\n    <p class="section-lede">Kindness takes many forms. We support people, partners, and projects that put care into action—each contributing in their own way to a kinder world.</p>\n    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr)); gap:32px; margin-top:36px;">\n      <div>\n        <h3 style="font-size:24px; margin-bottom:12px;">The Friendship Center</h3>\n        <p style="color:var(--grey);">A Chicago food pantry and community resource center helping neighbors access food and support. An everyday expression of care for the community we share.</p>\n        <p style="margin-top:18px;"><a href="https://friendshipcenterchicago.org" target="_blank" rel="noopener" style="color:var(--copper2); text-decoration:underline;">Learn More &amp; Donate →</a></p>\n      </div>\n      <div>\n        <h3 style="font-size:24px; margin-bottom:12px;">Hope For The Day</h3>\n        <p style="color:var(--grey);">Our partnership with Hope For The Day supports mental health education and suicide prevention. Through 86 the Silence, we help bring conversations and resources to the hospitality community.</p>\n        <p style="margin-top:18px;"><a href="https://hftd.org" target="_blank" rel="noopener" style="color:var(--copper2); text-decoration:underline;">Visit Hope For The Day →</a></p>\n      </div>\n    </div>\n    <p style="margin-top:28px;"><a href="partners.html" style="color:var(--copper2); text-decoration:underline;">Meet the causes and people we show up with →</a></p>\n  </div>\n</section>\n<section id="support-resources" style="background:var(--paper); padding:64px 24px;">\n  <div class="section-inner" style="max-width:900px;">\n    <div class="kicker">Support &amp; Resources</div>\n    <h2 class="section-title">A place to <em>start.</em></h2>\n    <p class="section-lede">Mental health is part of caring for one another. Hope For The Day\'s <a href="https://hftd.findhelp.com" target="_blank" rel="noopener" style="color:var(--copper2); text-decoration:underline;">Resource Compass</a> helps you look for no- and low-cost mental health care, counseling, and support by ZIP code.</p>\n    <p style="font-size:16px; color:var(--grey); line-height:1.75; margin-top:24px;">Still Kind is a Chicago business, not a nonprofit or a mental health care provider. We do not provide therapy, clinical care, or crisis services. If you need support, <a href="support.html" style="color:var(--copper2); text-decoration:underline;">find resources here</a>. If you are in crisis, call or text <a href="tel:988" style="text-decoration:underline;">988</a>. In an emergency, call <a href="tel:911" style="text-decoration:underline;">911</a>.</p>\n    <p style="margin-top:24px;"><a href="https://givebutter.com/still-kind" target="_blank" rel="noopener" style="color:var(--copper2); text-decoration:underline;">Support the Hope For The Day fundraiser →</a></p>\n  </div>\n</section>' + '\n<footer', 1)
-          start = partners.index('<!-- FLAGSHIP PARTNER: HOPE FOR THE DAY -->')
-          end = partners.index('<section id="presents-donate"', start)
-          partners = partners[:start] + partners[end:]
-          partners = replace_once(partners, '<section id="presents-donate" style="padding-top:90px;">', '<section id="presents-donate" style="padding-top:160px;">')
-          partners = replace_once(partners, 'We partner with real organizations doing real work in this city. This list grows as we do.', 'Kindness takes many forms. We support people, partners, and projects that put care into action—each contributing in their own way to a kinder world.')
-          partners, count = re.subn('      <div class="cause-card">\\s*<div class="cause-card-label">Charity Partner</div>\\s*<div class="cause-card-name">Winnetka Public Schools Foundation</div>.*?</div>\\s*<a.*?</a>\\s*</div>', lambda m: '      <div class="cause-card" id="partner-hftd">\n        <div class="cause-card-label">Charity Partner</div>\n        <div class="cause-card-name">Hope For The Day</div>\n        <div class="cause-card-desc">A Chicago nonprofit supporting mental health education and suicide prevention. Through 86 the Silence, we help bring conversations and resources to the hospitality community.</div>\n        <a href="https://hftd.org" target="_blank" rel="noopener" class="cause-card-link">Learn More &amp; Donate →</a>\n      </div>', partners, flags=re.S)
-          if count != 1: raise RuntimeError('Expected one school foundation card')
-          partners = partners.replace('</style>', '  @media (max-width:600px) { .donate-grid { grid-template-columns:1fr; } }\n</style>', 1)
-          if re.search(r'Winnetka Public Schools|wpsf\.org|Flagship Partner', home + partners, re.I): raise RuntimeError('Unwanted copy remains')
-          if not home.index('id="nights"') < home.index('id="partner-hftd"') < home.index('id="support-resources"') < home.index('<footer'): raise RuntimeError('Wrong section order')
-          Path('index.html').write_text(home, encoding='utf-8')
-          Path('partners.html').write_text(partners, encoding='utf-8')
+          path = Path('index.html')
+          data = path.read_bytes()
+          actual = hashlib.sha1(b'blob ' + str(len(data)).encode() + b'\0' + data).hexdigest()
+          if actual != 'e26153993dafa0c27f7c5a428af9ec0fc430d751':
+              raise RuntimeError('Homepage changed; refusing to overwrite newer edits')
+          source = data.decode('utf-8')
+          replacement = '''<section id="why" class="h-why">
+            <div class="h-narrow">
+              <h2 class="h-why-title">Nobody should go through it <em>alone.</em></h2>
+              <p class="h-why-body">Your rent is still due. Your mom is still calling. You barely slept. And table twelve needs a fourth side of ranch.</p>
+              <p class="h-why-body">That’s the work: holding the room while carrying your own life.</p>
+              <p class="h-why-body">Still Kind is about showing up for the people around us. Front of house. Back of house. Across the table and outside the room. Sometimes that means helping a neighbor, backing a local cause, or simply making someone feel welcome.</p>
+              <p class="h-why-body">Not because anyone needs pity. Because being good at taking care of people shouldn’t mean nobody notices when you need a little care, too.</p>
+              <p class="h-sign">Madison Reece, Founder</p>
+            </div>
+          </section>'''
+          pattern = r'<section\b[^>]*\bid="why"[^>]*>.*?</section>'
+          updated, count = re.subn(pattern, lambda m: replacement, source, flags=re.S)
+          if count != 1:
+              raise RuntimeError('Expected exactly one founder section')
+          path.write_text(updated, encoding='utf-8')
           PY
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add index.html partners.html
-          git commit -m 'Lead with everyday kindness; balance causes and retain support resources'
+          git add index.html
+          git commit -m 'Restore ranch opening and approved kindness-focused founder copy'
           git push origin HEAD:main
